@@ -1,0 +1,35 @@
+variable,type,description,permitted_values
+case_id,string,Test case identifier; joinable with metadata.csv.,CASE_CODE_(C#|JAVA)_NNN
+language,string,Programming language of the compared source code.,C# | Java
+similarity_category,string,Ground-truth similarity category of the pair.,identical | functional | structural | different
+expected_similarity_min,integer,Lower bound of the expected similarity range for this category.,0-100
+expected_similarity_max,integer,Upper bound of the expected similarity range for this category.,0-100
+llm_model,string,Commercial large language model evaluated as source-code similarity analyst.,Claude Opus 4.1 | GPT-5 | Gemini 2.5 Pro | DeepSeek-V3
+llm_provider,string,Vendor of the LLM.,Anthropic | OpenAI | Google | DeepSeek
+response_time_seconds,float,Total elapsed time from prompt submission to full response for this case.,>= 0
+classified_similarity_percent,integer,Similarity percentage returned by the LLM for this pair.,0-100
+expected_similarity_percent,integer,Reference expected percentage the model was benchmarked against (falls within the min-max range).,0-100
+coincidence,integer,"1 if the classified similarity falls within the expected range, 0 otherwise.",0 | 1
+true_positive,integer,Case is a true positive for the model (coincidence in a category with expected similarity > 0).,0 | 1
+true_negative,integer,Case is a true negative for the model (coincidence in the 'different' category).,0 | 1
+false_positive,integer,Model wrongly classified a low-similarity pair as similar.,0 | 1
+false_negative,integer,Model wrongly classified a similar pair as different.,0 | 1
+accuracy_percent,float,Accuracy metric as recorded in the case docx: (TP + TN) / (TP + TN + FP + FN) x 100.,0-100
+sensitivity_percent,float,Sensitivity (recall) metric as recorded in the case docx.,0-100
+specificity_percent,float,Specificity metric as recorded in the case docx; may be empty (N/A) when no negatives exist for the case.,0-100 or empty
+justif_clarity_1to5,integer,"Clarity/comprehensibility of the model's justification, five-point rating.",1-5
+justif_technical_terminology_1to5,integer,"Correctness of the technical terminology used in the justification, five-point rating.",1-5
+justif_logical_structure_1to5,integer,"Logical structure of the response, five-point rating.",1-5
+coverage_lexical_0or1,integer,"1 if the justification addresses lexical similarity, 0 otherwise.",0 | 1
+coverage_structural_0or1,integer,"1 if the justification addresses structural similarity, 0 otherwise.",0 | 1
+coverage_functional_0or1,integer,"1 if the justification addresses functional similarity, 0 otherwise.",0 | 1
+coverage_style_0or1,integer,"1 if the justification addresses stylistic similarity, 0 otherwise.",0 | 1
+consistency_score_justif_1to5,integer,"Consistency between the numeric similarity score and the justification text, five-point rating.",1-5
+consistency_internal_logic_1to5,integer,"Internal logical consistency of the explanation, five-point rating.",1-5
+qualitative_observations,string,Free-text qualitative remarks recorded for this model on this case.,free text; may be empty
+evaluation_date,date,Date of evaluation (ISO 8601).,YYYY-MM-DD
+evaluator,string,Person who conducted the evaluation.,free text
+env_internet,string,Internet connection speed at evaluation time (verbatim).,e.g. 94.82 Mbps
+env_cpu,string,CPU model of the evaluation workstation (verbatim).,e.g. Intel Corei5-10400
+env_ram,string,RAM size of the evaluation workstation (verbatim).,e.g. 16 Gb
+env_os,string,Operating system of the evaluation workstation (verbatim).,e.g. Windows 11 Pro

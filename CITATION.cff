@@ -113,5 +113,5 @@ identifiers:
     value: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
     description: "Canonical repository of the SimilCode Benchmark dataset"
   - type: doi
-    value: "10.5281/zenodo.NNNNNNN"
+    value: "10.5281/zenodo.21271492"
     description: "Zenodo archive of SimilCode Benchmark v1.0.0"

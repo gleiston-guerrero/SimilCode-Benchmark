@@ -145,7 +145,6 @@ Rodríguez-Domínguez, C. (2026). SimilCode Benchmark: A Dual-Language
 Source-Code Similarity Dataset for the Evaluation of AI-Based Detectors
 (Version 1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.21271492
 ```
-<!-- Replace 21271492 once minted -->
 
 ---
 

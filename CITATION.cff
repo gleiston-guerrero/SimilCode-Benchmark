@@ -1,12 +1,12 @@
+# This CITATION.cff file was generated in accordance with
+# Citation File Format 1.2.0 (https://citation-file-format.github.io).
+# Zenodo reads this file automatically when minting a DOI upon a GitHub release,
+# and GitHub renders a "Cite this repository" button in the sidebar.
+
 cff-version: 1.2.0
-message: "If you use this benchmark dataset in academic work, please cite it as below."
+message: "If you use this benchmark dataset, please cite both the dataset itself (using the metadata below) and the accompanying peer-reviewed paper (see 'preferred-citation')."
 type: dataset
 title: "SimilCode Benchmark: A Dual-Language Source-Code Similarity Dataset for the Evaluation of AI-Based Detectors"
-version: 1.0.0
-date-released: "2026-07-08"
-license: CC-BY-4.0
-repository-code: "https://github.com/gleiston-guerrero/similcode-benchmark"
-url: "https://github.com/gleiston-guerrero/similcode-benchmark"
 abstract: >
   SimilCode Benchmark is a curated dataset of 120 short source-code snippets
   in C# and Java, organised into 60 test-case pairs per language across four
@@ -17,6 +17,11 @@ abstract: >
   contemporary commercial large language models (Claude Opus 4.1, GPT-5,
   Gemini 2.5 Pro and DeepSeek-V3) as similarity analysts, with results
   published together with the dataset for reproducibility.
+version: 1.0.0
+date-released: "2026-07-08"
+license: CC-BY-4.0
+repository-code: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
+url: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
 keywords:
   - source-code similarity
   - academic integrity
@@ -26,29 +31,88 @@ keywords:
   - C sharp
   - Java
   - AI-based plagiarism detection
+  - Claude
+  - GPT-5
+  - Gemini
+  - DeepSeek
+
 authors:
-  - family-names: "Navas Rivera"
-    given-names: "Rafael Alexander"
-    orcid: "https://orcid.org/0009-0005-7926-2648"
-    email: "rafael.navas2017@uteq.edu.ec"
-    affiliation: "Faculty of Computer Sciences, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Ecuador"
-  - family-names: "Guerrero-Ulloa"
-    given-names: "Gleiston Cicerón"
-    orcid: "https://orcid.org/0000-0001-5990-2357"
+  - given-names: "Gleiston Cicerón"
+    family-names: "Guerrero-Ulloa"
+    # CRediT roles: Conceptualization; Data Curation; Formal Analysis; Methodology; Project Administration; Supervision; Validation; Visualization; Writing – Original Draft; Writing – Review & Editing
     email: "gguerrero@uteq.edu.ec"
-    affiliation: "Faculty of Computer Sciences, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Ecuador"
-  - family-names: "Díaz-Macías"
-    given-names: "Efraín"
-    orcid: "https://orcid.org/0000-0003-4087-029X"
+    orcid: "https://orcid.org/0000-0001-5990-2357"
+    affiliation: "Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador"
+
+  - given-names: "Rafael Alexander"
+    family-names: "Navas Rivera"
+    # CRediT roles: Conceptualization; Data Curation; Formal Analysis; Methodology; Project Administration; Resources; Software; Visualization; Writing – Original Draft; Writing – Review & Editing
+    email: "rafael.navas2017@uteq.edu.ec"
+    orcid: "https://orcid.org/0009-0005-7926-2648"
+    affiliation: "Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador"
+
+  - given-names: "Efraín"
+    family-names: "Díaz-Macías"
+    # CRediT roles: Formal Analysis; Methodology; Project Administration; Resources; Supervision; Validation; Writing – Review & Editing
     email: "efraindiaz@uteq.edu.ec"
-    affiliation: "Faculty of Computer Sciences, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Ecuador"
-  - family-names: "Hornos"
-    given-names: "Miguel J."
-    orcid: "https://orcid.org/0000-0001-5722-9816"
+    orcid: "https://orcid.org/0000-0003-4087-029X"
+    affiliation: "Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador"
+
+  - given-names: "Miguel J."
+    family-names: "Hornos"
+    # CRediT roles: Formal Analysis; Funding Acquisition; Methodology; Project Administration; Resources; Supervision; Validation; Visualization; Writing – Review & Editing
     email: "mhornos@ugr.es"
-    affiliation: "Universidad de Granada (UGR), Granada, Spain"
-  - family-names: "Rodríguez-Domínguez"
-    given-names: "Carlos"
-    orcid: "https://orcid.org/0000-0001-5626-3115"
+    orcid: "https://orcid.org/0000-0001-5722-9816"
+    affiliation: "Department of Software Engineering, University of Granada (UGR), Granada, Spain"
+
+  - given-names: "Carlos"
+    family-names: "Rodríguez-Domínguez"
+    # CRediT roles: Formal Analysis; Funding Acquisition; Methodology; Project Administration; Resources; Supervision; Validation; Visualization; Writing – Review & Editing
     email: "carlosrodriguez@ugr.es"
-    affiliation: "Universidad de Granada (UGR), Granada, Spain"
+    orcid: "https://orcid.org/0000-0001-5626-3115"
+    affiliation: "Department of Software Engineering, and Research Center for Information and Communication Technologies (CITIC), University of Granada (UGR), Granada, Spain"
+
+contact:
+  - given-names: "Carlos"
+    family-names: "Rodríguez-Domínguez"
+    email: "carlosrodriguez@ugr.es"
+    affiliation: "Department of Software Engineering, and Research Center for Information and Communication Technologies (CITIC), University of Granada (UGR), Granada, Spain"
+
+preferred-citation:
+  type: article
+  title: "SimilCode: A Web Application for Source Code Similarity Detection and Algorithmic Efficiency Analysis using Generative Artificial Intelligence"
+  authors:
+    - given-names: "Gleiston Cicerón"
+      family-names: "Guerrero-Ulloa"
+      orcid: "https://orcid.org/0000-0001-5990-2357"
+      affiliation: "Universidad Técnica Estatal de Quevedo, Ecuador"
+    - given-names: "Rafael Alexander"
+      family-names: "Navas Rivera"
+      orcid: "https://orcid.org/0009-0005-7926-2648"
+      affiliation: "Universidad Técnica Estatal de Quevedo, Ecuador"
+    - given-names: "Efraín"
+      family-names: "Díaz-Macías"
+      orcid: "https://orcid.org/0000-0003-4087-029X"
+      affiliation: "Universidad Técnica Estatal de Quevedo, Ecuador"
+    - given-names: "Miguel J."
+      family-names: "Hornos"
+      orcid: "https://orcid.org/0000-0001-5722-9816"
+      affiliation: "Universidad de Granada, Spain"
+    - given-names: "Carlos"
+      family-names: "Rodríguez-Domínguez"
+      orcid: "https://orcid.org/0000-0001-5626-3115"
+      affiliation: "Universidad de Granada, Spain"
+  journal: "International Journal for Educational Integrity"
+  year: 2026
+  publisher:
+    name: "Springer Nature"
+  notes: "Manuscript under peer review; DOI will be inserted upon acceptance."
+
+identifiers:
+  - type: url
+    value: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
+    description: "Canonical repository of the SimilCode Benchmark dataset"
+  # Once Zenodo mints the DOI upon the first GitHub release, add:
+  # - type: doi
+  #   value: "10.5281/zenodo.ZZZZZZZ"
+  #   description: "Zenodo archive of SimilCode Benchmark v1.0.0"

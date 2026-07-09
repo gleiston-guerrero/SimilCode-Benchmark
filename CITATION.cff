@@ -112,7 +112,6 @@ identifiers:
   - type: url
     value: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
     description: "Canonical repository of the SimilCode Benchmark dataset"
-  # Once Zenodo mints the DOI upon the first GitHub release, add:
-  # - type: doi
-  #   value: "10.5281/zenodo.ZZZZZZZ"
-  #   description: "Zenodo archive of SimilCode Benchmark v1.0.0"
+  - type: doi
+    value: "10.5281/zenodo.NNNNNNN"
+    description: "Zenodo archive of SimilCode Benchmark v1.0.0"

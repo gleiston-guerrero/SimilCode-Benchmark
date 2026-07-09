@@ -1,7 +1,6 @@
 # SimilCode Benchmark
 
-<!-- Once the first Zenodo release is published, replace ZZZZZZZ with the real Zenodo ID: -->
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.ZZZZZZZ.svg)](https://doi.org/10.5281/zenodo.ZZZZZZZ)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.NNNNNNN.svg)](https://doi.org/10.5281/zenodo.NNNNNNN)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 A curated benchmark of source-code snippets in **C#** and **Java**, purpose-built for the empirical evaluation of source-code similarity detection systems that rely on generative artificial intelligence. This repository contains both the ground-truth dataset (`metadata.csv`) and the raw experimental results (`results_llm_comparison.csv`) obtained when the benchmark was used to evaluate four commercial large language models as similarity analysts.
@@ -144,9 +143,9 @@ Suggested textual citation:
 Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., &
 Rodríguez-Domínguez, C. (2026). SimilCode Benchmark: A Dual-Language
 Source-Code Similarity Dataset for the Evaluation of AI-Based Detectors
-(Version 1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.ZZZZZZZ
+(Version 1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.NNNNNNN
 ```
-<!-- Replace ZZZZZZZ once minted -->
+<!-- Replace NNNNNNN once minted -->
 
 ---
 

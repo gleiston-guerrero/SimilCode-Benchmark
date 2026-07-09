@@ -1,7 +1,7 @@
 # SimilCode Benchmark
 
-<!-- Replace ZENODO_ID once the Zenodo release is minted -->
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.ZENODO_ID.svg)](https://doi.org/10.5281/zenodo.ZENODO_ID)
+<!-- Once the first Zenodo release is published, replace ZZZZZZZ with the real Zenodo ID: -->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.ZZZZZZZ.svg)](https://doi.org/10.5281/zenodo.ZZZZZZZ)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 A curated benchmark of source-code snippets in **C#** and **Java**, purpose-built for the empirical evaluation of source-code similarity detection systems that rely on generative artificial intelligence. This repository contains both the ground-truth dataset (`metadata.csv`) and the raw experimental results (`results_llm_comparison.csv`) obtained when the benchmark was used to evaluate four commercial large language models as similarity analysts.
@@ -130,7 +130,7 @@ All 120 source files in this benchmark were authored by the research team specif
 
 - **Backend REST service** — <https://github.com/gleiston-guerrero/BackEnd-SimilCode>
 - **Frontend web application** — <https://github.com/gleiston-guerrero/FrontEnd-SimilCode>
-- **Companion manuscript** — Navas Rivera, R. A., Guerrero-Ulloa, G. C., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *SimilCode: A Web Application for Source Code Similarity Detection and Algorithmic Efficiency Analysis using Generative Artificial Intelligence.* Manuscript submitted to the *International Journal for Educational Integrity* (Springer Nature).
+- **Companion manuscript** — Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *SimilCode: A Web Application for Source Code Similarity Detection and Algorithmic Efficiency Analysis using Generative Artificial Intelligence.* Manuscript submitted to the *International Journal for Educational Integrity* (Springer Nature).
 
 ---
 
@@ -141,10 +141,10 @@ When using this benchmark, please cite the archived Zenodo record associated wit
 Suggested textual citation:
 
 ```
-Navas Rivera, R. A., Guerrero-Ulloa, G. C., Díaz-Macías, E., Hornos, M. J., &
+Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., &
 Rodríguez-Domínguez, C. (2026). SimilCode Benchmark: A Dual-Language
 Source-Code Similarity Dataset for the Evaluation of AI-Based Detectors
-(v1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.ZENODO_ID
+(Version 1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.ZZZZZZZ
 ```
 <!-- Replace ZENODO_ID once minted -->
 
@@ -158,15 +158,15 @@ Released under the **Creative Commons Attribution 4.0 International Licence (CC 
 
 ## 11. Authors
 
-| Author | Affiliation | ORCID | Contact |
-|---|---|---|---|
-| Rafael Alexander Navas Rivera | Faculty of Computer Sciences, UTEQ, Ecuador | [0009-0005-7926-2648](https://orcid.org/0009-0005-7926-2648) | <rafael.navas2017@uteq.edu.ec> |
-| Gleiston Cicerón Guerrero-Ulloa, Ph.D. | Faculty of Computer Sciences, UTEQ, Ecuador | [0000-0001-5990-2357](https://orcid.org/0000-0001-5990-2357) | <gguerrero@uteq.edu.ec> |
-| Efraín Díaz-Macías | Faculty of Computer Sciences, UTEQ, Ecuador | [0000-0003-4087-029X](https://orcid.org/0000-0003-4087-029X) | <efraindiaz@uteq.edu.ec> |
-| Miguel J. Hornos | Universidad de Granada, Spain | [0000-0001-5722-9816](https://orcid.org/0000-0001-5722-9816) | <mhornos@ugr.es> |
-| Carlos Rodríguez-Domínguez | Universidad de Granada, Spain | [0000-0001-5626-3115](https://orcid.org/0000-0001-5626-3115) | <carlosrodriguez@ugr.es> |
+| Author                              | Affiliation                                                                                                                                        | ORCID                                                        | Contact                        |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------ |
+| Gleiston Cicerón Guerrero-Ulloa     | Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador                                  | [0000-0001-5990-2357](https://orcid.org/0000-0001-5990-2357) | <gguerrero@uteq.edu.ec>        |
+| Rafael Alexander Navas Rivera       | Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador                                  | [0009-0005-7926-2648](https://orcid.org/0009-0005-7926-2648) | <rafael.navas2017@uteq.edu.ec> |
+| Efraín Díaz-Macías                  | Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador                                  | [0000-0003-4087-029X](https://orcid.org/0000-0003-4087-029X) | <efraindiaz@uteq.edu.ec>       |
+| Miguel J. Hornos                    | Department of Software Engineering, University of Granada (UGR), Granada, Spain                                                                    | [0000-0001-5722-9816](https://orcid.org/0000-0001-5722-9816) | <mhornos@ugr.es>               |
+| Carlos Rodríguez-Domínguez ⭐        | Department of Software Engineering, and Research Center for Information and Communication Technologies (CITIC), University of Granada (UGR), Spain | [0000-0001-5626-3115](https://orcid.org/0000-0001-5626-3115) | <carlosrodriguez@ugr.es>       |
 
-**Corresponding author:** Gleiston Cicerón Guerrero-Ulloa — <gguerrero@uteq.edu.ec>
+⭐ **Corresponding author:** Carlos Rodríguez-Domínguez — <carlosrodriguez@ugr.es>
 
 ---
 

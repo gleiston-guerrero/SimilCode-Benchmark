@@ -26,7 +26,7 @@ The design is fully balanced: 15 pairs × 4 categories × 2 languages = 120 test
 ## 2. Repository structure
 
 ```
-similcode-benchmark/
+SimilCode-Benchmark/
 ├── README.md                     (this file)
 ├── LICENSE                       (CC-BY 4.0)
 ├── CITATION.cff                  (machine-readable citation metadata)
@@ -93,7 +93,7 @@ A minimal Python example that joins the ground-truth and the experimental result
 import pandas as pd
 from pathlib import Path
 
-root   = Path("similcode-benchmark")
+root   = Path("SimilCode-Benchmark")
 meta   = pd.read_csv(root / "metadata.csv")
 result = pd.read_csv(root / "results_llm_comparison.csv")
 
@@ -146,7 +146,7 @@ Rodríguez-Domínguez, C. (2026). SimilCode Benchmark: A Dual-Language
 Source-Code Similarity Dataset for the Evaluation of AI-Based Detectors
 (Version 1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.ZZZZZZZ
 ```
-<!-- Replace ZENODO_ID once minted -->
+<!-- Replace ZZZZZZZ once minted -->
 
 ---
 

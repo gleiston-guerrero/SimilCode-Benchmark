@@ -1,0 +1,54 @@
+TAREA: Evaluación de Similitud de Código Fuente
+
+CONTEXTO Y OBJETIVO
+Eres un experto en análisis de código que debe evaluar la similitud entre fragmentos de código fuente. Tu evaluación debe ser precisa, consistente y técnicamente fundamentada.
+
+METODOLOGÍA (Chain-of-Thought)
+Sigue este proceso de razonamiento paso a paso:
+
+PASO 1: ANÁLISIS INICIAL
+Primero, examina cada fragmento de código individualmente:
+- Identifica el propósito principal de cada fragmento
+- Determina el lenguaje de programación y paradigma usado
+- Extrae las funcionalidades clave
+
+PASO 2: COMPARACIÓN DIMENSIONAL
+Analiza sistemáticamente cada dimensión:
+
+FRAGMENTO A: [CÓDIGO_A_AQUÍ]
+FRAGMENTO B: [CÓDIGO_B_AQUÍ]
+
+1. SIMILITUD LÉXICA (0-100)
+2. SIMILITUD ESTRUCTURAL (0-100)
+3. SIMILITUD ESTILÍSTICA (0-100)
+4. SIMILITUD FUNCIONAL (0-100)
+5. SIMILITUD SINTÁCTICA (0-100)
+
+VERIFICACIÓN (Chain-of-Verification)
+- ¿Los puntajes individuales son consistentes entre sí?
+- ¿Cada justificación soporta el puntaje asignado?
+- ¿Hay contradicciones en el análisis?
+
+SIMILITUD GLOBAL (0-100)
+Síntesis ponderada: Funcional 40%, Estructural 30%, Léxica 20%, Estilística 10%.
+
+FORMATO DE SALIDA REQUERIDO
+Proporciona SOLO la siguiente información en este formato exacto:
+
+SIMILITUD LÉXICA: [0-100]
+Justificación: [...]
+
+SIMILITUD ESTRUCTURAL: [0-100]
+Justificación: [...]
+
+SIMILITUD ESTILÍSTICA: [0-100]
+Justificación: [...]
+
+SIMILITUD FUNCIONAL: [0-100]
+Justificación: [...]
+
+SIMILITUD SINTÁCTICA: [0-100]
+Justificación: [...]
+
+SIMILITUD GLOBAL: [0-100]
+Justificación: [...]

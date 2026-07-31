@@ -1,48 +1,51 @@
 using System;
-using System.Collections.Generic;
 
 namespace ControlTemperatura
 {
     class Program
     {
+        static string Clasificar(double valor)
+        {
+            if (valor > 30)
+                return "- CALOR";
+            if (valor < 15)
+                return "- FRÍO";
+            return "- NORMAL";
+        }
+
         static void Main(string[] args)
         {
-            List<double> temperaturas = new List<double>();
             Console.WriteLine("=== CONTROL DE TEMPERATURA ===");
-            
+
             Console.Write("¿Cuántas mediciones desea registrar? ");
-            int cantidad = Convert.ToInt32(Console.ReadLine());
-            
-            for (int i = 0; i < cantidad; i++)
+            int n = int.Parse(Console.ReadLine());
+
+            double[] lecturas = new double[n];
+            for (int k = 0; k < n; k++)
             {
-                Console.Write($"Temperatura {i + 1} (°C): ");
-                double temp = Convert.ToDouble(Console.ReadLine());
-                temperaturas.Add(temp);
+                Console.Write($"Temperatura {k + 1} (°C): ");
+                lecturas[k] = double.Parse(Console.ReadLine());
             }
-            
-            double suma = 0;
-            double maxima = temperaturas[0];
-            double minima = temperaturas[0];
-            
-            foreach (double temp in temperaturas)
+
+            double acumulado = 0;
+            double mayor = lecturas[0];
+            double menor = lecturas[0];
+
+            for (int k = 0; k < lecturas.Length; k++)
             {
-                suma += temp;
-                if (temp > maxima) maxima = temp;
-                if (temp < minima) minima = temp;
-                
-                Console.Write($"{temp}°C ");
-                if (temp > 30)
-                    Console.WriteLine("- CALOR");
-                else if (temp < 15)
-                    Console.WriteLine("- FRÍO");
-                else
-                    Console.WriteLine("- NORMAL");
+                double actual = lecturas[k];
+                acumulado += actual;
+                mayor = Math.Max(mayor, actual);
+                menor = Math.Min(menor, actual);
+
+                Console.Write($"{actual}°C ");
+                Console.WriteLine(Clasificar(actual));
             }
-            
-            double promedio = suma / temperaturas.Count;
-            Console.WriteLine($"\nPromedio: {promedio:F1}°C");
-            Console.WriteLine($"Máxima: {maxima}°C");
-            Console.WriteLine($"Mínima: {minima}°C");
+
+            double media = acumulado / lecturas.Length;
+            Console.WriteLine($"\nPromedio: {media:F1}°C");
+            Console.WriteLine($"Máxima: {mayor}°C");
+            Console.WriteLine($"Mínima: {menor}°C");
         }
     }
 }

@@ -161,22 +161,64 @@ def parse_dolos_csv(path):
     return out
 
 
+def _jplag_pick_sim(d):
+    """De un dict de similitudes de JPlag ({'AVG':..,'MAX':..}) toma AVG.
+    JPlag emite dos metricas por par; AVG es la magnitud comparable con la
+    'similarity' de Dolos y con la media de los dos porcentajes de Moss.
+    Esta eleccion debe declararse en Metodos."""
+    if not isinstance(d, dict):
+        return d
+    low = {k.lower(): v for k, v in d.items()}
+    for k in ("avg", "average", "avg_similarity", "average_similarity"):
+        if k in low:
+            return low[k]
+    return next(iter(d.values()), None)
+
+
 def parse_jplag(path):
-    """Lee resultados de JPlag: acepta CSV exportado o el .jplag (zip con JSON)."""
+    """Lee resultados de JPlag: acepta CSV exportado o el .jplag (zip con JSON).
+
+    JPlag 6 exporta un CSV cuya cabecera es del tipo
+        submissionName1,submissionName2,AVG,MAX
+    Se toma SIEMPRE la columna AVG (media de las dos similitudes direccionales)."""
     out = {}
     if path.lower().endswith(".csv"):
         with open(path, "r", encoding="utf-8-sig", newline="") as fh:
-            rd = csv.reader(fh)
-            for row in rd:
-                if len(row) < 3:
-                    continue
-                try:
-                    v = float(row[2])
-                except ValueError:
-                    continue
-                if v <= 1.0:
-                    v *= 100.0
-                out[frozenset((_norm(row[0]), _norm(row[1])))] = v
+            rows = [r for r in csv.reader(fh) if r]
+        if not rows:
+            return out
+        head = [c.strip().lower() for c in rows[0]]
+        # ¿La primera fila es cabecera? Lo es si su tercera celda no es numerica.
+        def _isnum(x):
+            try:
+                float(x); return True
+            except (TypeError, ValueError):
+                return False
+        tiene_cabecera = len(rows[0]) > 2 and not _isnum(rows[0][2])
+        if tiene_cabecera:
+            cand = [i for i, c in enumerate(head)
+                    if any(k in c for k in ("submission", "name", "file", "left", "right", "id"))]
+            avg = [i for i, c in enumerate(head) if c in ("avg", "average")
+                   or "avg" in c or "average" in c]
+            sims = [i for i, c in enumerate(head) if "similarity" in c or "score" in c]
+            ia, ib = (cand + [0, 1])[0], (cand + [0, 1])[1]
+            isim = (avg or sims or [2])[0]
+            body = rows[1:]
+            print("      [jplag] columnas: A=%r B=%r similitud=%r"
+                  % (rows[0][ia], rows[0][ib], rows[0][isim]))
+        else:
+            ia, ib, isim = 0, 1, 2      # formato posicional sub1, sub2, AVG
+            body = rows
+        for row in body:
+            if len(row) <= max(ia, ib, isim):
+                continue
+            try:
+                v = float(row[isim])
+            except ValueError:
+                continue
+            if v <= 1.0:
+                v *= 100.0
+            out[frozenset((_norm(row[ia]), _norm(row[ib])))] = v
         return out
 
     with zipfile.ZipFile(path) as z:
@@ -185,6 +227,20 @@ def parse_jplag(path):
         if target is None:
             sys.exit("No se encontro overview.json dentro de %s" % path)
         data = json.loads(z.read(target).decode("utf-8", errors="replace"))
+
+    # JPlag 6 sustituye los nombres por identificadores y guarda el mapa aparte.
+    idmap = {}
+    def find_map(node):
+        if isinstance(node, dict):
+            for k, v in node.items():
+                if "display_name" in k.lower() and isinstance(v, dict):
+                    idmap.update({str(a): str(b) for a, b in v.items()})
+                find_map(v)
+        elif isinstance(node, list):
+            for v in node:
+                find_map(v)
+    find_map(data)
+    resolve = lambda x: idmap.get(str(x), x)
 
     def walk(node):
         if isinstance(node, dict):
@@ -195,14 +251,13 @@ def parse_jplag(path):
                 g = lambda *c: next((node[k] for k in node if k.lower() in c), None)
                 a = g("first_submission", "firstsubmission")
                 b = g("second_submission", "secondsubmission")
-                s = g("similarity", "similarities", "avg_similarity", "maximum_similarity")
-                if isinstance(s, dict):
-                    s = next(iter(s.values()))
+                s = g("similarities", "similarity", "avg_similarity", "maximum_similarity")
+                s = _jplag_pick_sim(s)
                 try:
                     v = float(s)
                     if v <= 1.0:
                         v *= 100.0
-                    out[frozenset((_norm(a), _norm(b)))] = v
+                    out[frozenset((_norm(resolve(a)), _norm(resolve(b))))] = v
                 except (TypeError, ValueError):
                     pass
             for v in node.values():
@@ -215,6 +270,9 @@ def parse_jplag(path):
     if not out:
         sys.exit("No se pudieron extraer similitudes de %s. Usa la exportacion CSV "
                  "de JPlag (--csv-export) y pasa ese archivo." % path)
+    # overview.json puede estar truncado a los N pares mas similares.
+    print("      [jplag] %d pares leidos del .jplag. Si esperabas mas, JPlag trunca "
+          "overview.json (--max-comparisons -1 para desactivarlo)." % len(out))
     return out
 
 
@@ -290,6 +348,70 @@ def cmd_parsear(args):
     for k, n in faltan.items():
         modo = "registrados como 0" if args.faltantes_cero else "OMITIDOS"
         print("  AVISO: %s/%s sin comparacion para %d pares (%s)" % (k[0], k[1], n, modo))
+
+
+# ------------------------------------------------------------------------ antlr
+def cmd_antlr(args):
+    """Cuantifica los fallos de analisis sintactico (ANTLR) de JPlag a partir del
+    log de la corrida, y los cruza con los 120 pares del estudio.
+
+    Cuando la gramatica de JPlag no puede analizar un archivo, la herramienta
+    continua pero lo tokeniza de forma incompleta: la similitud de esa entrega
+    deja de ser fiable. La proporcion de entregas afectadas es un resultado
+    reportable sobre la cobertura sintactica de la herramienta."""
+    import re
+    pat_sub = re.compile(r"CODE_[A-Z]+_(?:CS|JAVA)_\d+(?:_COPY)?", re.IGNORECASE)
+    pat_err = re.compile(r"(line \d+:\d+|mismatched input|extraneous input|"
+                         r"no viable alternative|missing '|token recognition error|"
+                         r"rule stack|cannot find symbol|ParsingException)", re.IGNORECASE)
+
+    afectadas, n_err, n_lineas = Counter(), 0, 0
+    ultima = None
+    with open(args.log, "r", encoding="utf-8", errors="replace") as fh:
+        for linea in fh:
+            n_lineas += 1
+            m = pat_sub.findall(linea)
+            if m:
+                ultima = m[-1].upper()
+            if pat_err.search(linea):
+                n_err += 1
+                # El nombre puede venir en la misma linea o en la inmediatamente previa.
+                objetivo = (m[-1].upper() if m else ultima)
+                if objetivo:
+                    afectadas[objetivo] += 1
+
+    print("Log: %s  (%d lineas, %d con error de analisis)" % (args.log, n_lineas, n_err))
+    if not afectadas:
+        print("No se detectaron entregas con fallo de analisis.")
+        return
+    print("\nEntregas afectadas: %d" % len(afectadas))
+    for k, v in sorted(afectadas.items(), key=lambda kv: (-kv[1], kv[0])):
+        print("  %-24s %4d errores" % (k, v))
+
+    if args.pares and os.path.exists(args.pares):
+        with open(args.pares, "r", encoding="utf-8-sig", newline="") as fh:
+            pares = list(csv.DictReader(fh))
+        tocados, por_cat = [], Counter()
+        total_cat = Counter()
+        for p in pares:
+            total_cat[p["category"]] += 1
+            a, b = _norm(p["sub_a"]).upper(), _norm(p["sub_b"]).upper()
+            if a in afectadas or b in afectadas:
+                tocados.append(p)
+                por_cat[p["category"]] += 1
+        print("\nPares del estudio con al menos una entrega afectada: %d de %d (%.1f%%)"
+              % (len(tocados), len(pares), 100.0 * len(tocados) / max(1, len(pares))))
+        for c in CATS:
+            if total_cat[c]:
+                print("  %-12s %3d de %3d (%.1f%%)"
+                      % (c, por_cat[c], total_cat[c], 100.0 * por_cat[c] / total_cat[c]))
+        if args.out:
+            with open(args.out, "w", encoding="utf-8", newline="") as fh:
+                w = csv.writer(fh)
+                w.writerow(["submission", "n_errores"])
+                for k, v in sorted(afectadas.items()):
+                    w.writerow([k, v])
+            print("\nEscrito:", args.out)
 
 
 # ---------------------------------------------------------------------- evaluar
@@ -393,6 +515,12 @@ def main():
                         "(banda 100-100 es un punto exacto). Debe fijarse a priori "
                         "y aplicarse por igual a todas las herramientas. P.ej. 5.")
     c.set_defaults(func=cmd_evaluar)
+
+    d = s.add_parser("antlr", help="Cuantifica los fallos de analisis sintactico de JPlag.")
+    d.add_argument("--log", required=True, help="Log de la corrida (jplag_cs.log / jplag_java.log)")
+    d.add_argument("--pares", default="baselines_work/pares.csv")
+    d.add_argument("--out", default="", help="CSV opcional con las entregas afectadas.")
+    d.set_defaults(func=cmd_antlr)
 
     args = p.parse_args()
     args.func(args)

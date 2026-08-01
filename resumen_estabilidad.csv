@@ -1,0 +1,5 @@
+provider,n_casos,coincidencia_pct,estabilidad_intra_pct,rango_global_medio,latencia_media_s
+deepseek,120,60.0,93.1,6.8,54.304
+gemini,120,60.0,98.6,1.3,30.348
+openai,120,59.2,95.6,2.2,11.461
+anthropic,120,48.3,97.1,1.9,21.967

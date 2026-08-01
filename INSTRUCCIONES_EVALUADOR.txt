@@ -1,0 +1,43 @@
+INSTRUCCIONES PARA EL EVALUADOR — calidad de la retroalimentacion
+================================================================
+
+Vas a calificar 96 justificaciones producidas por 4 sistemas distintos
+sobre 24 pares de codigo. No sabes que sistema escribio cada una, y ese
+desconocimiento es parte del diseno: no intentes deducirlo.
+
+COMO CALIFICAR
+
+Abre hoja_calificacion.csv en una hoja de calculo. Cada fila es una justificacion. Las columnas
+`codigo_a` y `codigo_b` indican los dos archivos comparados: abrelos y leelos
+antes de puntuar, porque el primer criterio exige comprobar si lo que la
+justificacion afirma sobre el codigo es cierto.
+
+Puntua cada fila en CUATRO criterios, con un numero entero de 0 a 100:
+
+  * CORRECCION — Correccion tecnica: lo que afirma sobre el codigo, es verdadero? (0 = falso o inventado, 100 = todo verificable)
+  * ESPECIFICIDAD — Especificidad: se refiere a elementos concretos del codigo o es generico? (0 = valdria para cualquier par, 100 = solo vale para este par)
+  * EXPLICACION — Poder explicativo: explica POR QUE, o solo describe QUE? (0 = puro enunciado, 100 = razonamiento trazable)
+  * UTILIDAD — Utilidad docente: le serviria a un estudiante para entender el veredicto? (0 = inutil, 100 = suficiente por si sola)
+
+Usa el rango completo. Si todo te parece un 80, la escala no esta midiendo nada.
+Reserva los extremos: 0 y 100 existen y deben usarse cuando corresponda.
+
+La columna `comentario` es opcional; usala cuando una puntuacion necesite
+explicacion, sobre todo si detectas una afirmacion falsa sobre el codigo.
+
+QUE NO HACER
+
+No califiques si el veredicto de similitud te parece acertado: eso ya se mide
+aparte. Aqui se juzga la ARGUMENTACION, no la conclusion. Una justificacion
+puede razonar impecablemente hacia un veredicto equivocado, y debe puntuar alto
+en `explicacion` aunque el veredicto falle.
+
+No compares filas entre si buscando coherencia. Cada fila se puntua sola.
+
+No consultes con el otro evaluador mientras calificas. La concordancia entre
+ambos es un resultado del estudio; si os poneis de acuerdo antes, se destruye.
+
+AL TERMINAR
+
+Guarda el archivo con tu identificador (hoja_E1.csv o hoja_E2.csv) y entregalo
+sin abrir el archivo de clave.

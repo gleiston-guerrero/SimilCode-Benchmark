@@ -1,11 +1,71 @@
+﻿# ---------------------------------------------------------------------------
+# SimilCode-Benchmark â€” .gitignore
+#
+# NOTA: Git no admite comentarios al final de una linea. Todo comentario debe
+# ocupar su propia linea; en caso contrario el texto del comentario pasa a
+# formar parte del patron y la regla no coincide con nada.
+# ---------------------------------------------------------------------------
 
-# Credenciales y datos derivados - NO versionar
+# --- CARPETA DE TRABAJO LOCAL ----------------------------------------------
+# Todo lo que no debe salir del equipo. El espacio en el nombre no necesita
+# escaparse; la barra inicial ancla el patron a la raiz del repositorio.
+/No Commit/
+
+# --- CREDENCIALES: nunca versionar -----------------------------------------
+# moss contiene el userid que autentica las consultas ante Stanford.
+# ejecutar_benchmark.ps1 contuvo las cuatro claves de API.
 moss
-moss.pl
 ejecutar_benchmark.ps1
+*.key
+.env
+.env.*
+
+# --- CEGAMIENTO ------------------------------------------------------------
+# Asocian cada texto con el modelo que lo escribio. Publicarlos durante la
+# fase de calificacion invalida el diseno ciego. Retirar estas lineas y
+# versionarlos SOLO cuando la evaluacion haya terminado.
+CLAVE_NO_ABRIR.csv
+CLAVE_ANCLA_NO_ABRIR.csv
+hojas/
+hoja_E*.csv
+hoja_E*.xlsx
+hoja_ancla.csv
+hoja_calificacion.csv
+
+# --- DERIVADOS: se regeneran con un comando --------------------------------
+# baselines_work/ lo reconstruye  baselines.py preparar
 baselines_work/
+codigo_evaluadores/
+codigo_evaluadores.zip
+archivos_evaluadores.txt
+__pycache__/
+*.pyc
 
+# --- SALIDAS VOLUMINOSAS O REDUNDANTES -------------------------------------
+# El contenido util de los contenedores .jplag esta en results.csv.
+*.jplag
+out_jplag_*/report/
+# kgrams.csv son miles de filas que no intervienen en el analisis.
+out_dolos_*/kgrams.csv
+# El metadata.csv de Dolos colisiona de nombre con el del corpus.
+out_dolos_*/metadata.csv
 
-moss
-baselines_work/
+# Logs en UTF-16 de Tee-Object; se conservan las versiones UTF-8.
+jplag_cs.log
+jplag_java.log
 
+# Paquete Big O v1, superado por el contenido de bigo/.
+SimilCode-BigO-Validation.zip
+
+# --- LaTeX -----------------------------------------------------------------
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+
+# --- Sistema operativo -----------------------------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store

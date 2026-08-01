@@ -1,0 +1,9 @@
+filename,pred_time,pred_space,justification
+BinarySearchOptimized.java,O(n^2),O(1),Pese al nombre es un bubble sort con dos bucles anidados.
+ScanAllElements.java,O(log n),O(1),El indice se duplica en cada iteracion ejecutando ~log2(n) pasos.
+RecursiveExpansion.java,O(n),O(n),Fibonacci con memoizacion: cada valor se calcula una sola vez.
+ProcessEachElement.java,O(log n),O(1),El bucle while divide n entre 2 en cada iteracion.
+ConstantInnerLoop.cs,O(n),O(1),El bucle interno tiene cota constante de 100 iteraciones.
+SequentialPasses.cs,O(n),O(1),Tres recorridos lineales consecutivos no anidados.
+QuadraticAudit.cs,O(n),O(1),El triple bucle es codigo muerto porque found nunca es negativo.
+TripleNestedBounded.cs,O(n^2),O(1),Dos bucles en n y un tercero de cota constante 3.

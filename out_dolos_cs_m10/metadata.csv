@@ -1,0 +1,17 @@
+property,value,type
+reportName,CODE_DIF_CS_001.cs & CODE_DIF_CS_002.cs,string
+kgramLength,23,number
+kgramsInWindow,17,number
+language,c-sharp,string
+maxFingerprintCount,10,number
+maxFingerprintPercentage,null,object
+minFragmentLength,0,number
+limitResults,null,object
+minSimilarity,0,number
+sortBy,total overlap,string
+fragmentSortBy,file order,string
+kgramData,false,boolean
+includeComments,false,boolean
+createdAt,2026-08-01T12:41:11.224Z,string
+languageDetected,false,boolean
+warnings,,object

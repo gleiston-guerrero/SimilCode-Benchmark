@@ -1,0 +1,17 @@
+property,value,type
+reportName,CODE_DIF_JAVA_001.java & CODE_DIF_JAVA_002.java,string
+kgramLength,23,number
+kgramsInWindow,17,number
+language,java,string
+maxFingerprintCount,10,number
+maxFingerprintPercentage,null,object
+minFragmentLength,0,number
+limitResults,null,object
+minSimilarity,0,number
+sortBy,total overlap,string
+fragmentSortBy,file order,string
+kgramData,false,boolean
+includeComments,false,boolean
+createdAt,2026-08-01T12:38:34.285Z,string
+languageDetected,false,boolean
+warnings,,object

@@ -1,0 +1,41 @@
+algo_id,language,filename,path,algorithm,worst_case_time,space_complexity,source
+ALG_001,Java,SumFormula.java,corpus/java/SumFormula.java,Suma de los primeros n enteros (formula de Gauss),O(1),O(1),Formula cerrada de Gauss; numero constante de operaciones aritmeticas.
+ALG_002,C#,IsEven.cs,corpus/csharp/IsEven.cs,Comprobacion de paridad de un entero,O(1),O(1),Operacion aritmetica unica sobre un dato de tamano fijo.
+ALG_003,Java,SwapValues.java,corpus/java/SwapValues.java,Intercambio de dos valores en un arreglo,O(1),O(1),Numero constante de accesos indexados y asignaciones.
+ALG_004,C#,ArrayMiddle.cs,corpus/csharp/ArrayMiddle.cs,Acceso al elemento central de un arreglo,O(1),O(1),Acceso indexado directo en memoria contigua.
+ALG_005,Java,BinarySearchIterative.java,corpus/java/BinarySearchIterative.java,Busqueda binaria iterativa,O(log n),O(1),"Cormen et al. (2022), Introduction to Algorithms, 4th ed. El espacio de busqueda se reduce a la mitad en cada iteracion."
+ALG_006,C#,BinarySearchRecursive.cs,corpus/csharp/BinarySearchRecursive.cs,Busqueda binaria recursiva,O(log n),O(log n),Cormen et al. (2022). Recurrencia T(n)=T(n/2)+O(1); espacio por la pila de recursion.
+ALG_007,Java,FastPower.java,corpus/java/FastPower.java,Exponenciacion binaria (exponentiation by squaring),O(log n),O(1),El exponente se divide entre dos en cada iteracion.
+ALG_008,C#,EuclidGcd.cs,corpus/csharp/EuclidGcd.cs,Maximo comun divisor por algoritmo de Euclides,O(log n),O(1),"Knuth, The Art of Computer Programming, Vol. 2. El numero de iteraciones es logaritmico en el menor de los operandos."
+ALG_009,Java,CountDigits.java,corpus/java/CountDigits.java,Conteo de digitos decimales de un entero,O(log n),O(1),El valor se divide entre 10 en cada iteracion.
+ALG_010,C#,HeapInsert.cs,corpus/csharp/HeapInsert.cs,Insercion en monticulo binario (sift-up),O(log n),O(1),"Cormen et al. (2022), capitulo de Heapsort. La reubicacion recorre a lo sumo la altura del monticulo."
+ALG_011,Java,LinearSearch.java,corpus/java/LinearSearch.java,Busqueda lineal en arreglo no ordenado,O(n),O(1),Cormen et al. (2022). En el peor caso recorre todo el arreglo.
+ALG_012,C#,ArraySum.cs,corpus/csharp/ArraySum.cs,Suma acumulada de los elementos de un arreglo,O(n),O(1),Recorrido unico del arreglo.
+ALG_013,Java,FindMax.java,corpus/java/FindMax.java,Busqueda del maximo en un arreglo,O(n),O(1),Cormen et al. (2022). Requiere inspeccionar cada elemento.
+ALG_014,C#,ReverseArray.cs,corpus/csharp/ReverseArray.cs,Inversion de un arreglo en el sitio,O(n),O(1),Recorre n/2 posiciones intercambiando extremos.
+ALG_015,Java,FibonacciIterative.java,corpus/java/FibonacciIterative.java,Fibonacci iterativo,O(n),O(1),Una iteracion por termino calculado.
+ALG_016,C#,KadaneMaxSubarray.cs,corpus/csharp/KadaneMaxSubarray.cs,Subarreglo de suma maxima (algoritmo de Kadane),O(n),O(1),"Bentley, Programming Pearls. Un unico recorrido lineal."
+ALG_017,Java,IsPalindrome.java,corpus/java/IsPalindrome.java,Verificacion de palindromo sobre una cadena,O(n),O(1),Recorre a lo sumo n/2 pares de caracteres.
+ALG_018,C#,FactorialRecursive.cs,corpus/csharp/FactorialRecursive.cs,Factorial recursivo,O(n),O(n),Recursion lineal: n llamadas anidadas; espacio por la pila.
+ALG_019,Java,CountOccurrences.java,corpus/java/CountOccurrences.java,Conteo de ocurrencias de un valor,O(n),O(1),Recorrido unico del arreglo.
+ALG_020,C#,MergeSort.cs,corpus/csharp/MergeSort.cs,Ordenamiento por mezcla (merge sort),O(n log n),O(n),"Cormen et al. (2022), cap. 2. Recurrencia T(n)=2T(n/2)+O(n); peor caso Theta(n log n)."
+ALG_021,Java,HeapSort.java,corpus/java/HeapSort.java,Ordenamiento por monticulos (heapsort),O(n log n),O(1),"Cormen et al. (2022), cap. 6. n extracciones con reajuste logaritmico cada una."
+ALG_022,C#,CountInversions.cs,corpus/csharp/CountInversions.cs,Conteo de inversiones por mezcla,O(n log n),O(n),Variante instrumentada de merge sort; misma recurrencia T(n)=2T(n/2)+O(n).
+ALG_023,Java,HeapExtractAll.java,corpus/java/HeapExtractAll.java,Construccion de monticulo y extraccion de todos los elementos,O(n log n),O(1),Construccion O(n) seguida de n extracciones O(log n).
+ALG_024,C#,BubbleSort.cs,corpus/csharp/BubbleSort.cs,Ordenamiento burbuja,O(n^2),O(1),Dos bucles anidados sobre el arreglo; peor caso cuadratico.
+ALG_025,Java,InsertionSort.java,corpus/java/InsertionSort.java,Ordenamiento por insercion,O(n^2),O(1),"Cormen et al. (2022), cap. 2. Peor caso (entrada en orden inverso) Theta(n^2)."
+ALG_026,C#,SelectionSort.cs,corpus/csharp/SelectionSort.cs,Ordenamiento por seleccion,O(n^2),O(1),Numero de comparaciones fijo n(n-1)/2 en todos los casos.
+ALG_027,Java,QuickSortLastPivot.java,corpus/java/QuickSortLastPivot.java,Quicksort con pivote en el ultimo elemento,O(n^2),O(n),"Cormen et al. (2022), cap. 7. El peor caso (particion maximamente desbalanceada, p. ej. entrada ya ordenada) es Theta(n^2)."
+ALG_028,C#,MatrixAddition.cs,corpus/csharp/MatrixAddition.cs,Suma de dos matrices cuadradas n x n,O(n^2),O(n^2),Se calcula una entrada por cada una de las n^2 posiciones.
+ALG_029,Java,HasDuplicatesNaive.java,corpus/java/HasDuplicatesNaive.java,Deteccion de duplicados por comparacion de todos los pares,O(n^2),O(1),Compara los n(n-1)/2 pares posibles.
+ALG_030,C#,BfsAdjacencyMatrix.cs,corpus/csharp/BfsAdjacencyMatrix.cs,Recorrido en anchura (BFS) sobre matriz de adyacencia,O(n^2),O(n),Cormen et al. (2022). Con matriz de adyacencia cada vertice extraido inspecciona n posibles vecinos.
+ALG_031,Java,DfsAdjacencyMatrix.java,corpus/java/DfsAdjacencyMatrix.java,Recorrido en profundidad (DFS) sobre matriz de adyacencia,O(n^2),O(n),Cormen et al. (2022). Cada vertice visitado explora una fila completa de n entradas.
+ALG_032,C#,LongestCommonSubsequence.cs,corpus/csharp/LongestCommonSubsequence.cs,Subsecuencia comun mas larga por programacion dinamica,O(n^2),O(n^2),"Cormen et al. (2022), programacion dinamica. Tabla de (n+1)x(m+1) celdas con trabajo constante por celda."
+ALG_033,Java,EditDistance.java,corpus/java/EditDistance.java,Distancia de edicion (Levenshtein) por programacion dinamica,O(n^2),O(n^2),Wagner y Fischer (1974). Tabla de (n+1)x(m+1) celdas con trabajo constante por celda.
+ALG_034,C#,MatrixMultiplyNaive.cs,corpus/csharp/MatrixMultiplyNaive.cs,Multiplicacion de matrices por definicion,O(n^3),O(n^2),Cormen et al. (2022). Tres bucles anidados de longitud n.
+ALG_035,Java,FloydWarshall.java,corpus/java/FloydWarshall.java,Caminos minimos entre todos los pares (Floyd-Warshall),O(n^3),O(n^2),Cormen et al. (2022). Triple bucle sobre los n vertices.
+ALG_036,C#,TripleNestedSum.cs,corpus/csharp/TripleNestedSum.cs,Suma de todas las tripletas de un arreglo,O(n^3),O(1),Tres bucles anidados dependientes del tamano n.
+ALG_037,Java,FibonacciNaiveRecursive.java,corpus/java/FibonacciNaiveRecursive.java,Fibonacci recursivo sin memoizacion,O(2^n),O(n),"Cormen et al. (2022). Recurrencia T(n)=T(n-1)+T(n-2)+O(1), de crecimiento exponencial."
+ALG_038,C#,TowerOfHanoi.cs,corpus/csharp/TowerOfHanoi.cs,Torres de Hanoi,O(2^n),O(n),"Recurrencia T(n)=2T(n-1)+O(1), con solucion 2^n - 1 movimientos."
+ALG_039,Java,GenerateAllSubsets.java,corpus/java/GenerateAllSubsets.java,Generacion del conjunto potencia,O(2^n),O(n),El conjunto potencia de n elementos tiene 2^n subconjuntos.
+ALG_040,C#,SubsetSumBruteForce.cs,corpus/csharp/SubsetSumBruteForce.cs,Suma de subconjuntos por fuerza bruta,O(2^n),O(n),Explora los 2^n subconjuntos posibles mediante ramificacion binaria.

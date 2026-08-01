@@ -1,0 +1,41 @@
+algo_id,filename,language,algorithm,time_documented,time_predicted,time_correct,space_documented,space_predicted,space_correct
+ALG_005,BinarySearchIterative.java,Java,Busqueda binaria iterativa,O(log n),O(log n),1,O(1),O(1),1
+ALG_009,CountDigits.java,Java,Conteo de digitos decimales de un entero,O(log n),O(log n),1,O(1),O(1),1
+ALG_019,CountOccurrences.java,Java,Conteo de ocurrencias de un valor,O(n),O(n),1,O(1),O(1),1
+ALG_031,DfsAdjacencyMatrix.java,Java,Recorrido en profundidad (DFS) sobre matriz de adyacencia,O(n^2),O(n^2),1,O(n),O(n),1
+ALG_033,EditDistance.java,Java,Distancia de edicion (Levenshtein) por programacion dinamica,O(n^2),O(n^2),1,O(n^2),O(n^2),1
+ALG_007,FastPower.java,Java,Exponenciacion binaria (exponentiation by squaring),O(log n),O(log n),1,O(1),O(1),1
+ALG_015,FibonacciIterative.java,Java,Fibonacci iterativo,O(n),O(n),1,O(1),O(1),1
+ALG_037,FibonacciNaiveRecursive.java,Java,Fibonacci recursivo sin memoizacion,O(2^n),O(2^n),1,O(n),O(n),1
+ALG_013,FindMax.java,Java,Busqueda del maximo en un arreglo,O(n),O(n),1,O(1),O(1),1
+ALG_035,FloydWarshall.java,Java,Caminos minimos entre todos los pares (Floyd-Warshall),O(n^3),O(n^3),1,O(n^2),O(1),0
+ALG_039,GenerateAllSubsets.java,Java,Generacion del conjunto potencia,O(2^n),O(2^n),1,O(n),O(n),1
+ALG_029,HasDuplicatesNaive.java,Java,Deteccion de duplicados por comparacion de todos los pares,O(n^2),O(n^2),1,O(1),O(1),1
+ALG_023,HeapExtractAll.java,Java,Construccion de monticulo y extraccion de todos los elementos,O(n log n),O(n log n),1,O(1),O(n),0
+ALG_021,HeapSort.java,Java,Ordenamiento por monticulos (heapsort),O(n log n),O(n log n),1,O(1),O(log n),0
+ALG_025,InsertionSort.java,Java,Ordenamiento por insercion,O(n^2),O(n^2),1,O(1),O(1),1
+ALG_017,IsPalindrome.java,Java,Verificacion de palindromo sobre una cadena,O(n),O(n),1,O(1),O(1),1
+ALG_011,LinearSearch.java,Java,Busqueda lineal en arreglo no ordenado,O(n),O(n),1,O(1),O(1),1
+ALG_027,QuickSortLastPivot.java,Java,Quicksort con pivote en el ultimo elemento,O(n^2),O(n^2),1,O(n),O(n),1
+ALG_001,SumFormula.java,Java,Suma de los primeros n enteros (formula de Gauss),O(1),O(1),1,O(1),O(1),1
+ALG_003,SwapValues.java,Java,Intercambio de dos valores en un arreglo,O(1),O(1),1,O(1),O(1),1
+ALG_004,ArrayMiddle.cs,C#,Acceso al elemento central de un arreglo,O(1),O(1),1,O(1),O(1),1
+ALG_012,ArraySum.cs,C#,Suma acumulada de los elementos de un arreglo,O(n),O(n),1,O(1),O(1),1
+ALG_030,BfsAdjacencyMatrix.cs,C#,Recorrido en anchura (BFS) sobre matriz de adyacencia,O(n^2),O(n^2),1,O(n),O(n),1
+ALG_006,BinarySearchRecursive.cs,C#,Busqueda binaria recursiva,O(log n),O(log n),1,O(log n),O(log n),1
+ALG_024,BubbleSort.cs,C#,Ordenamiento burbuja,O(n^2),O(n^2),1,O(1),O(1),1
+ALG_022,CountInversions.cs,C#,Conteo de inversiones por mezcla,O(n log n),O(n log n),1,O(n),O(n),1
+ALG_008,EuclidGcd.cs,C#,Maximo comun divisor por algoritmo de Euclides,O(log n),O(log n),1,O(1),O(1),1
+ALG_018,FactorialRecursive.cs,C#,Factorial recursivo,O(n),O(n),1,O(n),O(n),1
+ALG_010,HeapInsert.cs,C#,Insercion en monticulo binario (sift-up),O(log n),O(log n),1,O(1),O(1),1
+ALG_002,IsEven.cs,C#,Comprobacion de paridad de un entero,O(1),O(1),1,O(1),O(1),1
+ALG_032,LongestCommonSubsequence.cs,C#,Subsecuencia comun mas larga por programacion dinamica,O(n^2),O(n^2),1,O(n^2),O(n^2),1
+ALG_028,MatrixAddition.cs,C#,Suma de dos matrices cuadradas n x n,O(n^2),O(n^2),1,O(n^2),O(n^2),1
+ALG_034,MatrixMultiplyNaive.cs,C#,Multiplicacion de matrices por definicion,O(n^3),O(n^3),1,O(n^2),O(n^2),1
+ALG_020,MergeSort.cs,C#,Ordenamiento por mezcla (merge sort),O(n log n),O(n log n),1,O(n),O(n),1
+ALG_014,ReverseArray.cs,C#,Inversion de un arreglo en el sitio,O(n),O(n),1,O(1),O(1),1
+ALG_026,SelectionSort.cs,C#,Ordenamiento por seleccion,O(n^2),O(n^2),1,O(1),O(1),1
+ALG_040,SubsetSumBruteForce.cs,C#,Suma de subconjuntos por fuerza bruta,O(2^n),O(2^n),1,O(n),O(n),1
+ALG_038,TowerOfHanoi.cs,C#,Torres de Hanoi,O(2^n),O(2^n),1,O(n),O(n),1
+ALG_036,TripleNestedSum.cs,C#,Suma de todas las tripletas de un arreglo,O(n^3),O(n^3),1,O(1),O(1),1
+ALG_016,KadaneMaxSubarray.cs,C#,Subarreglo de suma maxima (algoritmo de Kadane),O(n),O(n),1,O(1),O(1),1

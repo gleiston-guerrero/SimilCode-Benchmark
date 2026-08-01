@@ -1,0 +1,41 @@
+filename,pred_time,pred_space,justification
+BinarySearchIterative.java,O(log n),O(1),El intervalo de busqueda se reduce a la mitad en cada iteracion del while.
+CountDigits.java,O(log n),O(1),La division sucesiva entre 10 ejecuta aproximadamente log10(n) iteraciones.
+CountOccurrences.java,O(n),O(1),Un unico recorrido lineal del arreglo con un contador acumulador.
+DfsAdjacencyMatrix.java,O(n^2),O(n),Cada vertice explora una fila completa de n columnas de la matriz.
+EditDistance.java,O(n^2),O(n^2),Doble bucle anidado que rellena una tabla de programacion dinamica.
+FastPower.java,O(log n),O(1),Exponenciacion binaria: cada iteracion desplaza el exponente un bit.
+FibonacciIterative.java,O(n),O(1),Un unico bucle de 2 a n con tres variables escalares.
+FibonacciNaiveRecursive.java,O(2^n),O(n),Recurrencia T(n)=T(n-1)+T(n-2)+O(1) de crecimiento exponencial.
+FindMax.java,O(n),O(1),Recorrido lineal unico comparando cada elemento contra el maximo actual.
+FloydWarshall.java,O(n^3),O(1),Tres bucles anidados sobre los n vertices; matriz actualizada in situ.
+GenerateAllSubsets.java,O(2^n),O(n),Recursion binaria que enumera los 2^n subconjuntos.
+HasDuplicatesNaive.java,O(n^2),O(1),Doble bucle que compara todos los pares en el peor caso.
+HeapExtractAll.java,O(n log n),O(n),Construccion O(n) mas n extracciones con siftDown O(log n).
+HeapSort.java,O(n log n),O(log n),Heapify inicial O(n) y n-1 extracciones con heapify O(log n).
+InsertionSort.java,O(n^2),O(1),Peor caso en orden inverso: el bucle interno desplaza i elementos por cada i.
+IsPalindrome.java,O(n),O(1),Dos punteros convergentes comparan n/2 pares en el peor caso.
+LinearSearch.java,O(n),O(1),En el peor caso el elemento esta ausente y se recorren los n elementos.
+QuickSortLastPivot.java,O(n^2),O(n),Pivote fijo: con arreglo ya ordenado la recurrencia es T(n)=T(n-1)+O(n).
+SumFormula.java,O(1),O(1),Formula cerrada de Gauss con un numero fijo de operaciones aritmeticas.
+SwapValues.java,O(1),O(1),Intercambio mediante tres asignaciones independiente del tamano.
+ArrayMiddle.cs,O(1),O(1),Acceso directo por indice al elemento central.
+ArraySum.cs,O(n),O(1),Un unico recorrido lineal con un acumulador escalar.
+BfsAdjacencyMatrix.cs,O(n^2),O(n),Cada vertice se desencola una vez y escanea sus n columnas.
+BinarySearchRecursive.cs,O(log n),O(log n),T(n)=T(n/2)+O(1); la pila alcanza profundidad log n.
+BubbleSort.cs,O(n^2),O(1),Dos bucles anidados con ~n(n-1)/2 comparaciones en el peor caso.
+CountInversions.cs,O(n log n),O(n),Merge sort modificado: T(n)=2T(n/2)+O(n) con buffer lineal.
+EuclidGcd.cs,O(log n),O(1),El resto se reduce al menos a la mitad cada dos iteraciones.
+FactorialRecursive.cs,O(n),O(n),Recursion lineal T(n)=T(n-1)+O(1) con pila de profundidad n.
+HeapInsert.cs,O(log n),O(1),Sift-up recorre como maximo la altura del monticulo.
+IsEven.cs,O(1),O(1),Una sola operacion aritmetica de modulo.
+LongestCommonSubsequence.cs,O(n^2),O(n^2),Dos bucles anidados llenan una tabla de (n+1)x(m+1) celdas.
+MatrixAddition.cs,O(n^2),O(n^2),Dos bucles anidados realizan una suma por celda de la matriz n x n.
+MatrixMultiplyNaive.cs,O(n^3),O(n^2),Tres bucles anidados producen n^3 multiplicaciones-acumulaciones.
+MergeSort.cs,O(n log n),O(n),T(n)=2T(n/2)+O(n) resuelto por el teorema maestro.
+ReverseArray.cs,O(n),O(1),Dos punteros convergentes con n/2 intercambios in situ.
+SelectionSort.cs,O(n^2),O(1),Doble bucle con ~n(n-1)/2 comparaciones en todos los casos.
+SubsetSumBruteForce.cs,O(2^n),O(n),Recurrencia T(n)=2T(n-1)+O(1) por incluir/excluir cada elemento.
+TowerOfHanoi.cs,O(2^n),O(n),Recurrencia T(d)=2T(d-1)+O(1) que resuelve a 2^d-1 movimientos.
+TripleNestedSum.cs,O(n^3),O(1),Tres bucles anidados de n iteraciones cada uno.
+KadaneMaxSubarray.cs,O(n),O(1),Una sola pasada lineal manteniendo dos acumuladores escalares.

@@ -1,0 +1,9 @@
+algo_id,language,filename,path,algorithm,worst_case_time,space_complexity,source,trampa
+ADV_001,Java,BinarySearchOptimized.java,adversarial/java/BinarySearchOptimized.java,Bubble sort con nombre y comentario enganosos,O(n^2),O(1),Dos bucles anidados; el nombre sugiere busqueda binaria.,Nombre y comentario contradicen la estructura
+ADV_002,C#,ConstantInnerLoop.cs,adversarial/csharp/ConstantInnerLoop.cs,Bucle anidado con cota interna constante,O(n),O(1),El bucle interno ejecuta 100 iteraciones fijas.,Anidamiento aparente pero cota constante
+ADV_003,Java,ScanAllElements.java,adversarial/java/ScanAllElements.java,Bucle con indice duplicado,O(log n),O(1),El indice se multiplica por dos en cada iteracion.,Nombre sugiere recorrido lineal
+ADV_004,C#,SequentialPasses.cs,adversarial/csharp/SequentialPasses.cs,Tres recorridos lineales consecutivos,O(n),O(1),Bucles secuenciales no anidados: 3n operaciones.,Multiples bucles que no se multiplican
+ADV_005,Java,RecursiveExpansion.java,adversarial/java/RecursiveExpansion.java,Fibonacci con memoizacion,O(n),O(n),Cada subproblema se resuelve una unica vez gracias a la cache.,Estructura recursiva binaria aparentemente exponencial
+ADV_006,C#,QuadraticAudit.cs,adversarial/csharp/QuadraticAudit.cs,Recorrido lineal con bloque cubico inalcanzable,O(n),O(1),El contador nunca es negativo; el triple bucle es codigo muerto.,Codigo muerto de orden superior
+ADV_007,Java,ProcessEachElement.java,adversarial/java/ProcessEachElement.java,Division sucesiva entre dos,O(log n),O(1),El valor se halva hasta llegar a uno.,Nombre sugiere recorrido por elemento
+ADV_008,C#,TripleNestedBounded.cs,adversarial/csharp/TripleNestedBounded.cs,Triple anidamiento con cota interna constante,O(n^2),O(1),Dos bucles en n y un tercero de cota fija 3.,Triple anidamiento aparente

@@ -38,6 +38,20 @@ import sys
 import zipfile
 from collections import Counter, defaultdict
 
+# El files.csv de Dolos incrusta el contenido completo de cada archivo en una
+# columna, muy por encima del limite por campo por defecto (131072).
+def _subir_limite_csv():
+    lim = sys.maxsize
+    while True:
+        try:
+            csv.field_size_limit(lim)
+            return
+        except OverflowError:
+            lim = int(lim / 10)
+
+
+_subir_limite_csv()
+
 CATS = ["identico", "funcional", "estructural", "diferente"]
 ALIAS = {"identical": "identico", "functional": "funcional",
          "structural": "estructural", "different": "diferente",
@@ -139,15 +153,65 @@ def _norm(p):
     return os.path.splitext(base)[0]
 
 
+_DIRS_NO_ENTREGA = {"cohorte", "aislado", "csharp", "java", "baselines_work", ""}
+
+
+def _norm_sub(p):
+    """Nombre de entrega a partir de una ruta de ARCHIVO.
+
+    En el layout de `preparar`, cada entrega es una CARPETA que contiene un
+    unico archivo: cohorte/<lenguaje>/<entrega>/<archivo>. La copia de los
+    pares identicos vive en la carpeta `X_COPY` pero el archivo de dentro
+    conserva el nombre original `X.<ext>`, asi que tomar el nombre del archivo
+    haria colapsar la copia con su original. Moss y JPlag identifican la
+    entrega por la carpeta; aqui se hace lo mismo para que las tres
+    herramientas compartan el mismo espacio de nombres."""
+    q = str(p).replace("\\", "/").rstrip("/")
+    padre = os.path.basename(os.path.dirname(q))
+    if padre and padre.lower() not in _DIRS_NO_ENTREGA:
+        return padre
+    return _norm(q)
+
+
+def _dolos_mapa_archivos(carpeta):
+    """Lee files.csv de Dolos -> {id: nombre_de_entrega}.
+    Dolos identifica los archivos por numero en pairs.csv; el nombre real vive
+    en files.csv, asi que hay que cruzar ambos."""
+    ruta = os.path.join(carpeta, "files.csv")
+    if not os.path.exists(ruta):
+        return {}
+    mapa = {}
+    with open(ruta, "r", encoding="utf-8-sig", newline="") as fh:
+        for r in csv.DictReader(fh):
+            keys = {k.lower(): k for k in r}
+            kid = next((keys[k] for k in keys if k in ("id", "fileid", "file_id")), None)
+            kpath = next((keys[k] for k in keys
+                          if "path" in k or k in ("filename", "file", "name")), None)
+            if kid and kpath:
+                mapa[str(r[kid]).strip()] = _norm_sub(r[kpath])
+    return mapa
+
+
 def parse_dolos_csv(path):
-    """Lee pairs.csv de Dolos -> {(subA,subB): similitud 0-100}"""
+    """Lee pairs.csv de Dolos -> {(subA,subB): similitud 0-100}.
+
+    Acepta tanto un pairs.csv con rutas literales como el formato habitual de
+    Dolos 2.x, donde las columnas leftFileId/rightFileId son numeros que se
+    resuelven contra el files.csv de la misma carpeta."""
     out = {}
+    mapa = _dolos_mapa_archivos(os.path.dirname(os.path.abspath(path)))
+    sin_resolver = colapsados = n_filas = 0
     with open(path, "r", encoding="utf-8-sig", newline="") as fh:
         for r in csv.DictReader(fh):
             keys = {k.lower(): k for k in r}
-            lf = next((keys[k] for k in keys if "left" in k and "path" in k), None)
-            rf = next((keys[k] for k in keys if "right" in k and "path" in k), None)
-            sim = next((keys[k] for k in keys if k == "similarity"), None)
+            lf = next((keys[k] for k in keys if "left" in k and "path" in k), None) or \
+                 next((keys[k] for k in keys if "left" in k and "id" in k), None) or \
+                 next((keys[k] for k in keys if "left" in k), None)
+            rf = next((keys[k] for k in keys if "right" in k and "path" in k), None) or \
+                 next((keys[k] for k in keys if "right" in k and "id" in k), None) or \
+                 next((keys[k] for k in keys if "right" in k), None)
+            sim = next((keys[k] for k in keys if k == "similarity"), None) or \
+                  next((keys[k] for k in keys if "similarity" in k), None)
             if not (lf and rf and sim):
                 continue
             try:
@@ -156,8 +220,30 @@ def parse_dolos_csv(path):
                 continue
             if v <= 1.0:
                 v *= 100.0
-            a, b = _norm(r[lf]), _norm(r[rf])
+            a, b = str(r[lf]).strip(), str(r[rf]).strip()
+            if mapa and a in mapa and b in mapa:
+                a, b = mapa[a], mapa[b]
+            else:
+                # No son identificadores del files.csv: deben ser rutas.
+                if not ("/" in a or "\\" in a):
+                    sin_resolver += 1
+                a, b = _norm_sub(a), _norm_sub(b)
+            if a == b:
+                colapsados += 1
+                continue
             out[frozenset((a, b))] = v
+            n_filas += 1
+    print("      [dolos] %d filas -> %d pares distintos; %d entregas en files.csv"
+          % (n_filas, len(out), len(mapa)))
+    if colapsados:
+        print("      [dolos] AVISO: %d filas descartadas por nombre de entrega repetido "
+              "(A == B). Revisa el layout de baselines_work." % colapsados)
+    if sin_resolver:
+        print("      [dolos] AVISO: %d filas con identificador no resuelto contra "
+              "files.csv. Los nombres pueden ser incorrectos." % sin_resolver)
+    if n_filas != len(out):
+        print("      [dolos] AVISO: %d filas colapsaron sobre pares ya vistos; hay "
+              "nombres de entrega duplicados." % (n_filas - len(out)))
     return out
 
 
@@ -351,6 +437,28 @@ def cmd_parsear(args):
 
 
 # ------------------------------------------------------------------------ antlr
+def _leer_texto(path):
+    """Lee un archivo de texto detectando la codificacion.
+    Tee-Object de Windows PowerShell escribe UTF-16LE por defecto, no UTF-8."""
+    with open(path, "rb") as fh:
+        crudo = fh.read()
+    if crudo.startswith(b"\xff\xfe"):
+        return crudo.decode("utf-16-le", errors="replace"), "utf-16-le (BOM)"
+    if crudo.startswith(b"\xfe\xff"):
+        return crudo.decode("utf-16-be", errors="replace"), "utf-16-be (BOM)"
+    if crudo.startswith(b"\xef\xbb\xbf"):
+        return crudo[3:].decode("utf-8", errors="replace"), "utf-8 (BOM)"
+    muestra = crudo[:4000]
+    if muestra.count(b"\x00") > len(muestra) // 4:
+        # Muchos bytes nulos: UTF-16 sin BOM. El lado del nulo indica el orden.
+        pares = muestra[: (len(muestra) // 2) * 2]
+        impares = sum(1 for i in range(1, len(pares), 2) if pares[i] == 0)
+        if impares > len(pares) // 4:
+            return crudo.decode("utf-16-le", errors="replace"), "utf-16-le"
+        return crudo.decode("utf-16-be", errors="replace"), "utf-16-be"
+    return crudo.decode("utf-8", errors="replace"), "utf-8"
+
+
 def cmd_antlr(args):
     """Cuantifica los fallos de analisis sintactico (ANTLR) de JPlag a partir del
     log de la corrida, y los cruza con los 120 pares del estudio.
@@ -367,22 +475,26 @@ def cmd_antlr(args):
 
     afectadas, n_err, n_lineas = Counter(), 0, 0
     ultima = None
-    with open(args.log, "r", encoding="utf-8", errors="replace") as fh:
-        for linea in fh:
-            n_lineas += 1
-            m = pat_sub.findall(linea)
-            if m:
-                ultima = m[-1].upper()
-            if pat_err.search(linea):
-                n_err += 1
-                # El nombre puede venir en la misma linea o en la inmediatamente previa.
-                objetivo = (m[-1].upper() if m else ultima)
-                if objetivo:
-                    afectadas[objetivo] += 1
+    texto, codif = _leer_texto(args.log)
+    for linea in texto.splitlines():
+        n_lineas += 1
+        m = pat_sub.findall(linea)
+        if m:
+            ultima = m[-1].upper()
+        if pat_err.search(linea):
+            n_err += 1
+            # El nombre puede venir en la misma linea o en la inmediatamente previa.
+            objetivo = (m[-1].upper() if m else ultima)
+            if objetivo:
+                afectadas[objetivo] += 1
 
-    print("Log: %s  (%d lineas, %d con error de analisis)" % (args.log, n_lineas, n_err))
+    print("Log: %s  [%s]  (%d lineas, %d con error de analisis)"
+          % (args.log, codif, n_lineas, n_err))
     if not afectadas:
         print("No se detectaron entregas con fallo de analisis.")
+        if n_lineas < 20:
+            print("AVISO: el log tiene muy pocas lineas. Comprueba que capturaste "
+                  "la salida completa con  2>&1 | Tee-Object -FilePath ...")
         return
     print("\nEntregas afectadas: %d" % len(afectadas))
     for k, v in sorted(afectadas.items(), key=lambda kv: (-kv[1], kv[0])):

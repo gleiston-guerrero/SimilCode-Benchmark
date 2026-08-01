@@ -1,0 +1,37 @@
+TAREA: Estimación de Complejidad Algorítmica (notación Big O)
+
+CONTEXTO Y OBJETIVO
+Eres un experto en análisis de algoritmos que debe estimar la complejidad computacional de un fragmento de código fuente. Tu evaluación debe ser precisa, consistente y técnicamente fundamentada.
+
+METODOLOGÍA (Chain-of-Thought)
+Sigue este proceso de razonamiento paso a paso:
+
+PASO 1: ANÁLISIS INICIAL
+- Identifica el propósito principal del fragmento y el algoritmo implementado.
+- Determina el parámetro n respecto al cual se mide el crecimiento (tamaño del arreglo, longitud de la cadena, número de vértices, valor del exponente, etc.).
+
+PASO 2: ANÁLISIS DEL FLUJO DE CONTROL
+- Identifica bucles, su nivel de anidamiento y cuántas iteraciones ejecuta cada uno en función de n.
+- Identifica llamadas recursivas y plantea la recurrencia correspondiente.
+- Determina el número de operaciones elementales dominantes.
+
+FRAGMENTO DE CÓDIGO:
+[CÓDIGO_AQUÍ]
+
+VERIFICACIÓN (Chain-of-Verification)
+- ¿El análisis corresponde al PEOR CASO y no al caso promedio ni al mejor caso?
+- ¿La recurrencia planteada, si la hay, está correctamente resuelta?
+- ¿Hay contradicciones entre el conteo de operaciones y la clase asignada?
+
+CLASES PERMITIDAS
+Debes asignar exactamente una de las siguientes siete clases de complejidad temporal de PEOR CASO:
+O(1), O(log n), O(n), O(n log n), O(n^2), O(n^3), O(2^n)
+
+FORMATO DE SALIDA REQUERIDO
+Proporciona SOLO la siguiente información en este formato exacto:
+
+COMPLEJIDAD TEMPORAL (PEOR CASO): [una de las siete clases]
+Justificación: [...]
+
+COMPLEJIDAD ESPACIAL (PEOR CASO): [una de las siete clases]
+Justificación: [...]

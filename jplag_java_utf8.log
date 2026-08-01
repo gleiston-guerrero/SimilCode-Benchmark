@@ -1,0 +1,59 @@
+﻿java : WARNING: A restricted method in java.lang.System has been called
+En línea: 1 Carácter: 1
++ java -jar jplag.jar baselines_work\cohorte\java   -l java   -r out_jp ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: A rest...has been called:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+WARNING: java.lang.System::load has been called by org.jline.nativ.JLineNativeLoader in an unnamed module 
+(file:/C:/Repositorios/SimilCode/SimilCode-Benchmark/jplag.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+
+Loading Submissions   0% [                               ]  0/75 (0:00:00 / ?) 
+Loading Submissions 100% [=========================] 75/75 (0:00:00 / 0:00:00) 
+Loading Submissions 100% [=========================] 75/75 (0:00:00 / 0:00:00) 
+
+Parsing Submissions   0% [                               ]  0/75 (0:00:00 / ?) 
+Parsing Submissions 100% [=========================] 75/75 (0:00:00 / 0:00:00) 
+Parsing Submissions 100% [=========================] 75/75 (0:00:00 / 0:00:00) 
+2026-08-01-01:46:44_045 [WARN] Token - Creating a token that ends earlier than it start. Start: 16:9; End: 15:26
+2026-08-01-01:46:44_045 [WARN] Token - Creating a token that ends earlier than it start. Start: 26:9; End: 23:24
+2026-08-01-01:46:44_046 [WARN] Token - Creating a token that ends earlier than it start. Start: 16:15; End: 16:7
+2026-08-01-01:46:44_049 [WARN] Token - Creating a token that ends earlier than it start. Start: 12:9; End: 12:4
+2026-08-01-01:46:44_049 [WARN] Token - Creating a token that ends earlier than it start. Start: 13:9; End: 13:8
+2026-08-01-01:46:44_049 [WARN] Token - Creating a token that ends earlier than it start. Start: 16:24; End: 16:14
+2026-08-01-01:46:44_049 [WARN] Token - Creating a token that ends earlier than it start. Start: 16:31; End: 16:21
+2026-08-01-01:46:44_077 [WARN] Token - Creating a token that ends earlier than it start. Start: 11:9; End: 10:23
+2026-08-01-01:46:44_078 [WARN] Token - Creating a token that ends earlier than it start. Start: 11:13; End: 11:9
+2026-08-01-01:46:44_078 [WARN] Token - Creating a token that ends earlier than it start. Start: 12:14; End: 12:9
+2026-08-01-01:46:44_078 [WARN] Token - Creating a token that ends earlier than it start. Start: 12:9; End: 11:30
+2026-08-01-01:46:44_078 [WARN] Token - Creating a token that ends earlier than it start. Start: 13:12; End: 13:9
+2026-08-01-01:46:44_078 [WARN] Token - Creating a token that ends earlier than it start. Start: 13:9; End: 12:38
+2026-08-01-01:46:44_078 [WARN] Token - Creating a token that ends earlier than it start. Start: 14:12; End: 14:9
+2026-08-01-01:46:44_078 [WARN] Token - Creating a token that ends earlier than it start. Start: 14:9; End: 13:35
+2026-08-01-01:46:44_078 [WARN] Token - Creating a token that ends earlier than it start. Start: 15:9; End: 14:28
+2026-08-01-01:46:44_079 [WARN] Token - Creating a token that ends earlier than it start. Start: 15:12; End: 15:9
+
+Preparing Submissions   1% [=======                ]  4/75 (0:00:00 / 0:00:00) 
+Preparing Submissions 100% [=======================] 75/75 (0:00:00 / 0:00:00) 
+Preparing Submissions 100% [=======================] 75/75 (0:00:00 / 0:00:00) 
+
+Comparing Submission Pairs   0% [                    ]    0/2775 (0:00:00 / ?) 
+Comparing Submission Pairs 100% [==============] 2775/2775 (0:00:00 / 0:00:00) 
+Comparing Submission Pairs 100% [==============] 2775/2775 (0:00:00 / 0:00:00) 
+2026-08-01-01:46:44_347 [INFO] JPlag - Total time for comparing submissions: 0h 00min 00s 057ms
+2026-08-01-01:46:44_348 [INFO] ClusteringFactory - Calculating clusters via spectral clustering with cumulative distribution function pre-processing...
+ago 01, 2026 1:46:44 P.M. org.jline.utils.Log logr
+WARNING: Unable to create a system terminal, creating a dumb terminal (enable debug logging for more information)
+
+Finding Clusters  <<+>         > 0:00:00
+Finding Clusters  < <+>        > 0:00:00
+Finding Clusters : complete
+2026-08-01-01:46:44_864 [INFO] ReportObjectFactory - Start writing report...
+2026-08-01-01:46:44_866 [INFO] ReportObjectFactory - Start to export results...
+2026-08-01-01:46:45_786 [INFO] OutputFileGenerator - Successfully written the result: out_jplag_java.jplag
+2026-08-01-01:46:45_787 [INFO] OutputFileGenerator - View the result using --mode
+2026-08-01-01:46:45_832 [INFO] JPlagRunner - ReportViewer started on port http://localhost:1996
+Press Enter key to exit...

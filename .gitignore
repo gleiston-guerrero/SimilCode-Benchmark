@@ -69,3 +69,8 @@ SimilCode-BigO-Validation.zip
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# Hojas de calificacion nombradas por evaluador
+/sheets/
+sheet_*.xlsx
+sheet_*.csv

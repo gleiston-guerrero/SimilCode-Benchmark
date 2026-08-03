@@ -1,0 +1,25 @@
+algo_id,filename,language,algorithm,time_documented,time_predicted,time_correct,space_documented,space_predicted,space_correct
+ADV_001,BinarySearchOptimized.java,Java,Bubble sort con nombre y comentario enganosos,O(n^2),O(n^2),1,O(1),O(1),1
+ADV_001,BinarySearchOptimized.java,Java,Bubble sort con nombre y comentario enganosos,O(n^2),O(n^2),1,O(1),O(1),1
+ADV_001,BinarySearchOptimized.java,Java,Bubble sort con nombre y comentario enganosos,O(n^2),O(n^2),1,O(1),O(1),1
+ADV_007,ProcessEachElement.java,Java,Division sucesiva entre dos,O(log n),O(log n),1,O(1),O(1),1
+ADV_007,ProcessEachElement.java,Java,Division sucesiva entre dos,O(log n),O(log n),1,O(1),O(1),1
+ADV_007,ProcessEachElement.java,Java,Division sucesiva entre dos,O(log n),O(log n),1,O(1),O(1),1
+ADV_005,RecursiveExpansion.java,Java,Fibonacci con memoizacion,O(n),O(n),1,O(n),O(n),1
+ADV_005,RecursiveExpansion.java,Java,Fibonacci con memoizacion,O(n),O(n),1,O(n),O(n),1
+ADV_005,RecursiveExpansion.java,Java,Fibonacci con memoizacion,O(n),O(n),1,O(n),O(n),1
+ADV_003,ScanAllElements.java,Java,Bucle con indice duplicado,O(log n),O(log n),1,O(1),O(1),1
+ADV_003,ScanAllElements.java,Java,Bucle con indice duplicado,O(log n),O(log n),1,O(1),O(1),1
+ADV_003,ScanAllElements.java,Java,Bucle con indice duplicado,O(log n),O(log n),1,O(1),O(1),1
+ADV_002,ConstantInnerLoop.cs,C#,Bucle anidado con cota interna constante,O(n),O(n),1,O(1),O(1),1
+ADV_002,ConstantInnerLoop.cs,C#,Bucle anidado con cota interna constante,O(n),O(n),1,O(1),O(1),1
+ADV_002,ConstantInnerLoop.cs,C#,Bucle anidado con cota interna constante,O(n),O(n),1,O(1),O(1),1
+ADV_006,QuadraticAudit.cs,C#,Recorrido lineal con bloque cubico inalcanzable,O(n),O(n),1,O(1),O(1),1
+ADV_006,QuadraticAudit.cs,C#,Recorrido lineal con bloque cubico inalcanzable,O(n),O(n),1,O(1),O(1),1
+ADV_006,QuadraticAudit.cs,C#,Recorrido lineal con bloque cubico inalcanzable,O(n),O(n),1,O(1),O(1),1
+ADV_004,SequentialPasses.cs,C#,Tres recorridos lineales consecutivos,O(n),O(n),1,O(1),O(1),1
+ADV_004,SequentialPasses.cs,C#,Tres recorridos lineales consecutivos,O(n),O(n),1,O(1),O(1),1
+ADV_004,SequentialPasses.cs,C#,Tres recorridos lineales consecutivos,O(n),O(n),1,O(1),O(1),1
+ADV_008,TripleNestedBounded.cs,C#,Triple anidamiento con cota interna constante,O(n^2),O(n^2),1,O(1),O(1),1
+ADV_008,TripleNestedBounded.cs,C#,Triple anidamiento con cota interna constante,O(n^2),O(n^2),1,O(1),O(1),1
+ADV_008,TripleNestedBounded.cs,C#,Triple anidamiento con cota interna constante,O(n^2),O(n^2),1,O(1),O(1),1

@@ -4,15 +4,17 @@
 validar_bigo.py
 ===============
 Ejecuta la validacion del componente de estimacion Big O contra la API oficial
-de Anthropic (modelo integrado en produccion), sobre el corpus de algoritmos
+del proveedor elegido (debe ser el del modelo integrado en produccion),
+sobre el corpus de algoritmos
 canonicos y/o el conjunto adversarial. Produce un CSV de predicciones apto para
 evaluar_bigo.py.
 
 Sin dependencias externas (solo biblioteca estandar).
 
 Uso (PowerShell):
-  $env:ANTHROPIC_API_KEY = "sk-ant-..."
-  python validar_bigo.py --corpus corpus --prompt bigo_prompt.txt --out predicciones_api.csv
+  $env:OPENAI_API_KEY = "sk-..."
+  python validar_bigo.py --corpus corpus --prompt bigo_prompt.txt --replicas 3 \
+      --proveedor openai --model gpt-5.5-2026-04-23 --out predicciones_api.csv
   python evaluar_bigo.py --pred predicciones_api.csv --truth ground_truth.csv --out resultados_bigo.csv
 """
 import argparse
@@ -29,7 +31,10 @@ PLACEHOLDER = "[CÓDIGO_AQUÍ]"
 CLASSES = ["O(1)", "O(log n)", "O(n)", "O(n log n)", "O(n^2)", "O(n^3)", "O(2^n)"]
 
 
-def http_post(url, payload, headers, timeout):
+REINTENTABLES = {408, 409, 429, 500, 502, 503, 504, 529}
+
+
+def _post(url, payload, headers, timeout):
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=data, headers=headers, method="POST")
     t0 = time.time()
@@ -37,29 +42,67 @@ def http_post(url, payload, headers, timeout):
         return json.loads(r.read().decode("utf-8", errors="replace")), time.time() - t0
 
 
-REINTENTABLES = {408, 409, 429, 500, 502, 503, 504, 529}
+def call_openai(prompt, model, key, timeout):
+    url = "https://api.openai.com/v1/chat/completions"
+    headers = {"Content-Type": "application/json", "Authorization": "Bearer " + key}
+    payload = {"model": model, "messages": [{"role": "user", "content": prompt}]}
+    obj, latency = _post(url, payload, headers, timeout)
+    text = obj["choices"][0]["message"]["content"]
+    return text, latency, str(obj.get("model") or model)
 
 
-def call_anthropic(prompt, model, key, timeout, intentos=6, base=4.0):
-    """Llama a la API con reintentos y espera exponencial.
+def call_deepseek(prompt, model, key, timeout):
+    url = "https://api.deepseek.com/chat/completions"
+    headers = {"Content-Type": "application/json", "Authorization": "Bearer " + key}
+    payload = {"model": model, "stream": False,
+               "messages": [{"role": "user", "content": prompt}]}
+    obj, latency = _post(url, payload, headers, timeout)
+    text = obj["choices"][0]["message"]["content"]
+    return text, latency, str(obj.get("model") or model)
 
-    Los codigos de limitacion de tasa (429) y de sobrecarga (529) son
-    transitorios: rendirse ante ellos convierte un corte temporal en un hueco
-    permanente en los datos. Se respeta la cabecera Retry-After cuando existe."""
+
+def call_gemini(prompt, model, key, timeout):
+    url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+           "%s:generateContent?key=%s" % (model, key))
+    obj, latency = _post(url, {"contents": [{"parts": [{"text": prompt}]}]},
+                         {"Content-Type": "application/json"}, timeout)
+    parts = obj["candidates"][0].get("content", {}).get("parts", [{}])
+    text = "".join(p.get("text", "") for p in parts)
+    return text, latency, str(obj.get("modelVersion") or model)
+
+
+PROVEEDORES = {
+    "anthropic": {"env": "ANTHROPIC_API_KEY", "default": "claude-opus-5"},
+    "openai": {"env": "OPENAI_API_KEY", "default": "gpt-5.5-2026-04-23"},
+    "deepseek": {"env": "DEEPSEEK_API_KEY", "default": "deepseek-v4-pro"},
+    "gemini": {"env": "GEMINI_API_KEY", "default": "gemini-3.1-pro-preview"},
+}
+
+
+def call_anthropic(prompt, model, key, timeout):
     url = "https://api.anthropic.com/v1/messages"
     headers = {"Content-Type": "application/json", "x-api-key": key,
                "anthropic-version": "2023-06-01"}
     payload = {"model": model, "max_tokens": 2048,
                "messages": [{"role": "user", "content": prompt}]}
-    ultimo = None
+    obj, latency = _post(url, payload, headers, timeout)
+    text = "".join(b.get("text", "") for b in obj.get("content", [])
+                   if b.get("type") == "text")
+    return text, latency, str(obj.get("model") or model)
+
+
+def llamar(proveedor, prompt, model, key, timeout, intentos=6, base=4.0):
+    """Invoca al proveedor con reintentos y espera exponencial.
+
+    Un 429 (limite de tasa) o un 529 (sobrecarga) son transitorios: rendirse
+    ante ellos convierte un corte momentaneo en un hueco permanente en los
+    datos. Un 400 por saldo o por credencial no lo es y falla de inmediato."""
+    fn = {"anthropic": call_anthropic, "openai": call_openai,
+          "deepseek": call_deepseek, "gemini": call_gemini}[proveedor]
     for intento in range(1, intentos + 1):
         try:
-            obj, latency = http_post(url, payload, headers, timeout)
-            text = "".join(b.get("text", "") for b in obj.get("content", [])
-                           if b.get("type") == "text")
-            return text, latency, str(obj.get("model") or model)
+            return fn(prompt, model, key, timeout)
         except urllib.error.HTTPError as e:
-            ultimo = e
             if e.code not in REINTENTABLES or intento == intentos:
                 raise
             espera = base * (2 ** (intento - 1))
@@ -73,14 +116,12 @@ def call_anthropic(prompt, model, key, timeout, intentos=6, base=4.0):
                   % (e.code, intento, intentos - 1, espera), flush=True)
             time.sleep(espera)
         except (urllib.error.URLError, TimeoutError, OSError) as e:
-            ultimo = e
             if intento == intentos:
                 raise
             espera = base * (2 ** (intento - 1))
             print("      red (%s); reintento %d/%d en %.0f s"
                   % (str(e)[:60], intento, intentos - 1, espera), flush=True)
             time.sleep(espera)
-    raise ultimo
 
 
 def normalize(raw):
@@ -116,17 +157,29 @@ def main():
                     help="Carpeta con subcarpetas java/ y csharp/.")
     ap.add_argument("--prompt", default="bigo_prompt.txt")
     ap.add_argument("--out", default="predicciones_api.csv")
-    ap.add_argument("--model", default="claude-opus-5")
+    ap.add_argument("--proveedor", choices=sorted(PROVEEDORES),
+                    default="openai",
+                    help="Proveedor de la API. Debe ser el del modelo integrado "
+                         "en produccion (por defecto, openai).")
+    ap.add_argument("--model", default=None,
+                    help="Identificador del modelo. Si se omite, el valor por "
+                         "defecto del proveedor elegido.")
     ap.add_argument("--replicas", type=int, default=1)
+    ap.add_argument("--intentos", type=int, default=6,
+                    help="Intentos por llamada ante fallos transitorios.")
     ap.add_argument("--resume", action="store_true",
                     help="Continua sobre un --out existente sin repetir lo ya resuelto.")
     ap.add_argument("--sleep", type=float, default=0.8)
     ap.add_argument("--timeout", type=float, default=120.0)
     args = ap.parse_args()
 
-    key = os.environ.get("ANTHROPIC_API_KEY")
+    cfg = PROVEEDORES[args.proveedor]
+    key = os.environ.get(cfg["env"])
     if not key:
-        sys.exit("Falta la variable de entorno ANTHROPIC_API_KEY.")
+        sys.exit("Falta la variable de entorno %s." % cfg["env"])
+    if not args.model:
+        args.model = cfg["default"]
+    print("Proveedor: %s | modelo: %s" % (args.proveedor, args.model))
 
     with open(args.prompt, "r", encoding="utf-8") as fh:
         template = fh.read()
@@ -141,7 +194,7 @@ def main():
     if not files:
         sys.exit("No se encontraron archivos de codigo en " + args.corpus)
 
-    cols = ["filename", "replica", "model_requested", "model_snapshot",
+    cols = ["filename", "replica", "provider", "model_requested", "model_snapshot",
             "timestamp_utc", "latency_s", "pred_time", "pred_space",
             "justification", "error"]
 
@@ -185,13 +238,16 @@ def main():
                     continue
                 row = {k: "" for k in cols}
                 row.update({"filename": name, "replica": rep})
+                if "provider" in row:
+                    row["provider"] = args.proveedor
                 if "model_requested" in row:
                     row["model_requested"] = args.model
                 if "timestamp_utc" in row:
                     row["timestamp_utc"] = time.strftime("%Y-%m-%dT%H:%M:%SZ",
                                                          time.gmtime())
                 try:
-                    text, lat, snap = call_anthropic(prompt, args.model, key, args.timeout)
+                    text, lat, snap = llamar(args.proveedor, prompt, args.model,
+                                             key, args.timeout, args.intentos)
                     pt, ps, just = parse(text)
                     row.update({"model_snapshot": snap, "latency_s": round(lat, 3),
                                 "pred_time": pt, "pred_space": ps,

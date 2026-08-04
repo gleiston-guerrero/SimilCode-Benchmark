@@ -4,9 +4,11 @@ Moss completa la triangulación con las tres líneas base establecidas del área
 
 ## Antes de nada: el identificador es una credencial
 
-El script contiene la línea `$userid=81103547`. Ese número autentica todas tus consultas contra el servidor de Stanford, y el propio encabezado del script pide expresamente no colocarlo en un lugar de acceso público.
+El script `moss` que Stanford entrega a cada solicitante contiene una línea `$userid=` con un número asignado. Ese número autentica todas las consultas contra el servidor, y el propio encabezado del script pide expresamente no colocarlo en un lugar de acceso público. **Este documento no lo reproduce, y ningún archivo del repositorio debe reproducirlo.**
 
-En consecuencia: **no subas el archivo `moss` al repositorio**. Añádelo a `.gitignore` en la misma línea de defensa que `ejecutar_benchmark.ps1`. Si alguien más obtiene ese identificador, puede consumir tu cuota y sus consultas quedarán asociadas a tu cuenta. Dado que el script apareció en una conversación, considera escribir a `moss-request@cs.stanford.edu` para que te asignen otro.
+En consecuencia: **no subas el archivo `moss` al repositorio**. Añádelo a `.gitignore` en la misma línea de defensa que cualquier archivo que contenga credenciales. Quien obtenga ese identificador puede consumir la cuota del titular, y sus consultas quedarán asociadas a esa cuenta. Si el número llega a aparecer en cualquier sitio de acceso público —un repositorio, un archivo permanente, una captura de pantalla—, la única medida efectiva es solicitar otro a `moss-request@cs.stanford.edu`: retirarlo del lugar donde apareció no revierte la exposición.
+
+Para obtener un identificador, se solicita a esa misma dirección siguiendo las instrucciones publicadas por Stanford.
 
 ## Instalación en Windows
 
@@ -26,6 +28,13 @@ chmod u+x moss
 Tu unidad `C:` es accesible desde WSL en `/mnt/c/`, de modo que puedes trabajar directamente sobre el repositorio sin copiar nada.
 
 ## Ejecución en modo cohorte
+
+El guion `ejecutar_moss.sh`, versionado en este repositorio, automatiza lo que sigue con los parámetros exactos del estudio y se detiene con un mensaje explicativo si el cliente no está presente, si no lleva un identificador válido o si alguien lo ha versionado por error. Los comandos se documentan igualmente aquí para que el protocolo sea legible sin ejecutarlo.
+
+```bash
+bash ejecutar_moss.sh
+```
+
 
 Moss trae la opción `-d`, que trata **cada directorio como una entrega independiente** — exactamente la estructura que genera `baselines.py preparar`. Desde la raíz del repositorio, dentro de WSL:
 

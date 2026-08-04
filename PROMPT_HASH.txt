@@ -1,0 +1,16 @@
+# Verificacion de integridad del prompt estandarizado
+#
+# Archivo   : prompt.txt
+# Algoritmo : SHA-256
+# Tamano    : 1581 bytes
+#
+# Este es el prompt empleado en las 1440 invocaciones del benchmark
+# (120 casos x 4 modelos x 3 replicas). El valor es identico con saltos de
+# linea LF o CRLF, de modo que la verificacion no depende del sistema.
+#
+# Comprobacion:
+#   Linux / macOS   sha256sum prompt.txt
+#   Windows         certutil -hashfile prompt.txt SHA256
+#   PowerShell      Get-FileHash prompt.txt -Algorithm SHA256
+
+c443efeae2df1bce770a26549ef1137950860d9d358df7adcd0f84824883a99c  prompt.txt

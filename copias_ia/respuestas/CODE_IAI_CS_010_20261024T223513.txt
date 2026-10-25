@@ -1,0 +1,50 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace MonitoreoClimatico
+{
+    class AnalizadorTermico
+    {
+        static void Main(string[] args)
+        {
+            List<double> registros = new List<double>();
+            Console.WriteLine("=== MONITOREO CLIMÁTICO ===");
+            
+            Console.Write("¿Cuántas lecturas desea ingresar? ");
+            int numeroLecturas = Convert.ToInt32(Console.ReadLine());
+            
+            for (int contador = 0; contador < numeroLecturas; contador++)
+            {
+                Console.Write($"Temperatura {contador + 1} (°C): ");
+                double valor = Convert.ToDouble(Console.ReadLine());
+                registros.Add(valor);
+            }
+            
+            double total = 0;
+            double extremoMaximo = registros[0];
+            double extremoMinimo = registros[0];
+            
+            foreach (double valor in registros)
+            {
+                total += valor;
+                if (valor > extremoMaximo) extremoMaximo = valor;
+                if (valor < extremoMinimo) extremoMinimo = valor;
+                
+                Console.Write($"{valor}°C ");
+                if (valor > 30)
+                    Console.WriteLine("- CALOR");
+                else if (valor < 15)
+                    Console.WriteLine("- FRÍO");
+                else
+                    Console.WriteLine("- NORMAL");
+            }
+            
+            double media = total / registros.Count;
+            Console.WriteLine($"\nPromedio: {media:F1}°C");
+            Console.WriteLine($"Máxima: {extremoMaximo}°C");
+            Console.WriteLine($"Mínima: {extremoMinimo}°C");
+        }
+    }
+}
+```

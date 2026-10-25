@@ -1,0 +1,37 @@
+```java
+package Calculadora;
+
+public class OperacionesAritmeticas {
+    public static void main(String[] args) {
+        double primerValor = 15.5;
+        double segundoValor = 4.2;
+        String tipoOperacion = "+";
+        double total = 0;
+
+        switch (tipoOperacion) {
+            case "+":
+                total = primerValor + segundoValor;
+                break;
+            case "-":
+                total = primerValor - segundoValor;
+                break;
+            case "*":
+                total = primerValor * segundoValor;
+                break;
+            case "/":
+                if (segundoValor != 0) {
+                    total = primerValor / segundoValor;
+                } else {
+                    System.out.println("Error: División por cero");
+                    return;
+                }
+                break;
+            default:
+                System.out.println("Operación no válida");
+                return;
+        }
+
+        System.out.println(primerValor + " " + tipoOperacion + " " + segundoValor + " = " + total);
+    }
+}
+```

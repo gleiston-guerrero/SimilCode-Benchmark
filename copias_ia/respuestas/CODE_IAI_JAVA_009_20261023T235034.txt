@@ -1,0 +1,38 @@
+```java
+package Java.Modificado;
+
+import java.util.List;
+
+public class ListaDeTareas {
+    public static void main(String[] args) {
+        List<String> actividades = new List<>();
+        actividades.add("Estudiar Java");
+        actividades.add("Hacer ejercicio");
+        actividades.add("Comprar víveres");
+        actividades.add("Llamar a mamá");
+        actividades.add("Leer libro");
+        
+        int realizadas = 0;
+        int faltantes = actividades.size();
+        
+        System.out.println("=== LISTA DE ACTIVIDADES ===");
+        for(int indice = 0; indice < actividades.size(); indice++) {
+            System.out.println((indice + 1) + ". " + actividades.get(indice));
+        }
+        
+        // Simular completar algunas actividades
+        realizadas = 2;
+        faltantes = actividades.size() - realizadas;
+        
+        System.out.println("\nEstadísticas:");
+        System.out.println("Realizadas: " + realizadas);
+        System.out.println("Faltantes: " + faltantes);
+        
+        if(realizadas > faltantes) {
+            System.out.println("¡Buen progreso!");
+        } else {
+            System.out.println("Sigue trabajando");
+        }
+    }
+}
+```

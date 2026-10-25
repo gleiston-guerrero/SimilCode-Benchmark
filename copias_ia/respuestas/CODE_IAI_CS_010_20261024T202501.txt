@@ -1,0 +1,50 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace GestorDeTemperaturas
+{
+    class AdministradorDeTemperaturas
+    {
+        static void Main(string[] args)
+        {
+            List<double> medidas = new List<double>();
+            Console.WriteLine("=== GESTOR DE TEMPERATURAS ===");
+            
+            Console.Write("¿Cuántas temperaturas desea ingresar? ");
+            int numeroDeMediciones = Convert.ToInt32(Console.ReadLine());
+            
+            for (int indice = 0; indice < numeroDeMediciones; indice++)
+            {
+                Console.Write($"Temperatura {indice + 1} (°C): ");
+                double valor = Convert.ToDouble(Console.ReadLine());
+                medidas.Add(valor);
+            }
+            
+            double total = 0;
+            double tempMaxima = medidas[0];
+            double tempMinima = medidas[0];
+            
+            foreach (double temperatura in medidas)
+            {
+                total += temperatura;
+                if (temperatura > tempMaxima) tempMaxima = temperatura;
+                if (temperatura < tempMinima) tempMinima = temperatura;
+                
+                Console.Write($"{temperatura}°C ");
+                if (temperatura > 30)
+                    Console.WriteLine("- CALOR");
+                else if (temperatura < 15)
+                    Console.WriteLine("- FRÍO");
+                else
+                    Console.WriteLine("- NORMAL");
+            }
+            
+            double promedio = total / medidas.Count;
+            Console.WriteLine($"\nPromedio: {promedio:F1}°C");
+            Console.WriteLine($"Máxima: {tempMaxima}°C");
+            Console.WriteLine($"Mínima: {tempMinima}°C");
+        }
+    }
+}
+```

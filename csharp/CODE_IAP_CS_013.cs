@@ -1,0 +1,83 @@
+using System;
+
+namespace SistemaDeConversiones
+{
+    internal class AplicacionPrincipal
+    {
+        public static void Main(string[] args)
+        {
+            DesplegarMenu();
+            
+            string entradaUsuario = Console.ReadLine();
+            int alternativa = int.Parse(entradaUsuario);
+            
+            double calculoFinal = 0.0;
+            
+            /* Reemplazamos la estructura if-else if por un switch para variar el flujo */
+            switch (alternativa)
+            {
+                case 1:
+                    calculoFinal = TransformarLongitud();
+                    break;
+                case 2:
+                    calculoFinal = TransformarTemperatura();
+                    break;
+                case 3:
+                    calculoFinal = TransformarMasa();
+                    break;
+            }
+            
+            EmitirDiagnostico(calculoFinal);
+        }
+
+        private static void DesplegarMenu()
+        {
+            // Textos impresos mantenidos exactamente igual al requerimiento
+            Console.WriteLine("=== CONVERSOR DE UNIDADES ===");
+            Console.WriteLine("1. Metros a Pies");
+            Console.WriteLine("2. Celsius a Fahrenheit");
+            Console.WriteLine("3. Kilogramos a Libras");
+            Console.Write("Seleccione conversión: ");
+        }
+
+        private static double TransformarLongitud()
+        {
+            Console.Write("Ingrese metros: ");
+            double m = double.Parse(Console.ReadLine());
+            
+            double p = m * 3.28084;
+            Console.WriteLine($"{m} metros = {p:F2} pies");
+            
+            return p;
+        }
+
+        private static double TransformarTemperatura()
+        {
+            Console.Write("Ingrese grados Celsius: ");
+            double c = double.Parse(Console.ReadLine());
+            
+            // 9/5 es equivalente matemáticamente a 1.8
+            double f = (c * 1.8) + 32.0;
+            Console.WriteLine($"{c}°C = {f:F2}°F");
+            
+            return f;
+        }
+
+        private static double TransformarMasa()
+        {
+            Console.Write("Ingrese kilogramos: ");
+            double k = double.Parse(Console.ReadLine());
+            
+            double l = k * 2.20462;
+            Console.WriteLine($"{k} kg = {l:F2} libras");
+            
+            return l;
+        }
+
+        private static void EmitirDiagnostico(double valor)
+        {
+            /* Evaluacion final utilizando el operador ternario en lugar de if/else */
+            Console.WriteLine(valor > 100 ? "Valor convertido alto" : "Valor convertido normal");
+        }
+    }
+}

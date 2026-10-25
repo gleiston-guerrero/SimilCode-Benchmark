@@ -1,0 +1,74 @@
+```java
+import java.util.Scanner;
+
+/**
+ * Clase principal para la ejecución de operaciones aritméticas básicas.
+ */
+public class CalculadoraAritmetica {
+
+    public static void main(String[] argumentos) {
+        // Inicializamos el objeto para capturar la entrada del teclado
+        Scanner entradaUsuario = new Scanner(System.in);
+        
+        // Petición del primer operando
+        System.out.print("Ingrese el primer número: ");
+        double operandoIzquierdo = entradaUsuario.nextDouble();
+        
+        // Petición del segundo operando
+        System.out.print("Ingrese el segundo número: ");
+        double operandoDerecho = entradaUsuario.nextDouble();
+        
+        // Petición del símbolo matemático
+        System.out.print("Ingrese la operación (+, -, *, /): ");
+        String textoIngresado = entradaUsuario.next();
+        char simbolo = textoIngresado.charAt(0);
+        
+        // Delegamos la lógica matemática a un método independiente
+        ejecutarYMostrar(operandoIzquierdo, operandoDerecho, simbolo);
+        
+        // Cerramos el flujo de lectura
+        entradaUsuario.close();
+    }
+
+    /**
+     * Método auxiliar que procesa el cálculo basado en el operador proporcionado
+     * y muestra el resultado o los mensajes de error correspondientes.
+     */
+    private static void ejecutarYMostrar(double valorA, double valorB, char operador) {
+        double calculoFinal = 0.0;
+        boolean sinErrores = true;
+
+        // Se reemplaza la estructura if-else original por un switch para mayor claridad
+        switch (operador) {
+            case '*':
+                calculoFinal = valorA * valorB;
+                break;
+            case '/':
+                // Validación para prevenir fallos matemáticos
+                if (valorB == 0) {
+                    System.out.println("Error: División por cero");
+                    sinErrores = false;
+                } else {
+                    calculoFinal = valorA / valorB;
+                }
+                break;
+            case '+':
+                calculoFinal = valorA + valorB;
+                break;
+            case '-':
+                calculoFinal = valorA - valorB;
+                break;
+            default:
+                // Control de caracteres no reconocidos
+                System.out.println("Operación no válida");
+                sinErrores = false;
+                break;
+        }
+
+        // Condicional que asegura que solo se imprima el valor si la operación fue exitosa
+        if (sinErrores) {
+            System.out.println("Resultado: " + calculoFinal);
+        }
+    }
+}
+```

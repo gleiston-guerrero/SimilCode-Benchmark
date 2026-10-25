@@ -1,0 +1,25 @@
+```java
+package Java.Idéntico;
+
+public class OrdenadorNumeros {
+    public static void main(String[] args) {
+        int[] listaNumeros = {64, 34, 25, 12, 22, 11, 90};
+        int cantidadNumeros = listaNumeros.length;
+        
+        for(int indice = 0; indice < cantidadNumeros-1; indice++) {
+            for(int subindice = 0; subindice < cantidadNumeros-indice-1; subindice++) {
+                if(listaNumeros[subindice] > listaNumeros[subindice+1]) {
+                    int auxiliar = listaNumeros[subindice];
+                    listaNumeros[subindice] = listaNumeros[subindice+1];
+                    listaNumeros[subindice+1] = auxiliar;
+                }
+            }
+        }
+        
+        System.out.print("Secuencia ordenada: ");
+        for(int numero : listaNumeros) {
+            System.out.print(numero + " ");
+        }
+    }
+}
+```

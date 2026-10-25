@@ -1,0 +1,65 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace AdminAlumnos
+{
+    public class Alumno
+    {
+        public string NombreCompleto { get; set; }
+        public int Anios { get; set; }
+        public double CalificacionPromedio { get; set; }
+        
+        public Alumno(string nombre, int edad, double promedio)
+        {
+            NombreCompleto = nombre;
+            Anios = edad;
+            CalificacionPromedio = promedio;
+        }
+        
+        public void PresentarDatos()
+        {
+            Console.WriteLine("Nombre: " + NombreCompleto);
+            Console.WriteLine("Edad: " + Anios);
+            Console.WriteLine("Promedio: " + CalificacionPromedio);
+        }
+        
+        public bool EstaAprobado()
+        {
+            return CalificacionPromedio >= 3.0;
+        }
+    }
+    
+    public class Aplicacion
+    {
+        public static void Principal(string[] argumentos)
+        {
+            List<Alumno> listaAlumnos = new List<Alumno>();
+            
+            listaAlumnos.Add(new Alumno("Juan Pérez", 20, 3.5));
+            listaAlumnos.Add(new Alumno("María García", 19, 2.8));
+            listaAlumnos.Add(new Alumno("Carlos López", 21, 4.2));
+            
+            Console.WriteLine("=== DATOS DE ALUMNOS ===");
+            
+            for (int i = 0; i < listaAlumnos.Count; i++)
+            {
+                listaAlumnos[i].PresentarDatos();
+                
+                if (listaAlumnos[i].EstaAprobado())
+                {
+                    Console.WriteLine("Estado: APROBADO");
+                }
+                else
+                {
+                    Console.WriteLine("Estado: REPROBADO");
+                }
+                
+                Console.WriteLine("------------------------");
+            }
+            
+            Console.ReadKey();
+        }
+    }
+}
+```

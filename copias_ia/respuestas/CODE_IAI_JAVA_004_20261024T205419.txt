@@ -1,0 +1,29 @@
+```java
+package Java.Oriental;
+
+public class CALCULADORA_SIMPLE {
+    public static void main(String[] args) {
+        double valorUno = 15.5;
+        double valorDos = 4.2;
+        String accion = "+";
+        double total = 0;
+        
+        if(accion.equals("+")) {
+            total = valorUno + valorDos;
+        } else if(accion.equals("-")) {
+            total = valorUno - valorDos;
+        } else if(accion.equals("*")) {
+            total = valorUno * valorDos;
+        } else if(accion.equals("/")) {
+            if(valorDos != 0) {
+                total = valorUno / valorDos;
+            } else {
+                System.out.println("Error: División por cero");
+                return;
+            }
+        }
+        
+        System.out.println(valorUno + " " + accion + " " + valorDos + " = " + total);
+    }
+}
+```

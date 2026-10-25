@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+
+namespace ManejadorDatos
+{
+    class Principal
+    {
+        static void Main()
+        {
+            List<int> valores = new List<int>();
+            
+            Console.WriteLine("Manejador de Datos");
+            Console.Write("¿Cuántos datos desea ingresar? ");
+            int cantidad = int.Parse(Console.ReadLine());
+            
+            for (int i = 0; i < cantidad; i++)
+            {
+                Console.Write($"Ingrese el dato {i + 1}: ");
+                int dato = int.Parse(Console.ReadLine());
+                valores.Add(dato);
+            }
+            
+            int total = 0;
+            int valorMaximo = valores[0];
+            int valorMinimo = valores[0];
+            
+            foreach (int num in valores)
+            {
+                total += num;
+                if (num > valorMaximo) valorMaximo = num;
+                if (num < valorMinimo) valorMinimo = num;
+            }
+            
+            double media = (double)total / valores.Count;
+            
+            Console.WriteLine($"\nResultados:");
+            Console.WriteLine($"Suma: {total}");
+            Console.WriteLine($"Promedio: {media:F2}");
+            Console.WriteLine($"Máximo: {valorMaximo}");
+            Console.WriteLine($"Mínimo: {valorMinimo}");
+            Console.WriteLine($"Rango: {valorMaximo - valorMinimo}");
+            
+            if (media > 50)
+                Console.WriteLine("Los datos tienden a ser altos");
+            else
+                Console.WriteLine("Los datos tienden a ser bajos");
+        }
+    }
+}

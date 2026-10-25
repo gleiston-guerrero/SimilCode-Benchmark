@@ -1,0 +1,51 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace TemperatureConverter
+{
+    class TemperatureApp
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Convertidor de Temperatura ===");
+            
+            Console.Write("Ingrese temperatura en Celsius: ");
+            double temperatureCelsius = Convert.ToDouble(Console.ReadLine());
+            
+            Console.Write("Convertir a (1-Fahrenheit, 2-Kelvin): ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            
+            double result = 0;
+            string unit = "";
+            
+            switch (choice)
+            {
+                case 1:
+                    result = (temperatureCelsius * 9 / 5) + 32;
+                    unit = "Fahrenheit";
+                    break;
+                case 2:
+                    result = temperatureCelsius + 273.15;
+                    unit = "Kelvin";
+                    break;
+                default:
+                    Console.WriteLine("Opción inválida");
+                    Console.ReadKey();
+                    return;
+            }
+            
+            Console.WriteLine($"{temperatureCelsius}°C = {result:F2}°{(choice == 1 ? "F" : "K")}");
+            
+            if (result > 100)
+                Console.WriteLine("Temperatura alta");
+            else if (result < 0)
+                Console.WriteLine("Temperatura bajo cero");
+            else
+                Console.WriteLine("Temperatura moderada");
+            
+            Console.ReadKey();
+        }
+    }
+}
+```

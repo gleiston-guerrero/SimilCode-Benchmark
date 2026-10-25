@@ -1,0 +1,25 @@
+package Java.Original;
+
+import java.util.Scanner;
+
+public class PROGRAMA_ORIGINAL_JAVA_012 {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        
+        System.out.print("Ingrese la cantidad de números: ");
+        int totalNumeros = entrada.nextInt();
+        
+        int conteoPares = 0;
+        for (int indice = 0; indice < totalNumeros; indice++) {
+            System.out.print("Número " + (indice + 1) + ": ");
+            int valor = entrada.nextInt();
+            
+            if (valor % 2 == 0) {
+                conteoPares++;
+            }
+        }
+        
+        System.out.println("Cantidad de números pares: " + conteoPares);
+        entrada.close();
+    }
+}

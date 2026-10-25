@@ -1,0 +1,50 @@
+/**
+ * Clase principal para la evaluación de expresiones aritméticas simples.
+ */
+public class EvaluadorMatematico {
+
+    public static void main(String[] argumentos) {
+        // Inicialización de los datos a procesar
+        double valorIzquierdo = 15.5;
+        double valorDerecho = 4.2;
+        String signo = "+";
+        
+        // Se delega el cálculo a un método auxiliar
+        Double respuesta = ejecutarOperacion(valorIzquierdo, valorDerecho, signo);
+        
+        // Verificamos si el cálculo fue válido o si hubo un error matemático
+        if (respuesta == null) {
+            System.out.println("Error: División por cero");
+        } else {
+            System.out.println(valorIzquierdo + " " + signo + " " + valorDerecho + " = " + respuesta);
+        }
+    }
+
+    /**
+     * Método que procesa la lógica matemática basándose en el operador recibido.
+     * Retorna null en caso de detectar una división entre cero.
+     */
+    private static Double ejecutarOperacion(double op1, double op2, String accion) {
+        double computo = 0.0;
+        
+        switch (accion) {
+            case "*":
+                computo = op1 * op2;
+                break;
+            case "/":
+                if (op2 == 0.0) {
+                    return null; // Indicador de error
+                }
+                computo = op1 / op2;
+                break;
+            case "+":
+                computo = op1 + op2;
+                break;
+            case "-":
+                computo = op1 - op2;
+                break;
+        }
+        
+        return computo;
+    }
+}

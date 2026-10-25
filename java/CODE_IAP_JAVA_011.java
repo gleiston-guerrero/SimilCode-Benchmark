@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+/*
+ * Calculadora sencilla de rendimiento academico.
+ * Pide las calificaciones una a una y decide el resultado final.
+ */
+public class ControlNotasEstudiante {
+
+    /** Umbral minimo exigido para superar el curso. */
+    private static final double LIMITE_APROBACION = 3.0;
+
+    private final Scanner lector;
+
+    public ControlNotasEstudiante(Scanner lector) {
+        this.lector = lector;
+    }
+
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        ControlNotasEstudiante gestor = new ControlNotasEstudiante(entrada);
+        gestor.ejecutar();
+        entrada.close();
+    }
+
+    /** Flujo principal: lectura, calculo y veredicto. */
+    private void ejecutar() {
+        int cantidadAsignaturas = pedirCantidadAsignaturas();
+        double[] calificaciones = capturarCalificaciones(cantidadAsignaturas);
+        double media = calcularMedia(calificaciones, cantidadAsignaturas);
+
+        System.out.println("El promedio es: " + media);
+        System.out.println(obtenerVeredicto(media));
+    }
+
+    /** Solicita cuantas materias se van a evaluar. */
+    private int pedirCantidadAsignaturas() {
+        System.out.print("Ingrese el número de materias: ");
+        return lector.nextInt();
+    }
+
+    /** Recoge todas las notas en un arreglo. */
+    private double[] capturarCalificaciones(int total) {
+        double[] valores = new double[Math.max(total, 0)];
+        int indice = 0;
+        while (indice < total) {
+            System.out.print("Ingrese nota " + (indice + 1) + ": ");
+            valores[indice] = lector.nextDouble();
+            indice++;
+        }
+        return valores;
+    }
+
+    /** Obtiene la media aritmetica de las notas recibidas. */
+    private double calcularMedia(double[] valores, int divisor) {
+        double acumulado = 0;
+        for (double valor : valores) {
+            acumulado = acumulado + valor;
+        }
+        return acumulado / divisor;
+    }
+
+    /** Traduce la media en el mensaje final correspondiente. */
+    private String obtenerVeredicto(double media) {
+        return media < LIMITE_APROBACION ? "REPROBADO" : "APROBADO";
+    }
+}

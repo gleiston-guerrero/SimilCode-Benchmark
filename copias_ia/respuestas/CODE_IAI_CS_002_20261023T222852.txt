@@ -1,0 +1,39 @@
+```csharp
+using System;
+
+namespace NotasPromedio
+{
+    class Evaluador
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Evaluación de Notas ===");
+            double calificacion1, calificacion2, calificacion3;
+            
+            Console.Write("Ingrese la primera calificación: ");
+            calificacion1 = Convert.ToDouble(Console.ReadLine());
+            
+            Console.Write("Ingrese la segunda calificación: ");
+            calificacion2 = Convert.ToDouble(Console.ReadLine());
+            
+            Console.Write("Ingrese la tercera calificación: ");
+            calificacion3 = Convert.ToDouble(Console.ReadLine());
+            
+            double resultado = (calificacion1 + calificacion2 + calificacion3) / 3;
+            
+            Console.WriteLine($"El promedio es: {resultado:F2}");
+            
+            if (resultado >= 3.0)
+            {
+                Console.WriteLine("¡Aprobado!");
+            }
+            else
+            {
+                Console.WriteLine("Reprobado");
+            }
+            
+            Console.ReadKey();
+        }
+    }
+}
+```

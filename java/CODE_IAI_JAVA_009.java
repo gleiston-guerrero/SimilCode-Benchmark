@@ -1,0 +1,37 @@
+package Java.Modificado;
+
+import java.util.ArrayList;
+
+public class TASK_LIST_JAVA_010 {
+    public static void main(String[] args) {
+        ArrayList<String> actividades = new ArrayList<>();
+        actividades.add("Estudiar Java");
+        actividades.add("Hacer ejercicio");
+        actividades.add("Comprar víveres");
+        actividades.add("Llamar a mamá");
+        actividades.add("Leer libro");
+        
+        int terminadas = 0;
+        int restantes = actividades.size();
+        
+        System.out.println("=== LISTA DE TAREAS ===");
+        for(String actividad : actividades) {
+            terminadas++;
+            System.out.println(terminadas + ". " + actividad);
+        }
+        
+        // Simular completar algunas tareas
+        terminadas = 2;
+        restantes = actividades.size() - terminadas;
+        
+        System.out.println("\nEstadísticas:");
+        System.out.println("Completadas: " + terminadas);
+        System.out.println("Pendientes: " + restantes);
+        
+        if(terminadas > restantes) {
+            System.out.println("¡Buen progreso!");
+        } else {
+            System.out.println("Sigue trabajando");
+        }
+    }
+}

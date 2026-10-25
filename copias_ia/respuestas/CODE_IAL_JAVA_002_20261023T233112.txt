@@ -1,0 +1,25 @@
+```java
+package Java.Idéntico;
+
+public class VerificadorSeguridad {
+    public static void main(String[] args) {
+        String clave = "Seguridad123";
+        boolean incluyeMinuscula = false;
+        boolean incluyeMayuscula = false;
+        boolean incluyeNumero = false;
+        
+        for(int i = 0; i < clave.length(); i++) {
+            char letra = clave.charAt(i);
+            if(letra >= 'a' && letra <= 'z') incluyeMinuscula = true;
+            if(letra >= 'A' && letra <= 'Z') incluyeMayuscula = true;
+            if(letra >= '0' && letra <= '9') incluyeNumero = true;
+        }
+        
+        if(clave.length() >= 8 && incluyeMinuscula && incluyeMayuscula && incluyeNumero) {
+            System.out.println("Contraseña segura");
+        } else {
+            System.out.println("Contraseña insegura");
+        }
+    }
+}
+```

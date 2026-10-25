@@ -1,0 +1,529 @@
+{
+ "n_pairs": {
+  "independiente": 30,
+  "ia_api": 30,
+  "ia_intensa": 28,
+  "ia_ligera": 26
+ },
+ "n_reference_programs": 30,
+ "auc": {
+  "openai": {
+   "ia_all": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_ligera": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_intensa": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_api": {
+    "auc": 0.74,
+    "ci95_cluster": [
+     0.63,
+     0.85
+    ]
+   }
+  },
+  "deepseek": {
+   "ia_all": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_ligera": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_intensa": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_api": {
+    "auc": 0.8,
+    "ci95_cluster": [
+     0.69,
+     0.9
+    ]
+   }
+  },
+  "gemini": {
+   "ia_all": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_ligera": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_intensa": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     0.99,
+     1.0
+    ]
+   },
+   "ia_api": {
+    "auc": 0.6,
+    "ci95_cluster": [
+     0.48,
+     0.72
+    ]
+   }
+  },
+  "anthropic": {
+   "ia_all": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_ligera": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_intensa": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_api": {
+    "auc": 0.71,
+    "ci95_cluster": [
+     0.58,
+     0.83
+    ]
+   }
+  },
+  "moss": {
+   "ia_all": {
+    "auc": 0.99,
+    "ci95_cluster": [
+     0.96,
+     1.0
+    ]
+   },
+   "ia_ligera": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_intensa": {
+    "auc": 0.98,
+    "ci95_cluster": [
+     0.93,
+     1.0
+    ]
+   },
+   "ia_api": {
+    "auc": 0.54,
+    "ci95_cluster": [
+     0.45,
+     0.62
+    ]
+   }
+  },
+  "jplag": {
+   "ia_all": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     0.99,
+     1.0
+    ]
+   },
+   "ia_ligera": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_intensa": {
+    "auc": 0.99,
+    "ci95_cluster": [
+     0.98,
+     1.0
+    ]
+   },
+   "ia_api": {
+    "auc": 0.7,
+    "ci95_cluster": [
+     0.59,
+     0.8
+    ]
+   }
+  },
+  "dolos": {
+   "ia_all": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     0.99,
+     1.0
+    ]
+   },
+   "ia_ligera": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   },
+   "ia_intensa": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     0.99,
+     1.0
+    ]
+   },
+   "ia_api": {
+    "auc": 0.52,
+    "ci95_cluster": [
+     0.39,
+     0.65
+    ]
+   }
+  }
+ },
+ "flag_rates": {
+  "openai": {
+   "50": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 100.0,
+    "independent_flagged_pct": 100.0
+   },
+   "70": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 96.7,
+    "independent_flagged_pct": 70.0
+   },
+   "80": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 36.7,
+    "independent_flagged_pct": 16.7
+   },
+   "90": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 96.4,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   }
+  },
+  "deepseek": {
+   "50": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 100.0,
+    "independent_flagged_pct": 100.0
+   },
+   "70": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 100.0,
+    "independent_flagged_pct": 63.3
+   },
+   "80": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 46.7,
+    "independent_flagged_pct": 13.3
+   },
+   "90": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   }
+  },
+  "gemini": {
+   "50": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 100.0,
+    "independent_flagged_pct": 100.0
+   },
+   "70": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 13.3,
+    "independent_flagged_pct": 10.0
+   },
+   "80": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 6.7,
+    "independent_flagged_pct": 6.7
+   },
+   "90": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 89.3,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   }
+  },
+  "anthropic": {
+   "50": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 100.0,
+    "independent_flagged_pct": 100.0
+   },
+   "70": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 53.3,
+    "independent_flagged_pct": 26.7
+   },
+   "80": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 3.3
+   },
+   "90": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 78.6,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   }
+  },
+  "moss": {
+   "50": {
+    "ia_ligera_flagged_pct": 96.2,
+    "ia_intensa_flagged_pct": 85.7,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   },
+   "70": {
+    "ia_ligera_flagged_pct": 96.2,
+    "ia_intensa_flagged_pct": 85.7,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   },
+   "80": {
+    "ia_ligera_flagged_pct": 96.2,
+    "ia_intensa_flagged_pct": 82.1,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   },
+   "90": {
+    "ia_ligera_flagged_pct": 76.9,
+    "ia_intensa_flagged_pct": 60.7,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   }
+  },
+  "jplag": {
+   "50": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 92.9,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 6.7
+   },
+   "70": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 89.3,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   },
+   "80": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 85.7,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   },
+   "90": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 85.7,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   }
+  },
+  "dolos": {
+   "50": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 100.0,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 3.3
+   },
+   "70": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 89.3,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   },
+   "80": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 82.1,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   },
+   "90": {
+    "ia_ligera_flagged_pct": 100.0,
+    "ia_intensa_flagged_pct": 78.6,
+    "ia_api_flagged_pct": 0.0,
+    "independent_flagged_pct": 0.0
+   }
+  }
+ },
+ "median_score": {
+  "openai": {
+   "ia_ligera": 97.0,
+   "ia_intensa": 96.0,
+   "ia_api": 79.0,
+   "independiente": 73.0
+  },
+  "deepseek": {
+   "ia_ligera": 98.0,
+   "ia_intensa": 97.0,
+   "ia_api": 78.0,
+   "independiente": 70.5
+  },
+  "gemini": {
+   "ia_ligera": 97.0,
+   "ia_intensa": 95.5,
+   "ia_api": 64.0,
+   "independiente": 61.5
+  },
+  "anthropic": {
+   "ia_ligera": 97.0,
+   "ia_intensa": 96.0,
+   "ia_api": 70.0,
+   "independiente": 64.0
+  },
+  "moss": {
+   "ia_ligera": 95.5,
+   "ia_intensa": 91.0,
+   "ia_api": 0.0,
+   "independiente": 0.0
+  },
+  "jplag": {
+   "ia_ligera": 100.0,
+   "ia_intensa": 100.0,
+   "ia_api": 19.845,
+   "independiente": 0.0
+  },
+  "dolos": {
+   "ia_ligera": 100.0,
+   "ia_intensa": 100.0,
+   "ia_api": 27.345,
+   "independiente": 29.18
+  }
+ },
+ "self_generation": {
+  "openai": {
+   "n_own": 0,
+   "n_other": 30,
+   "auc_own": null,
+   "auc_other": 0.74
+  },
+  "deepseek": {
+   "n_own": 10,
+   "n_other": 20,
+   "auc_own": 0.89,
+   "auc_other": 0.75
+  },
+  "gemini": {
+   "n_own": 15,
+   "n_other": 15,
+   "auc_own": 0.57,
+   "auc_other": 0.63
+  },
+  "anthropic": {
+   "n_own": 5,
+   "n_other": 25,
+   "auc_own": 0.49,
+   "auc_other": 0.75
+  }
+ },
+ "stability": {
+  "openai": {
+   "mean_range": 2.18
+  },
+  "deepseek": {
+   "mean_range": 3.31
+  },
+  "gemini": {
+   "mean_range": 1.89
+  },
+  "anthropic": {
+   "mean_range": 1.29
+  }
+ },
+ "drift_independent": {
+  "openai": {
+   "mean_diff_new_minus_original": 0.1,
+   "mean_abs_diff": 1.23
+  },
+  "deepseek": {
+   "mean_diff_new_minus_original": -1.33,
+   "mean_abs_diff": 4.67
+  },
+  "gemini": {
+   "mean_diff_new_minus_original": 0.0,
+   "mean_abs_diff": 1.8
+  },
+  "anthropic": {
+   "mean_diff_new_minus_original": -0.17,
+   "mean_abs_diff": 1.5
+  }
+ },
+ "tokens": {
+  "openai": {
+   "calls": 342,
+   "input_mean": 1069.8,
+   "output_mean": 702.0
+  },
+  "deepseek": {
+   "calls": 342,
+   "input_mean": 1223.3,
+   "output_mean": 7054.6
+  },
+  "gemini": {
+   "calls": 342,
+   "input_mean": 1241.4,
+   "output_mean": 602.7
+  },
+  "anthropic": {
+   "calls": 340,
+   "input_mean": 1862.4,
+   "output_mean": 1615.7
+  }
+ }
+}

@@ -1,0 +1,24 @@
+```java
+package Java.Original;
+
+public class CLASE_NOTAS_ESTUDIANTE {
+    public static void main(String[] args) {
+        int[] notas = {85, 90, 78, 92, 88};
+        int total = 0;
+        
+        for(int indice = 0; indice < notas.length; indice++) {
+            total += notas[indice];
+        }
+        
+        double media = total / (double)notas.length;
+        
+        if(media >= 90) {
+            System.out.println("Sobresaliente: " + media);
+        } else if(media >= 80) {
+            System.out.println("Aceptable: " + media);
+        } else {
+            System.out.println("Insuficiente: " + media);
+        }
+    }
+}
+```

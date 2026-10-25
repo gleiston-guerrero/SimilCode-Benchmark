@@ -1,0 +1,25 @@
+```java
+package Java.Original;
+
+public class OrdenadorNumeros {
+    public static void main(String[] args) {
+        int[] valores = {64, 34, 25, 12, 22, 11, 90};
+        int cantidad = valores.length;
+        
+        for(int indice1 = 0; indice1 < cantidad-1; indice1++) {
+            for(int indice2 = 0; indice2 < cantidad-indice1-1; indice2++) {
+                if(valores[indice2] > valores[indice2+1]) {
+                    int auxiliar = valores[indice2];
+                    valores[indice2] = valores[indice2+1];
+                    valores[indice2+1] = auxiliar;
+                }
+            }
+        }
+        
+        System.out.print("Valores ordenados: ");
+        for(int valor : valores) {
+            System.out.print(valor + " ");
+        }
+    }
+}
+```

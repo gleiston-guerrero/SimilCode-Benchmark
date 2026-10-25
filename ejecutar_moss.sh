@@ -26,7 +26,11 @@ set -euo pipefail
 
 RAIZ="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MOSS="$RAIZ/moss"
-TRABAJO="$RAIZ/baselines_work/cohorte"
+# TRABAJO y SUFIJO pueden fijarse desde fuera para corridas adicionales, p.ej.
+#   TRABAJO=baselines_work_ia/cohorte SUFIJO=_ia bash ejecutar_moss.sh
+TRABAJO="${TRABAJO:-$RAIZ/baselines_work/cohorte}"
+[[ "$TRABAJO" = /* ]] || TRABAJO="$RAIZ/$TRABAJO"
+SUFIJO="${SUFIJO:-}"
 SOLO="${2:-}"
 
 rojo()  { printf '\033[31m%s\033[0m\n' "$*" >&2; }
@@ -96,7 +100,7 @@ ejecutar() {
     info "Enviando la cohorte de $lenguaje al servidor de Stanford..."
     local url
     url="$("$MOSS" -l "$lenguaje" -d -m 10 -n 1000 \
-                   -c "SimilCode cohorte $lenguaje" \
+                   -c "SimilCode cohorte $lenguaje${SUFIJO}" \
                    "$dir"/*/*."$ext" | tail -n 1)"
 
     if [[ ! "$url" =~ ^http ]]; then
@@ -105,15 +109,15 @@ ejecutar() {
     fi
 
     info "URL de resultados: $url"
-    curl -fsS -o "$RAIZ/$salida" "$url"
+    curl -fsSL -o "$RAIZ/$salida" "${url%/}/"
     info "Informe guardado en $salida"
     printf '%s\t%s\t%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" "$lenguaje" "$url" \
         >> "$RAIZ/moss_urls.tsv"
 }
 
 echo "Protocolo de Moss, modo cohorte"
-[[ "$SOLO" == "java"   ]] || ejecutar csharp cs   moss_cs.html
-[[ "$SOLO" == "csharp" ]] || ejecutar java   java moss_java.html
+[[ "$SOLO" == "java"   ]] || ejecutar csharp cs   "moss_cs${SUFIJO}.html"
+[[ "$SOLO" == "csharp" ]] || ejecutar java   java "moss_java${SUFIJO}.html"
 
 cat <<'FIN'
 

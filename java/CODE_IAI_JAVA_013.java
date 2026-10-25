@@ -1,0 +1,28 @@
+package Java.Original;
+
+import java.util.Scanner;
+
+public class MAX_VALOR {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("¿Cuántos números va a ingresar? ");
+        int cantidad = input.nextInt();
+        
+        int[] valores = new int[cantidad];
+        for (int index = 0; index < cantidad; index++) {
+            System.out.print("Número " + (index + 1) + ": ");
+            valores[index] = input.nextInt();
+        }
+        
+        int mayor = valores[0];
+        for (int indice = 1; indice < valores.length; indice++) {
+            if (valores[indice] > mayor) {
+                mayor = valores[indice];
+            }
+        }
+        
+        System.out.println("El número máximo es: " + mayor);
+        input.close();
+    }
+}

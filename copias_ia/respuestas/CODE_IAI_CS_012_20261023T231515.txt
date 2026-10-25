@@ -1,0 +1,51 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace GestorDeStock
+{
+    class Sistema
+    {
+        static void Main(string[] args)
+        {
+            List<string> articulos = new List<string>();
+            List<int> existencias = new List<int>();
+            
+            Console.WriteLine("=== GESTOR DE STOCK ===");
+            
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Artículo {i + 1}: ");
+                string articulo = Console.ReadLine();
+                articulos.Add(articulo);
+                
+                Console.Write($"Existencia de {articulo}: ");
+                int existencia = Convert.ToInt32(Console.ReadLine());
+                existencias.Add(existencia);
+            }
+            
+            int sumaTotal = 0;
+            Console.WriteLine("\n=== STOCK ACTUAL ===");
+            for (int i = 0; i < articulos.Count; i++)
+            {
+                Console.WriteLine($"{articulos[i]}: {existencias[i]} unidades");
+                sumaTotal += existencias[i];
+                
+                if (existencias[i] < 10)
+                    Console.WriteLine("  ⚠️ Stock bajo");
+                else if (existencias[i] > 50)
+                    Console.WriteLine("  ✅ Stock alto");
+                else
+                    Console.WriteLine("  ➡️ Stock normal");
+            }
+            
+            Console.WriteLine($"\nTotal de artículos en stock: {sumaTotal}");
+            
+            if (sumaTotal < 50)
+                Console.WriteLine("Stock necesita reposición");
+            else
+                Console.WriteLine("Stock en buen estado");
+        }
+    }
+}
+```

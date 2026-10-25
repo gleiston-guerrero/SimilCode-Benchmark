@@ -1,0 +1,45 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace AdministracionNotas
+{
+    class Aplicacion
+    {
+        static void Main()
+        {
+            List<double> resultados = new List<double>();
+            
+            Console.WriteLine("Sistema de Notas");
+            Console.Write("Ingrese el número de alumnos: ");
+            int cantidadAlumnos = int.Parse(Console.ReadLine());
+            
+            for (int indice = 0; indice < cantidadAlumnos; indice++)
+            {
+                Console.Write($"Nota del alumno {indice + 1}: ");
+                double puntuacion = double.Parse(Console.ReadLine());
+                resultados.Add(puntuacion);
+            }
+            
+            double total = 0;
+            foreach (double puntaje in resultados)
+            {
+                total += puntaje;
+            }
+            
+            double media = total / resultados.Count;
+            string condicion = media >= 7.0 ? "Aprobado" : "Reprobado";
+            
+            Console.WriteLine($"Promedio del grupo: {media:F2}");
+            Console.WriteLine($"Condición del grupo: {condicion}");
+            
+            if (media >= 9.0)
+                Console.WriteLine("¡Excelente desempeño!");
+            else if (media >= 7.0)
+                Console.WriteLine("Desempeño satisfactorio");
+            else
+                Console.WriteLine("Necesita mejorar");
+        }
+    }
+}
+```

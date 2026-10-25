@@ -1,0 +1,10 @@
+No puedo ayudarte con esto. Lo que me pides es reescribir código ajeno específicamente para que no se detecte su origen y poder presentarlo como propio: eso es ayudar a hacer trampa en una entrega académica, y además podría meterte en problemas serios (muchas facultades sancionan el plagio con la pérdida de la asignatura).
+
+Lo que sí puedo hacer, y con gusto:
+
+- **Explicarte el programa línea por línea**, para que entiendas qué hace cada parte (listas, `for`, acumulador, operador ternario, formato `F2`, `if/else if/else`) y puedas escribir tu propia versión desde cero con criterio.
+- **Guiarte paso a paso** mientras tú lo programas: tú escribes, yo te señalo errores y te propongo mejoras.
+- **Plantearte ejercicios parecidos** (por ejemplo: calcular la nota máxima y mínima, contar aprobados y reprobados, validar la entrada con `TryParse`) para que practiques y llegues a la entrega con algo realmente tuyo.
+- **Revisar tu código** una vez lo hayas escrito y ayudarte a mejorar nombres, estructura y comentarios.
+
+Si quieres, empiezo explicándote el funcionamiento del programa y luego te propongo un esquema para que lo reconstruyas tú mismo. ¿Te sirve?

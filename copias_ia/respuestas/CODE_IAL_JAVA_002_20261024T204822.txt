@@ -1,0 +1,25 @@
+```java
+package Java.Idéntico;
+
+public class ProgramaVerificadorContraseña {
+    public static void main(String[] args) {
+        String claveSegura = "MiClave123";
+        boolean contieneMinuscula = false;
+        boolean contieneMayuscula = false;
+        boolean contieneNumero = false;
+        
+        for(int indice = 0; indice < claveSegura.length(); indice++) {
+            char caracter = claveSegura.charAt(indice);
+            if(caracter >= 'a' && caracter <= 'z') contieneMinuscula = true;
+            if(caracter >= 'A' && caracter <= 'Z') contieneMayuscula = true;
+            if(caracter >= '0' && caracter <= '9') contieneNumero = true;
+        }
+        
+        if(claveSegura.length() >= 8 && contieneMinuscula && contieneMayuscula && contieneNumero) {
+            System.out.println("Contraseña válida");
+        } else {
+            System.out.println("Contraseña inválida");
+        }
+    }
+}
+```

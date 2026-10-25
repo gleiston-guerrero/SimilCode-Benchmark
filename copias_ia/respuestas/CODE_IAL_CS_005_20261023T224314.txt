@@ -1,0 +1,37 @@
+```csharp
+using System;
+
+namespace IndiceMasaCorporal
+{
+    class Principal
+    {
+        static void Main(string[] argumentos)
+        {
+            Console.WriteLine("=== Calculadora de IMC ===");
+            
+            Console.Write("Introduzca su peso (kg): ");
+            double peso = Convert.ToDouble(Console.ReadLine());
+            
+            Console.Write("Introduzca su altura (m): ");
+            double altura = Convert.ToDouble(Console.ReadLine());
+            
+            double indice = peso / (altura * altura);
+            
+            Console.WriteLine($"Su IMC es: {indice:F2}");
+            
+            string clasificacion;
+            if (indice < 18.5)
+                clasificacion = "Bajo peso";
+            else if (indice < 25)
+                clasificacion = "Peso normal";
+            else if (indice < 30)
+                clasificacion = "Sobrepeso";
+            else
+                clasificacion = "Obesidad";
+            
+            Console.WriteLine($"Categoría: {clasificacion}");
+            Console.ReadKey();
+        }
+    }
+}
+```

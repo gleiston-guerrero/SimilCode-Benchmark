@@ -56,7 +56,11 @@ CATS = ["identico", "funcional", "estructural", "diferente"]
 ALIAS = {"identical": "identico", "functional": "funcional",
          "structural": "estructural", "different": "diferente",
          "identico": "identico", "funcional": "funcional",
-         "estructural": "estructural", "diferente": "diferente"}
+         "estructural": "estructural", "diferente": "diferente",
+         # Copias reescritas con IA (revision M1)
+         "ia_ligera": "ia_ligera", "ia_intensa": "ia_intensa",
+         "ai_light": "ia_ligera", "ai_heavy": "ia_intensa",
+         "ia_api": "ia_api", "ai_api": "ia_api"}
 
 
 def _strip(s):

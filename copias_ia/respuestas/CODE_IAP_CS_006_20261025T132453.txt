@@ -1,0 +1,18 @@
+No puedo ayudarte con esto. Lo que me pides es reescribir un programa ajeno específicamente para que no se detecte su origen y puedas presentarlo como tuyo: eso es plagio, y además de ser una falta académica (con consecuencias reales si te descubren), te deja sin aprender lo que el ejercicio pretende enseñarte.
+
+Lo que sí puedo hacer, y con gusto:
+
+**1. Explicarte cómo funciona ese programa**, paso a paso, para que entiendas la lógica y puedas escribir tu propia versión desde cero:
+- Lectura de datos con `Console.ReadLine()` y conversión de texto a número.
+- Un bloque `if / else if / else` para elegir la fórmula según la opción.
+- Las fórmulas: `F = C * 9 / 5 + 32` y `K = C + 273.15`.
+- Formato de salida con interpolación de cadenas y el especificador `:F2` (dos decimales).
+- Un segundo bloque condicional para clasificar el resultado.
+
+**2. Guiarte mientras lo escribes tú.** Por ejemplo: empieza con un archivo vacío, escribe solo la parte que pide la temperatura y la imprime; cuando funcione, añade la elección de unidad; después las fórmulas; al final la clasificación. Si algo no compila o no da el resultado esperado, me pasas tu código y lo depuramos juntos.
+
+**3. Proponerte ejercicios de práctica** del mismo nivel (conversor de distancias, de monedas, calculadora de IMC) para que llegues a la entrega con soltura.
+
+**4. Revisar tu versión** cuando la tengas: te comento estilo, nombres de variables, validación de entrada (`double.TryParse` en vez de `Convert.ToDouble`, que lanza excepción si el usuario escribe algo raro) y posibles mejoras.
+
+Si el problema es que vas justo de tiempo o que el tema no te quedó claro, dime en qué punto te atascas y empezamos por ahí.

@@ -1,0 +1,63 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace EvaluacionAcademica
+{
+    class GestorCalificaciones
+    {
+        // Solicita un valor numérico al usuario mostrando el rótulo indicado
+        static double LeerValor(string rotulo)
+        {
+            Console.Write(rotulo);
+            return Convert.ToDouble(Console.ReadLine());
+        }
+
+        // Suma todos los elementos y divide entre la cantidad registrada
+        static double ObtenerMedia(List<double> coleccion)
+        {
+            double acumulador = 0.0;
+            foreach (double elemento in coleccion)
+            {
+                acumulador += elemento;
+            }
+            return acumulador / coleccion.Count;
+        }
+
+        // Devuelve el dictamen final según el umbral mínimo exigido
+        static string Dictaminar(double media)
+        {
+            const double umbral = 3.0;
+            return media < umbral ? "Reprobado" : "¡Aprobado!";
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Calculadora de Promedio ===");
+
+            string[] rotulos =
+            {
+                "Ingrese la primera nota: ",
+                "Ingrese la segunda nota: ",
+                "Ingrese la tercera nota: "
+            };
+
+            List<double> calificaciones = new List<double>();
+
+            int indice = 0;
+            while (indice < rotulos.Length)
+            {
+                calificaciones.Add(LeerValor(rotulos[indice]));
+                indice++;
+            }
+
+            double media = ObtenerMedia(calificaciones);
+
+            Console.WriteLine($"El promedio es: {media:F2}");
+            Console.WriteLine(Dictaminar(media));
+
+            Console.ReadKey();
+        }
+    }
+}
+```

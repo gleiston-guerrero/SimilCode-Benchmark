@@ -1,0 +1,26 @@
+```java
+package Java.Original;
+
+import java.util.Random;
+
+public class GENERADOR_ALEATORIOS {
+    public static void main(String[] args) {
+        Random generador = new Random();
+        int totalNumeros = 10;
+        int limiteInferior = 1;
+        int limiteSuperior = 100;
+        int resultadoSuma = 0;
+        
+        System.out.println("Valores producidos:");
+        for(int contador = 0; contador < totalNumeros; contador++) {
+            int valor = generador.nextInt(limiteSuperior - limiteInferior + 1) + limiteInferior;
+            System.out.print(valor + " ");
+            resultadoSuma += valor;
+        }
+        
+        double media = resultadoSuma / (double)totalNumeros;
+        System.out.println("\nTotal de la suma: " + resultadoSuma);
+        System.out.println("Media: " + media);
+    }
+}
+```

@@ -1,0 +1,36 @@
+using System;
+
+namespace MedidasFigura
+{
+    class Medidas
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Calculadora de Área ===");
+            double longitud, anchura;
+            
+            Console.Write("Ingrese el largo del rectángulo: ");
+            longitud = Convert.ToDouble(Console.ReadLine());
+            
+            Console.Write("Ingrese el ancho del rectángulo: ");
+            anchura = Convert.ToDouble(Console.ReadLine());
+            
+            double superficie = longitud * anchura;
+            double contorno = 2 * (longitud + anchura);
+            
+            Console.WriteLine($"El área es: {superficie} unidades cuadradas");
+            Console.WriteLine($"El perímetro es: {contorno} unidades");
+            
+            if (superficie > 100)
+            {
+                Console.WriteLine("Rectángulo grande");
+            }
+            else
+            {
+                Console.WriteLine("Rectángulo pequeño");
+            }
+            
+            Console.ReadKey();
+        }
+    }
+}

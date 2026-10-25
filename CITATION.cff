@@ -8,17 +8,18 @@ message: "If you use this benchmark dataset, please cite both the dataset itself
 type: dataset
 title: "SimilCode Benchmark: A Dual-Language Source-Code Similarity Dataset for the Evaluation of AI-Based Detectors"
 abstract: >
-  SimilCode Benchmark is a curated dataset of 120 short source-code snippets
-  in C# and Java, organised into 60 test-case pairs per language across four
-  ground-truth similarity categories (identical, functional, structural, and
-  different) with fifteen reference groups per language. The dataset was
-  designed and authored specifically to support the empirical evaluation of
-  source-code similarity detection systems, and was used to benchmark four
-  contemporary commercial large language models (Claude Opus 4.1, GPT-5,
-  Gemini 2.5 Pro and DeepSeek-V3) as similarity analysts, with results
-  published together with the dataset for reproducibility.
-version: 1.0.0
-date-released: "2026-07-08"
+  SimilCode Benchmark is a controlled dataset of 120 source-code pairs in C#
+  and Java (15 reference programs per language, four similarity categories:
+  identical, functional, structural and different) for evaluating source-code
+  similarity detectors. It includes the raw results of a replicated
+  evaluation of four commercial large language models (GPT-5.5,
+  DeepSeek-V4-pro, Gemini 3.1 Pro and Claude Opus 5; 1,440 evaluations,
+  three replicas per pair and model), the outputs of Moss, JPlag and Dolos on
+  the same pairs, the validation corpus and predictions of the Big O
+  estimator, and a script that reproduces every number of the companion
+  manuscript.
+version: 2.1.0
+date-released: "2026-10-21"
 license: CC-BY-4.0
 repository-code: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
 url: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
@@ -31,10 +32,14 @@ keywords:
   - C sharp
   - Java
   - AI-based plagiarism detection
-  - Claude
-  - GPT-5
-  - Gemini
-  - DeepSeek
+  - GPT-5.5
+  - DeepSeek-V4-pro
+  - Gemini 3.1 Pro
+  - Claude Opus 5
+  - Moss
+  - JPlag
+  - Dolos
+  - Big O
 
 authors:
   - given-names: "Gleiston Cicerón"
@@ -102,11 +107,11 @@ preferred-citation:
       family-names: "Rodríguez-Domínguez"
       orcid: "https://orcid.org/0000-0001-5626-3115"
       affiliation: "Universidad de Granada, Spain"
-  journal: "International Journal for Educational Integrity"
+  journal: "Discover Computing"
   year: 2026
   publisher:
     name: "Springer Nature"
-  notes: "Manuscript under peer review; DOI will be inserted upon acceptance."
+  notes: "Manuscript submitted to Discover Computing; DOI will be inserted upon acceptance."
 
 identifiers:
   - type: url
@@ -114,4 +119,4 @@ identifiers:
     description: "Canonical repository of the SimilCode Benchmark dataset"
   - type: doi
     value: "10.5281/zenodo.21271491"
-    description: "Zenodo archive of SimilCode Benchmark v1.0.0"
+    description: "Zenodo concept DOI of SimilCode Benchmark (resolves to the latest version)"

@@ -1,0 +1,51 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace CalculadorEstadistico
+{
+    class Estadistica
+    {
+        static void Main()
+        {
+            List<int> valores = new List<int>();
+            
+            Console.WriteLine("Calculador Estadístico");
+            Console.Write("¿Cuántos valores desea ingresar? ");
+            int cantidad = int.Parse(Console.ReadLine());
+            
+            for (int i = 0; i < cantidad; i++)
+            {
+                Console.Write($"Ingrese el valor {i + 1}: ");
+                int valor = int.Parse(Console.ReadLine());
+                valores.Add(valor);
+            }
+            
+            int total = 0;
+            int mayor = valores[0];
+            int menor = valores[0];
+            
+            foreach (int num in valores)
+            {
+                total += num;
+                if (num > mayor) mayor = num;
+                if (num < menor) menor = num;
+            }
+            
+            double media = (double)total / valores.Count;
+            
+            Console.WriteLine($"\nResultados:");
+            Console.WriteLine($"Suma: {total}");
+            Console.WriteLine($"Promedio: {media:F2}");
+            Console.WriteLine($"Máximo: {mayor}");
+            Console.WriteLine($"Mínimo: {menor}");
+            Console.WriteLine($"Rango: {mayor - menor}");
+            
+            if (media > 50)
+                Console.WriteLine("Los valores tienden a ser altos");
+            else
+                Console.WriteLine("Los valores tienden a ser bajos");
+        }
+    }
+}
+```

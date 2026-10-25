@@ -1,0 +1,51 @@
+```csharp
+using System;
+
+namespace TemperaturaTransformer
+{
+    class MainClass
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Transformador de Grados ===");
+            
+            Console.Write("Proporcione temperatura en Celsius: ");
+            double gradCelsius = Convert.ToDouble(Console.ReadLine());
+            
+            Console.Write("Transformar a (1-Fahrenheit, 2-Kelvin): ");
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            
+            double valorFinal = 0;
+            string medida = "";
+            
+            if (eleccion == 1)
+            {
+                valorFinal = (gradCelsius * 9 / 5) + 32;
+                medida = "Fahrenheit";
+            }
+            else if (eleccion == 2)
+            {
+                valorFinal = gradCelsius + 273.15;
+                medida = "Kelvin";
+            }
+            else
+            {
+                Console.WriteLine("Selección no válida");
+                Console.ReadKey();
+                return;
+            }
+            
+            Console.WriteLine($"{gradCelsius}°C = {valorFinal:F2}°{(eleccion == 1 ? "F" : "K")}");
+            
+            if (valorFinal > 100)
+                Console.WriteLine("Grados elevados");
+            else if (valorFinal < 0)
+                Console.WriteLine("Grados por debajo del cero");
+            else
+                Console.WriteLine("Grados asequibles");
+            
+            Console.ReadKey();
+        }
+    }
+}
+```

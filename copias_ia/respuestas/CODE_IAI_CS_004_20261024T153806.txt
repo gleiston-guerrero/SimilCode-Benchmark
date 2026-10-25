@@ -1,0 +1,119 @@
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace AdministraAlumnos
+{
+    public class Alumno
+    {
+        public int Identificador { get; set; }
+        public string Nombres { get; set; }
+        public string Apellidos { get; set; }
+        public List<double> Notas { get; set; }
+        public string Carrera { get; set; }
+        
+        public Alumno(int id, string nombre, string apellido, string carrera)
+        {
+            Identificador = id;
+            Nombres = nombre;
+            Apellidos = apellido;
+            Carrera = carrera;
+            Notas = new List<double>();
+        }
+        
+        public void IngresarNota(double nota)
+        {
+            if (nota >= 0 && nota <= 5)
+            {
+                Notas.Add(nota);
+            }
+        }
+        
+        public double CalcularPromedio()
+        {
+            return Notas.Count > 0 ? Notas.Average() : 0;
+        }
+        
+        public string ObtenerCondicion()
+        {
+            double promedio = CalcularPromedio();
+            if (promedio >= 3.5) return "Excelente";
+            if (promedio >= 3.0) return "Aprobado";
+            return "Reprobado";
+        }
+        
+        public override string ToString()
+        {
+            return $"{Identificador} - {Nombres} {Apellidos} ({Carrera}) - Promedio: {CalcularPromedio():F2}";
+        }
+    }
+    
+    public class ControladorAlumnos
+    {
+        private List<Alumno> alumnos;
+        
+        public ControladorAlumnos()
+        {
+            alumnos = new List<Alumno>();
+        }
+        
+        public void AgregarAlumno(Alumno alumno)
+        {
+            alumnos.Add(alumno);
+        }
+        
+        public Alumno BuscarAlumno(int id)
+        {
+            return alumnos.FirstOrDefault(a => a.Identificador == id);
+        }
+        
+        public void ListarTodosLosAlumnos()
+        {
+            foreach (var alumno in alumnos)
+            {
+                Console.WriteLine(alumno.ToString());
+            }
+        }
+        
+        public List<Alumno> AlumnosAprobados()
+        {
+            return alumnos.Where(a => a.CalcularPromedio() >= 3.0).ToList();
+        }
+    }
+    
+    class Aplicacion
+    {
+        static void Main(string[] args)
+        {
+            ControladorAlumnos controlador = new ControladorAlumnos();
+            
+            // Agregar alumnos de ejemplo
+            var alumno1 = new Alumno(1, "Juan", "Pérez", "Ingeniería de Software");
+            alumno1.IngresarNota(4.2);
+            alumno1.IngresarNota(3.8);
+            alumno1.IngresarNota(4.5);
+            
+            var alumno2 = new Alumno(2, "María", "García", "Ingeniería de Sistemas");
+            alumno2.IngresarNota(3.1);
+            alumno2.IngresarNota(2.8);
+            alumno2.IngresarNota(3.4);
+            
+            controlador.AgregarAlumno(alumno1);
+            controlador.AgregarAlumno(alumno2);
+            
+            Console.WriteLine("=== SISTEMA DE ADMINISTRACIÓN DE ALUMNOS ===");
+            controlador.ListarTodosLosAlumnos();
+            
+            Console.WriteLine("\n=== ALUMNOS APROBADOS ===");
+            var aprobados = controlador.AlumnosAprobados();
+            foreach (var alu in aprobados)
+            {
+                Console.WriteLine($"{alu.Nombres} {alu.Apellidos} - Condición: {alu.ObtenerCondicion()}");
+            }
+            
+            Console.ReadKey();
+        }
+    }
+}
+```

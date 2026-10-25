@@ -1,0 +1,50 @@
+```java
+package Java.Original;
+
+import java.util.Scanner;
+
+public class TareasManager {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String[] listaTareas = new String[10];
+        int indice = 0;
+        
+        while (true) {
+            System.out.println("\n--- LISTA DE TAREAS ---");
+            System.out.println("1. Agregar tarea");
+            System.out.println("2. Mostrar tareas");
+            System.out.println("3. Salir");
+            System.out.print("Seleccione una opción: ");
+            
+            int seleccion = input.nextInt();
+            input.nextLine(); // Consumir salto de línea
+            
+            if (seleccion == 1) {
+                if (indice < 10) {
+                    System.out.print("Ingrese la tarea: ");
+                    listaTareas[indice] = input.nextLine();
+                    indice++;
+                    System.out.println("Tarea agregada!");
+                } else {
+                    System.out.println("Lista llena!");
+                }
+            } else if (seleccion == 2) {
+                System.out.println("\n--- TAREAS REGISTRADAS ---");
+                if (indice == 0) {
+                    System.out.println("No hay tareas registradas");
+                } else {
+                    for (int i = 0; i < indice; i++) {
+                        System.out.println((i + 1) + ". " + listaTareas[i]);
+                    }
+                }
+            } else if (seleccion == 3) {
+                System.out.println("¡Hasta luego!");
+                break;
+            } else {
+                System.out.println("Opción inválida");
+            }
+        }
+        input.close();
+    }
+}
+```

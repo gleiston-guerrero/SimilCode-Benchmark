@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+
+namespace NotaPromedio
+{
+    class Evaluador
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Calculadora de Promedio ===");
+            List<double> calificaciones = new List<double>();
+            
+            Console.Write("Ingrese la primera nota: ");
+            calificaciones.Add(Convert.ToDouble(Console.ReadLine()));
+            
+            Console.Write("Ingrese la segunda nota: ");
+            calificaciones.Add(Convert.ToDouble(Console.ReadLine()));
+            
+            Console.Write("Ingrese la tercera nota: ");
+            calificaciones.Add(Convert.ToDouble(Console.ReadLine()));
+            
+            double total = 0;
+            foreach (double calificacion in calificaciones)
+            {
+                total += calificacion;
+            }
+            
+            double promedio = total / calificaciones.Count;
+            
+            Console.WriteLine($"El promedio es: {promedio:F2}");
+            
+            if (promedio >= 3.0)
+            {
+                Console.WriteLine("¡Aprobado!");
+            }
+            else
+            {
+                Console.WriteLine("Reprobado");
+            }
+            
+            Console.ReadKey();
+        }
+    }
+}

@@ -1,0 +1,44 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace AdministracionAcademica
+{
+    class ControlEscolar
+    {
+        static void Main(string[] args)
+        {
+            List<string> listaAlumnos = new List<string>();
+            List<double> notas = new List<double>();
+            
+            Console.WriteLine("=== SISTEMA DE ESTUDIANTES ===");
+            
+            for (int indice = 0; indice < 3; indice++)
+            {
+                Console.Write($"Ingrese nombre del estudiante {indice + 1}: ");
+                string nombreAlumno = Console.ReadLine();
+                listaAlumnos.Add(nombreAlumno);
+                
+                Console.Write($"Ingrese calificación de {nombreAlumno}: ");
+                double calif = Convert.ToDouble(Console.ReadLine());
+                notas.Add(calif);
+            }
+            
+            double total = 0;
+            foreach (double nota in notas)
+            {
+                total += nota;
+                Console.WriteLine($"{listaAlumnos[notas.IndexOf(nota)]}: {nota}");
+            }
+            
+            double media = total / notas.Count;
+            Console.WriteLine($"Promedio del grupo: {media:F2}");
+            
+            if (media >= 7.0)
+                Console.WriteLine("Excelente rendimiento grupal");
+            else
+                Console.WriteLine("Necesita mejorar el grupo");
+        }
+    }
+}
+```

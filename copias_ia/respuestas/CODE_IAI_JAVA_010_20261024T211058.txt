@@ -1,0 +1,35 @@
+```java
+package Java.Nuevo;
+
+public class MATRIZ_TRANSPOSICION {
+    public static void main(String[] args) {
+        int[][] array = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int rows = array.length;
+        int cols = array[0].length;
+        int[][] inverted = new int[cols][rows];
+        
+        System.out.println("Matriz original:");
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < cols; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        // Generar transpuesta
+        for(int i = 0; i < rows; i++) {
+            for(int j = 0; j < cols; j++) {
+                inverted[j][i] = array[i][j];
+            }
+        }
+        
+        System.out.println("\nMatriz transpuesta:");
+        for(int i = 0; i < cols; i++) {
+            for(int j = 0; j < rows; j++) {
+                System.out.print(inverted[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+```

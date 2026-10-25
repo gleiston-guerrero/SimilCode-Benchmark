@@ -1,0 +1,30 @@
+```java
+package Java.Nuevo;
+
+import java.util.Scanner;
+
+public class ProgramaPrincipal {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        
+        System.out.print("¿Cuántos valores desea ingresar? ");
+        int cantidad = entrada.nextInt();
+        
+        int[] valores = new int[cantidad];
+        for (int indice = 0; indice < cantidad; indice++) {
+            System.out.print("Valor " + (indice + 1) + ": ");
+            valores[indice] = entrada.nextInt();
+        }
+        
+        int mayor = valores[0];
+        for (int indice = 1; indice < valores.length; indice++) {
+            if (valores[indice] > mayor) {
+                mayor = valores[indice];
+            }
+        }
+        
+        System.out.println("El valor máximo es: " + mayor);
+        entrada.close();
+    }
+}
+```

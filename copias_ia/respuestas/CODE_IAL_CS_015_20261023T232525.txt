@@ -1,0 +1,51 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace AnalizadorValores
+{
+    class Ejecutable
+    {
+        static void Main()
+        {
+            List<int> valores = new List<int>();
+            
+            Console.WriteLine("Análisis de Valores");
+            Console.Write("¿Cuántos valores desea analizar? ");
+            int cantidad = int.Parse(Console.ReadLine());
+            
+            for (int i = 0; i < cantidad; i++)
+            {
+                Console.Write($"Ingrese el valor {i + 1}: ");
+                int valor = int.Parse(Console.ReadLine());
+                valores.Add(valor);
+            }
+            
+            int total = 0;
+            int mayor = valores[0];
+            int menor = valores[0];
+            
+            foreach (int num in valores)
+            {
+                total += num;
+                if (num > mayor) mayor = num;
+                if (num < menor) menor = num;
+            }
+            
+            double media = (double)total / valores.Count;
+            
+            Console.WriteLine($"\nResultados:");
+            Console.WriteLine($"Total: {total}");
+            Console.WriteLine($"Media: {media:F2}");
+            Console.WriteLine($"Mayor: {mayor}");
+            Console.WriteLine($"Menor: {menor}");
+            Console.WriteLine($"Rango: {mayor - menor}");
+            
+            if (media > 50)
+                Console.WriteLine("Los valores tienden a ser altos");
+            else
+                Console.WriteLine("Los valores tienden a ser bajos");
+        }
+    }
+}
+```

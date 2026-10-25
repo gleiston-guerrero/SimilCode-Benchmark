@@ -1,0 +1,38 @@
+```java
+package Java.Original;
+
+import java.util.ArrayList;
+
+public class ProyectoTareas {
+    public static void main(String[] args) {
+        ArrayList<String> listaActividades = new ArrayList<>();
+        listaActividades.add("Aprender Java");
+        listaActividades.add("Ejercitarse");
+        listaActividades.add("Ir al supermercado");
+        listaActividades.add("Contactar a la madre");
+        listaActividades.add("Leer un libro");
+        
+        int finalizadas = 0;
+        int restantes = listaActividades.size();
+        
+        System.out.println("=== LISTA DE ACTIVIDADES ===");
+        for(int index = 0; index < listaActividades.size(); index++) {
+            System.out.println((index + 1) + ". " + listaActividades.get(index));
+        }
+        
+        // Simular finalización de algunas actividades
+        finalizadas = 2;
+        restantes = listaActividades.size() - finalizadas;
+        
+        System.out.println("\nEstadísticas:");
+        System.out.println("Finalizadas: " + finalizadas);
+        System.out.println("Restantes: " + restantes);
+        
+        if(finalizadas > restantes) {
+            System.out.println("¡Excelente avance!");
+        } else {
+            System.out.println("Continúa esforzándote");
+        }
+    }
+}
+```

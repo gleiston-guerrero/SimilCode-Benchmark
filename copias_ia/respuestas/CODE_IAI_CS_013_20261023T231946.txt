@@ -1,0 +1,48 @@
+```csharp
+using System;
+
+namespace TransformadorMedidas
+{
+    class Principal
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== TRANSFORMADOR DE MEDIDAS ===");
+            Console.WriteLine("1. Centímetros a Pulgadas");
+            Console.WriteLine("2. Kelvin a Celsius");
+            Console.WriteLine("3. Litros a Galones");
+            Console.Write("Elige conversión: ");
+            
+            int seleccion = Convert.ToInt32(Console.ReadLine());
+            double salida = 0;
+            
+            if (seleccion == 1)
+            {
+                Console.Write("Introduce centímetros: ");
+                double centimetros = Convert.ToDouble(Console.ReadLine());
+                salida = centimetros * 0.393701;
+                Console.WriteLine($"{centimetros} cm = {salida:F2} pulgadas");
+            }
+            else if (seleccion == 2)
+            {
+                Console.Write("Introduce grados Kelvin: ");
+                double kelvin = Convert.ToDouble(Console.ReadLine());
+                salida = kelvin - 273.15;
+                Console.WriteLine($"{kelvin} K = {salida:F2}°C");
+            }
+            else if (seleccion == 3)
+            {
+                Console.Write("Introduce litros: ");
+                double litros = Convert.ToDouble(Console.ReadLine());
+                salida = litros * 0.264172;
+                Console.WriteLine($"{litros} l = {salida:F2} galones");
+            }
+            
+            if (salida > 100)
+                Console.WriteLine("Resultado transformado alto");
+            else
+                Console.WriteLine("Resultado transformado normal");
+        }
+    }
+}
+```

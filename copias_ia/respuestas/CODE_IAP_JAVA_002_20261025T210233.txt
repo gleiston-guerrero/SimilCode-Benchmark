@@ -1,0 +1,14 @@
+Lo siento, no puedo ayudar a reescribir código para ocultar su origen, evadir detectores de plagio o presentarlo como propio.
+
+Sí puedo ayudarte a entender el programa y a crear tu propia versión desde cero. Por ejemplo, la lógica es:
+
+1. Guardar una contraseña.
+2. Revisar carácter por carácter.
+3. Comprobar si contiene:
+   - una minúscula,
+   - una mayúscula,
+   - un número.
+4. Verificar que tenga al menos 8 caracteres.
+5. Imprimir si es válida o inválida.
+
+Si quieres, puedo ayudarte a escribir una solución original paso a paso y explicarte cada parte para que puedas entregarla entendiendo el código.

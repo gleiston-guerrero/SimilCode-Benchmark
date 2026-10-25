@@ -1,0 +1,70 @@
+```csharp
+using System;
+
+namespace VotacionApp
+{
+    class Votacion
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Sistema de Votación ===");
+            
+            int votoUno = 0;
+            int votoDos = 0;
+            int votoTres = 0;
+            int cantidadTotalVotos = 0;
+            
+            Console.WriteLine("Candidatos disponibles:");
+            Console.WriteLine("1 - Candidato Uno");
+            Console.WriteLine("2 - Candidato Dos");
+            Console.WriteLine("3 - Candidato Tres");
+            Console.WriteLine("0 - Finalizar votación");
+            
+            while (true)
+            {
+                Console.Write("\nIngrese su voto: ");
+                int seleccionVoto = Convert.ToInt32(Console.ReadLine());
+                
+                if (seleccionVoto == 0)
+                    break;
+                else if (seleccionVoto == 1)
+                {
+                    votoUno++;
+                    cantidadTotalVotos++;
+                }
+                else if (seleccionVoto == 2)
+                {
+                    votoDos++;
+                    cantidadTotalVotos++;
+                }
+                else if (seleccionVoto == 3)
+                {
+                    votoTres++;
+                    cantidadTotalVotos++;
+                }
+                else
+                {
+                    Console.WriteLine("Voto inválido");
+                }
+            }
+            
+            Console.WriteLine("\n=== RESULTADOS ===");
+            Console.WriteLine($"Candidato Uno: {votoUno} votos");
+            Console.WriteLine($"Candidato Dos: {votoDos} votos");
+            Console.WriteLine($"Candidato Tres: {votoTres} votos");
+            Console.WriteLine($"Total de votos: {cantidadTotalVotos}");
+            
+            if (votoUno > votoDos && votoUno > votoTres)
+                Console.WriteLine("¡Ganador: Candidato Uno!");
+            else if (votoDos > votoUno && votoDos > votoTres)
+                Console.WriteLine("¡Ganador: Candidato Dos!");
+            else if (votoTres > votoUno && votoTres > votoDos)
+                Console.WriteLine("¡Ganador: Candidato Tres!");
+            else
+                Console.WriteLine("Hay empate entre candidatos");
+            
+            Console.ReadKey();
+        }
+    }
+}
+```

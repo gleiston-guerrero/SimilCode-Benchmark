@@ -1,0 +1,29 @@
+```java
+package Java.Idéntico;
+
+public class CalculadoraBasica {
+    public static void main(String[] args) {
+        double valor1 = 15.5;
+        double valor2 = 4.2;
+        String accion = "+";
+        double total = 0;
+        
+        if(accion.equals("+")) {
+            total = valor1 + valor2;
+        } else if(accion.equals("-")) {
+            total = valor1 - valor2;
+        } else if(accion.equals("*")) {
+            total = valor1 * valor2;
+        } else if(accion.equals("/")) {
+            if(valor2 != 0) {
+                total = valor1 / valor2;
+            } else {
+                System.out.println("Error: No se puede dividir por cero");
+                return;
+            }
+        }
+        
+        System.out.println(valor1 + " " + accion + " " + valor2 + " = " + total);
+    }
+}
+```

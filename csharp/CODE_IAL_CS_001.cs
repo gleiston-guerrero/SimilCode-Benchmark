@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+
+namespace AdministracionEscolar
+{
+    public class Alumno
+    {
+        public string Nombre { get; set; }
+        public int Edad { get; set; }
+        public double Calificacion { get; set; }
+        
+        public Alumno(string nombre, int edad, double calificacion)
+        {
+            this.Nombre = nombre;
+            this.Edad = edad;
+            this.Calificacion = calificacion;
+        }
+        
+        public void MostrarDatos()
+        {
+            Console.WriteLine("Nombre: " + this.Nombre);
+            Console.WriteLine("Edad: " + this.Edad);
+            Console.WriteLine("Promedio: " + this.Calificacion);
+        }
+        
+        public bool EstaAprobado()
+        {
+            if (this.Calificacion >= 3.0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+    
+    public class Aplicacion
+    {
+        public static void Main(string[] args)
+        {
+            List<Alumno> alumnos = new List<Alumno>();
+            
+            alumnos.Add(new Alumno("Juan Pérez", 20, 3.5));
+            alumnos.Add(new Alumno("María García", 19, 2.8));
+            alumnos.Add(new Alumno("Carlos López", 21, 4.2));
+            
+            Console.WriteLine("=== INFORMACIÓN DE ESTUDIANTES ===");
+            
+            foreach (Alumno alum in alumnos)
+            {
+                alum.MostrarDatos();
+                
+                if (alum.EstaAprobado())
+                {
+                    Console.WriteLine("Estado: APROBADO");
+                }
+                else
+                {
+                    Console.WriteLine("Estado: REPROBADO");
+                }
+                
+                Console.WriteLine("------------------------");
+            }
+            
+            Console.ReadKey();
+        }
+    }
+}

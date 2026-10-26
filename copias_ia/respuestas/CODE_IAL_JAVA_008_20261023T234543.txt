@@ -1,0 +1,29 @@
+```java
+package Java.Original;
+
+public class DistanciaConverter {
+    public static void main(String[] args) {
+        double valorInicial = 1500.0;
+        String tipoTransformacion = "metros_a_kilometros";
+        double valorFinal = 0.0;
+        
+        if(tipoTransformacion.equals("metros_a_kilometros")) {
+            valorFinal = valorInicial / 1000.0;
+        } else if(tipoTransformacion.equals("metros_a_millas")) {
+            valorFinal = valorInicial / 1609.34;
+        } else if(tipoTransformacion.equals("metros_a_pies")) {
+            valorFinal = valorInicial * 3.28084;
+        } else if(tipoTransformacion.equals("metros_a_pulgadas")) {
+            valorFinal = valorInicial * 39.3701;
+        }
+        
+        System.out.println(valorInicial + " metros = " + valorFinal + " en " + tipoTransformacion);
+        
+        if(valorFinal > 1.0) {
+            System.out.println("Resultado grande");
+        } else {
+            System.out.println("Resultado pequeño");
+        }
+    }
+}
+```

@@ -1,0 +1,24 @@
+```java
+package Java.Modificado;
+
+public class ProgramaModificado {
+    public static void main(String[] argumentos) {
+        String frase = "Java es un lenguaje de programación potente y versátil";
+        String[] elementos = frase.split(" ");
+        int cantidadElementos = elementos.length;
+        int longitudTotal = frase.length();
+        int longitudSinEspacios = frase.replace(" ", "").length();
+        
+        System.out.println("Frase: " + frase);
+        System.out.println("Elementos: " + cantidadElementos);
+        System.out.println("Longitud total (con espacios): " + longitudTotal);
+        System.out.println("Longitud total (sin espacios): " + longitudSinEspacios);
+        
+        for(String elemento : elementos) {
+            if(elemento.length() > 5) {
+                System.out.println("Elemento largo: " + elemento);
+            }
+        }
+    }
+}
+```

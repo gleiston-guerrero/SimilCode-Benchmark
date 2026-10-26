@@ -1,0 +1,51 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace AdministradorDeStock
+{
+    class SistemaStock
+    {
+        static void Main(string[] args)
+        {
+            List<string> articulos = new List<string>();
+            List<int> existencias = new List<int>();
+            
+            Console.WriteLine("=== ADMINISTRADOR DE STOCK ===");
+            
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Artículo {i + 1}: ");
+                string articulo = Console.ReadLine();
+                articulos.Add(articulo);
+                
+                Console.Write($"Existencia de {articulo}: ");
+                int existencia = Convert.ToInt32(Console.ReadLine());
+                existencias.Add(existencia);
+            }
+            
+            int sumaExistencias = 0;
+            Console.WriteLine("\n=== STOCK ACTUAL ===");
+            for (int i = 0; i < articulos.Count; i++)
+            {
+                Console.WriteLine($"{articulos[i]}: {existencias[i]} unidades");
+                sumaExistencias += existencias[i];
+                
+                if (existencias[i] < 10)
+                    Console.WriteLine("  ⚠️ Stock bajo");
+                else if (existencias[i] > 50)
+                    Console.WriteLine("  ✅ Stock alto");
+                else
+                    Console.WriteLine("  ➡️ Stock normal");
+            }
+            
+            Console.WriteLine($"\nTotal de artículos en stock: {sumaExistencias}");
+            
+            if (sumaExistencias < 50)
+                Console.WriteLine("Stock necesita reposición");
+            else
+                Console.WriteLine("Stock en buen estado");
+        }
+    }
+}
+```

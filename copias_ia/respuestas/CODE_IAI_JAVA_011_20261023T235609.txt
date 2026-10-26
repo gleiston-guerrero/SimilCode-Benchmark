@@ -1,0 +1,32 @@
+```java
+package Java.Distinto;
+
+import java.util.Scanner;
+
+public class CLASE_UNICA {
+    public static void main(String[] args) {
+        Scanner teclado = new Scanner(System.in);
+        
+        System.out.print("Ingrese cantidad de asignaturas: ");
+        int cantidadAsignaturas = teclado.nextInt();
+        
+        double total = 0;
+        for (int contador = 0; contador < cantidadAsignaturas; contador++) {
+            System.out.print("Ingrese calificación " + (contador + 1) + ": ");
+            double calificacion = teclado.nextDouble();
+            total += calificacion;
+        }
+        
+        double resultado = total / cantidadAsignaturas;
+        System.out.println("El promedio es: " + resultado);
+        
+        if (resultado >= 3.0) {
+            System.out.println("APROBADO");
+        } else {
+            System.out.println("REPROBADO");
+        }
+        
+        teclado.close();
+    }
+}
+```

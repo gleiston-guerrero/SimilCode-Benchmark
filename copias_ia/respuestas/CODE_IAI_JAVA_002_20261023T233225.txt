@@ -1,0 +1,25 @@
+```java
+package Java.Distinto;
+
+public class VALIDADOR_PASS_001 {
+    public static void main(String[] args) {
+        String clave = "ContraseñaSecura99";
+        boolean incluyeMin = false;
+        boolean incluyeMay = false;
+        boolean incluyeNum = false;
+        
+        for(int idx = 0; idx < clave.length(); idx++) {
+            char caracter = clave.charAt(idx);
+            if(caracter >= 'a' && caracter <= 'z') incluyeMin = true;
+            if(caracter >= 'A' && caracter <= 'Z') incluyeMay = true;
+            if(caracter >= '0' && caracter <= '9') incluyeNum = true;
+        }
+        
+        if(clave.length() >= 8 && incluyeMin && incluyeMay && incluyeNum) {
+            System.out.println("Contraseña válida");
+        } else {
+            System.out.println("Contraseña inválida");
+        }
+    }
+}
+```

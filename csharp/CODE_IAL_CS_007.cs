@@ -1,0 +1,41 @@
+using System;
+
+namespace AgeCalculator
+{
+    class AgeApp
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Calculadora de Edad ===");
+            
+            Console.Write("Ingrese su año de nacimiento: ");
+            int birthYear = Convert.ToInt32(Console.ReadLine());
+            
+            Console.Write("Ingrese el año actual: ");
+            int currentYear = Convert.ToInt32(Console.ReadLine());
+            
+            int age = currentYear - birthYear;
+            
+            Console.WriteLine($"Su edad es: {age} años");
+            
+            string lifeStage;
+            if (age < 13)
+                lifeStage = "Niño";
+            else if (age < 18)
+                lifeStage = "Adolescente";
+            else if (age < 65)
+                lifeStage = "Adulto";
+            else
+                lifeStage = "Adulto mayor";
+            
+            Console.WriteLine($"Etapa de vida: {lifeStage}");
+            
+            if (age >= 18)
+                Console.WriteLine("Puede votar");
+            else
+                Console.WriteLine("No puede votar aún");
+            
+            Console.ReadKey();
+        }
+    }
+}

@@ -1,0 +1,80 @@
+```java
+public class AnalizadorDeTexto {
+
+    public static void main(String[] argumentos) {
+        String frase = "Java es un lenguaje de programación potente y versátil";
+        procesarFrase(frase);
+    }
+
+    private static void procesarFrase(String frase) {
+        int totalPalabras = contarPalabras(frase);
+        int totalConEspacios = frase.length();
+        int totalSinEspacios = contarCaracteresSinEspacios(frase);
+
+        System.out.println("Texto: " + frase);
+        System.out.println("Palabras: " + totalPalabras);
+        System.out.println("Caracteres (con espacios): " + totalConEspacios);
+        System.out.println("Caracteres (sin espacios): " + totalSinEspacios);
+
+        mostrarPalabrasLargas(frase);
+    }
+
+    private static int contarPalabras(String frase) {
+        int contador = 0;
+        boolean dentroDePalabra = false;
+
+        for (int posicion = 0; posicion < frase.length(); posicion++) {
+            char caracter = frase.charAt(posicion);
+
+            if (caracter != ' ') {
+                if (!dentroDePalabra) {
+                    contador++;
+                    dentroDePalabra = true;
+                }
+            } else {
+                dentroDePalabra = false;
+            }
+        }
+
+        return contador;
+    }
+
+    private static int contarCaracteresSinEspacios(String frase) {
+        int contador = 0;
+        int indice = 0;
+
+        while (indice < frase.length()) {
+            if (frase.charAt(indice) != ' ') {
+                contador++;
+            }
+            indice++;
+        }
+
+        return contador;
+    }
+
+    private static void mostrarPalabrasLargas(String frase) {
+        int indice = 0;
+
+        while (indice < frase.length()) {
+            while (indice < frase.length() && frase.charAt(indice) == ' ') {
+                indice++;
+            }
+
+            int inicio = indice;
+
+            while (indice < frase.length() && frase.charAt(indice) != ' ') {
+                indice++;
+            }
+
+            if (inicio < indice) {
+                String palabra = frase.substring(inicio, indice);
+
+                if (palabra.length() > 5) {
+                    System.out.println("Palabra larga: " + palabra);
+                }
+            }
+        }
+    }
+}
+```

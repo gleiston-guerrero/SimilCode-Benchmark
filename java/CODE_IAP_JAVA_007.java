@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+/**
+ * Pequeño ejercicio: sorteo de valores enteros y cálculo de estadísticas básicas.
+ */
+public class SorteoEstadistico {
+
+    /* Parámetros de configuración del sorteo */
+    private static final int TOTAL_TIRADAS = 10;
+    private static final int COTA_INFERIOR = 1;
+    private static final int COTA_SUPERIOR = 100;
+
+    /**
+     * Obtiene un entero al azar dentro del intervalo cerrado [desde, hasta].
+     */
+    private static int sortearValor(Random motor, int desde, int hasta) {
+        int amplitud = hasta - desde + 1;
+        return desde + motor.nextInt(amplitud);
+    }
+
+    /**
+     * Llena una lista con la cantidad solicitada de valores aleatorios.
+     */
+    private static List<Integer> construirColeccion(int cuantos) {
+        Random motor = new Random();
+        List<Integer> coleccion = new ArrayList<>(cuantos);
+        int contador = 0;
+        while (contador < cuantos) {
+            coleccion.add(sortearValor(motor, COTA_INFERIOR, COTA_SUPERIOR));
+            contador++;
+        }
+        return coleccion;
+    }
+
+    /**
+     * Vuelca los elementos en pantalla, separados por un espacio,
+     * y devuelve el acumulado de todos ellos.
+     */
+    private static int volcarYAcumular(List<Integer> coleccion) {
+        int acumulado = 0;
+        for (Integer elemento : coleccion) {
+            System.out.print(elemento + " ");
+            acumulado += elemento;
+        }
+        return acumulado;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> datos = construirColeccion(TOTAL_TIRADAS);
+
+        System.out.println("Números generados:");
+        int acumulado = volcarYAcumular(datos);
+
+        // La división se fuerza a coma flotante para no perder decimales
+        double media = ((double) acumulado) / datos.size();
+
+        System.out.println("\nSuma total: " + acumulado);
+        System.out.println("Promedio: " + media);
+    }
+}

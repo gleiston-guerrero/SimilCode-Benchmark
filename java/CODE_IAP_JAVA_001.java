@@ -1,0 +1,28 @@
+public class EvaluacionAcademica {
+    // Método principal que inicia la ejecución
+    public static void main(String[] args) {
+        int[] notas = {85, 90, 78, 92, 88};
+        double media = obtenerMedia(notas);
+        mostrarClasificacion(media);
+    }
+
+    // Calcula el promedio de un conjunto de valores enteros
+    private static double obtenerMedia(int[] datos) {
+        int acumulado = 0;
+        for (int valor : datos) {
+            acumulado += valor;
+        }
+        return acumulado / (double) datos.length;
+    }
+
+    // Imprime la clasificación según el promedio obtenido
+    private static void mostrarClasificacion(double promedio) {
+        if (promedio >= 90) {
+            System.out.println("Excelente: " + promedio);
+        } else if (promedio >= 80) {
+            System.out.println("Bueno: " + promedio);
+        } else {
+            System.out.println("Regular: " + promedio);
+        }
+    }
+}

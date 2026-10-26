@@ -1,0 +1,85 @@
+```csharp
+using System;
+
+namespace SistemaEvaluacionAcademica
+{
+    // Clase que representa a la persona matriculada
+    internal class Alumno
+    {
+        private string identificador;
+        private int tiempoDeVida;
+        private double calificacionFinal;
+
+        // Constructor con asignación directa
+        public Alumno(string n, int e, double c)
+        {
+            identificador = n;
+            tiempoDeVida = e;
+            calificacionFinal = c;
+        }
+
+        // Métodos de acceso para reemplazar las propiedades automáticas
+        public string ObtenerIdentificador()
+        {
+            return identificador;
+        }
+
+        public int ObtenerTiempoDeVida()
+        {
+            return tiempoDeVida;
+        }
+
+        public double ObtenerCalificacion()
+        {
+            return calificacionFinal;
+        }
+    }
+
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            // Uso de un arreglo estático en lugar de una colección List
+            Alumno[] registroAlumnos = new Alumno[3];
+            
+            registroAlumnos[0] = new Alumno("Juan Pérez", 20, 3.5);
+            registroAlumnos[1] = new Alumno("María García", 19, 2.8);
+            registroAlumnos[2] = new Alumno("Carlos López", 21, 4.2);
+
+            Console.WriteLine("=== INFORMACIÓN DE ESTUDIANTES ===");
+
+            // Implementación de un bucle while en vez de un foreach
+            int iterador = 0;
+            while (iterador < registroAlumnos.Length)
+            {
+                ProcesarAlumno(registroAlumnos[iterador]);
+                iterador++;
+            }
+
+            Console.ReadKey();
+        }
+
+        // Se extrae la lógica de impresión y validación a un método estático independiente
+        private static void ProcesarAlumno(Alumno sujeto)
+        {
+            Console.WriteLine("Nombre: " + sujeto.ObtenerIdentificador());
+            Console.WriteLine("Edad: " + sujeto.ObtenerTiempoDeVida());
+            Console.WriteLine("Promedio: " + sujeto.ObtenerCalificacion());
+
+            // Se invierte la condición lógica para estructurar el if de otra forma
+            bool noSupera = sujeto.ObtenerCalificacion() < 3.0;
+            
+            if (noSupera)
+            {
+                Console.WriteLine("Estado: REPROBADO");
+            }
+            else
+            {
+                Console.WriteLine("Estado: APROBADO");
+            }
+
+            Console.WriteLine("------------------------");
+        }
+    }
+}
+```

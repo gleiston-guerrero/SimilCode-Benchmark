@@ -76,3 +76,10 @@ sheet_*.xlsx
 sheet_*.csv
 
 REGISTRO_EJECUCION.md
+
+# --- Revision M1: derivados de la segunda corrida ------------------------
+# baselines_work_ia/ lo reconstruye  baselines.py preparar --metadata metadata_ia.csv
+baselines_work_ia/
+# Logs en UTF-16 de Tee-Object
+jplag_cs_ia.log
+jplag_java_ia.log

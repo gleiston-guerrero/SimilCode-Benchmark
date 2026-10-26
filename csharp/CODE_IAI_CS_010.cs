@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+
+namespace MonitoreoClimatico
+{
+    class GestorTemperaturas
+    {
+        static void Main(string[] args)
+        {
+            List<double> registro = new List<double>();
+            Console.WriteLine("=== MONITOREO CLIMÁTICO ===");
+            
+            Console.Write("¿Cuántas mediciones desea ingresar? ");
+            int numMediciones = Convert.ToInt32(Console.ReadLine());
+            
+            for (int indice = 0; indice < numMediciones; indice++)
+            {
+                Console.Write($"Medición {indice + 1} (°C): ");
+                double valor = Convert.ToDouble(Console.ReadLine());
+                registro.Add(valor);
+            }
+            
+            double total = 0;
+            double extremoMax = registro[0];
+            double extremoMin = registro[0];
+            
+            foreach (double medida in registro)
+            {
+                total += medida;
+                if (medida > extremoMax) extremoMax = medida;
+                if (medida < extremoMin) extremoMin = medida;
+                
+                Console.Write($"{medida}°C ");
+                if (medida > 30)
+                    Console.WriteLine("- CALOR");
+                else if (medida < 15)
+                    Console.WriteLine("- FRÍO");
+                else
+                    Console.WriteLine("- NORMAL");
+            }
+            
+            double media = total / registro.Count;
+            Console.WriteLine($"\nPromedio: {media:F1}°C");
+            Console.WriteLine($"Máxima: {extremoMax}°C");
+            Console.WriteLine($"Mínima: {extremoMin}°C");
+        }
+    }
+}

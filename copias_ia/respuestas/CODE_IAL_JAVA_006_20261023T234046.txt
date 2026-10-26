@@ -1,0 +1,26 @@
+```java
+package Java.Distinto;
+
+public class BUSCADOR_NUMEROS {
+    public static void main(String[] args) {
+        int[] datos = {10, 25, 30, 45, 55, 60, 75};
+        int valorBuscado = 45;
+        boolean resultado = false;
+        int indice = -1;
+        
+        for(int i = 0; i < datos.length; i++) {
+            if(datos[i] == valorBuscado) {
+                resultado = true;
+                indice = i;
+                break;
+            }
+        }
+        
+        if(resultado) {
+            System.out.println("Número " + valorBuscado + " encontrado en posición: " + indice);
+        } else {
+            System.out.println("Número " + valorBuscado + " no encontrado");
+        }
+    }
+}
+```

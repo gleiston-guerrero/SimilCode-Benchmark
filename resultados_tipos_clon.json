@@ -1,0 +1,407 @@
+{
+ "n_pairs": {
+  "type1": 30,
+  "type4": 30,
+  "unrelated": 30,
+  "type3": 26,
+  "type2": 4
+ },
+ "n_reference_programs": 30,
+ "auc": {
+  "openai": {
+   "copies_T2T3_vs_independent_T4": {
+    "auc": 0.66,
+    "ci95_cluster": [
+     0.51,
+     0.8
+    ]
+   },
+   "copies_T1T2T3_vs_independent_T4": {
+    "auc": 0.83,
+    "ci95_cluster": [
+     0.76,
+     0.9
+    ]
+   },
+   "independent_T4_vs_unrelated": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "deepseek": {
+   "copies_T2T3_vs_independent_T4": {
+    "auc": 0.7,
+    "ci95_cluster": [
+     0.57,
+     0.83
+    ]
+   },
+   "copies_T1T2T3_vs_independent_T4": {
+    "auc": 0.85,
+    "ci95_cluster": [
+     0.79,
+     0.91
+    ]
+   },
+   "independent_T4_vs_unrelated": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "gemini": {
+   "copies_T2T3_vs_independent_T4": {
+    "auc": 0.6,
+    "ci95_cluster": [
+     0.44,
+     0.76
+    ]
+   },
+   "copies_T1T2T3_vs_independent_T4": {
+    "auc": 0.8,
+    "ci95_cluster": [
+     0.72,
+     0.88
+    ]
+   },
+   "independent_T4_vs_unrelated": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "anthropic": {
+   "copies_T2T3_vs_independent_T4": {
+    "auc": 0.76,
+    "ci95_cluster": [
+     0.62,
+     0.88
+    ]
+   },
+   "copies_T1T2T3_vs_independent_T4": {
+    "auc": 0.88,
+    "ci95_cluster": [
+     0.81,
+     0.94
+    ]
+   },
+   "independent_T4_vs_unrelated": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ]
+   }
+  },
+  "moss": {
+   "copies_T2T3_vs_independent_T4": {
+    "auc": 0.93,
+    "ci95_cluster": [
+     0.85,
+     0.99
+    ]
+   },
+   "copies_T1T2T3_vs_independent_T4": {
+    "auc": 0.96,
+    "ci95_cluster": [
+     0.93,
+     1.0
+    ]
+   },
+   "independent_T4_vs_unrelated": {
+    "auc": 0.63,
+    "ci95_cluster": [
+     0.57,
+     0.72
+    ]
+   }
+  },
+  "jplag": {
+   "copies_T2T3_vs_independent_T4": {
+    "auc": 0.99,
+    "ci95_cluster": [
+     0.96,
+     1.0
+    ]
+   },
+   "copies_T1T2T3_vs_independent_T4": {
+    "auc": 0.99,
+    "ci95_cluster": [
+     0.98,
+     1.0
+    ]
+   },
+   "independent_T4_vs_unrelated": {
+    "auc": 0.62,
+    "ci95_cluster": [
+     0.53,
+     0.71
+    ]
+   }
+  },
+  "dolos": {
+   "copies_T2T3_vs_independent_T4": {
+    "auc": 0.97,
+    "ci95_cluster": [
+     0.92,
+     1.0
+    ]
+   },
+   "copies_T1T2T3_vs_independent_T4": {
+    "auc": 0.99,
+    "ci95_cluster": [
+     0.96,
+     1.0
+    ]
+   },
+   "independent_T4_vs_unrelated": {
+    "auc": 0.82,
+    "ci95_cluster": [
+     0.74,
+     0.9
+    ]
+   }
+  }
+ },
+ "flag_rates": {
+  "openai": {
+   "50": {
+    "copies_T2T3_flagged_pct": 96.7,
+    "independent_T4_flagged_pct": 100.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "70": {
+    "copies_T2T3_flagged_pct": 80.0,
+    "independent_T4_flagged_pct": 66.7,
+    "unrelated_flagged_pct": 0.0
+   },
+   "80": {
+    "copies_T2T3_flagged_pct": 53.3,
+    "independent_T4_flagged_pct": 16.7,
+    "unrelated_flagged_pct": 0.0
+   },
+   "90": {
+    "copies_T2T3_flagged_pct": 16.7,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   }
+  },
+  "deepseek": {
+   "50": {
+    "copies_T2T3_flagged_pct": 96.7,
+    "independent_T4_flagged_pct": 100.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "70": {
+    "copies_T2T3_flagged_pct": 73.3,
+    "independent_T4_flagged_pct": 63.3,
+    "unrelated_flagged_pct": 0.0
+   },
+   "80": {
+    "copies_T2T3_flagged_pct": 63.3,
+    "independent_T4_flagged_pct": 36.7,
+    "unrelated_flagged_pct": 0.0
+   },
+   "90": {
+    "copies_T2T3_flagged_pct": 46.7,
+    "independent_T4_flagged_pct": 3.3,
+    "unrelated_flagged_pct": 0.0
+   }
+  },
+  "gemini": {
+   "50": {
+    "copies_T2T3_flagged_pct": 90.0,
+    "independent_T4_flagged_pct": 100.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "70": {
+    "copies_T2T3_flagged_pct": 56.7,
+    "independent_T4_flagged_pct": 13.3,
+    "unrelated_flagged_pct": 0.0
+   },
+   "80": {
+    "copies_T2T3_flagged_pct": 33.3,
+    "independent_T4_flagged_pct": 6.7,
+    "unrelated_flagged_pct": 0.0
+   },
+   "90": {
+    "copies_T2T3_flagged_pct": 6.7,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   }
+  },
+  "anthropic": {
+   "50": {
+    "copies_T2T3_flagged_pct": 96.7,
+    "independent_T4_flagged_pct": 100.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "70": {
+    "copies_T2T3_flagged_pct": 66.7,
+    "independent_T4_flagged_pct": 16.7,
+    "unrelated_flagged_pct": 0.0
+   },
+   "80": {
+    "copies_T2T3_flagged_pct": 50.0,
+    "independent_T4_flagged_pct": 3.3,
+    "unrelated_flagged_pct": 0.0
+   },
+   "90": {
+    "copies_T2T3_flagged_pct": 10.0,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   }
+  },
+  "moss": {
+   "50": {
+    "copies_T2T3_flagged_pct": 63.3,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "70": {
+    "copies_T2T3_flagged_pct": 40.0,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "80": {
+    "copies_T2T3_flagged_pct": 26.7,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "90": {
+    "copies_T2T3_flagged_pct": 26.7,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   }
+  },
+  "jplag": {
+   "50": {
+    "copies_T2T3_flagged_pct": 90.0,
+    "independent_T4_flagged_pct": 6.7,
+    "unrelated_flagged_pct": 0.0
+   },
+   "70": {
+    "copies_T2T3_flagged_pct": 80.0,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "80": {
+    "copies_T2T3_flagged_pct": 73.3,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "90": {
+    "copies_T2T3_flagged_pct": 63.3,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   }
+  },
+  "dolos": {
+   "50": {
+    "copies_T2T3_flagged_pct": 90.0,
+    "independent_T4_flagged_pct": 3.3,
+    "unrelated_flagged_pct": 0.0
+   },
+   "70": {
+    "copies_T2T3_flagged_pct": 66.7,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "80": {
+    "copies_T2T3_flagged_pct": 53.3,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   },
+   "90": {
+    "copies_T2T3_flagged_pct": 33.3,
+    "independent_T4_flagged_pct": 0.0,
+    "unrelated_flagged_pct": 0.0
+   }
+  }
+ },
+ "median_score": {
+  "openai": {
+   "type1": 100.0,
+   "type2": 91.0,
+   "type3": 77.0,
+   "type4": 72.5,
+   "unrelated": 17.5
+  },
+  "deepseek": {
+   "type1": 100.0,
+   "type2": 94.5,
+   "type3": 83.0,
+   "type4": 71.0,
+   "unrelated": 15.0
+  },
+  "gemini": {
+   "type1": 100.0,
+   "type2": 87.0,
+   "type3": 67.5,
+   "type4": 61.5,
+   "unrelated": 15.0
+  },
+  "anthropic": {
+   "type1": 100.0,
+   "type2": 91.0,
+   "type3": 75.0,
+   "type4": 63.5,
+   "unrelated": 19.0
+  },
+  "moss": {
+   "type1": 97.0,
+   "type2": 98.0,
+   "type3": 58.5,
+   "type4": 0.0,
+   "unrelated": 0.0
+  },
+  "jplag": {
+   "type1": 100.0,
+   "type2": 100.0,
+   "type3": 98.28,
+   "type4": 0.0,
+   "unrelated": 0.0
+  },
+  "dolos": {
+   "type1": 100.0,
+   "type2": 100.0,
+   "type3": 75.24000000000001,
+   "type4": 29.18,
+   "unrelated": 12.86
+  }
+ },
+ "normalized_token_similarity": {
+  "type1": {
+   "median": 1.0,
+   "min": 1.0,
+   "max": 1.0
+  },
+  "type2": {
+   "median": 1.0,
+   "min": 1.0,
+   "max": 1.0
+  },
+  "type3": {
+   "median": 0.93,
+   "min": 0.5,
+   "max": 1.0
+  },
+  "type4": {
+   "median": 0.55,
+   "min": 0.25,
+   "max": 0.72
+  },
+  "unrelated": {
+   "median": 0.24,
+   "min": 0.12,
+   "max": 0.42
+  }
+ }
+}

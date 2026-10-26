@@ -1,0 +1,50 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace MonitoreoClimatico
+{
+    class SistemaMonitoreo
+    {
+        static void Main(string[] args)
+        {
+            List<double> valoresTemperatura = new List<double>();
+            Console.WriteLine("=== MONITOREO DE TEMPERATURA ===");
+            
+            Console.Write("¿Cuántas lecturas desea ingresar? ");
+            int numLecturas = Convert.ToInt32(Console.ReadLine());
+            
+            for (int indice = 0; indice < numLecturas; indice++)
+            {
+                Console.Write($"Temperatura {indice + 1} (°C): ");
+                double valor = Convert.ToDouble(Console.ReadLine());
+                valoresTemperatura.Add(valor);
+            }
+            
+            double total = 0;
+            double maxValor = valoresTemperatura[0];
+            double minValor = valoresTemperatura[0];
+            
+            foreach (double temp in valoresTemperatura)
+            {
+                total += temp;
+                if (temp > maxValor) maxValor = temp;
+                if (temp < minValor) minValor = temp;
+                
+                Console.Write($"{temp}°C ");
+                if (temp > 30)
+                    Console.WriteLine("- CALOR");
+                else if (temp < 15)
+                    Console.WriteLine("- FRÍO");
+                else
+                    Console.WriteLine("- NORMAL");
+            }
+            
+            double promedio = total / valoresTemperatura.Count;
+            Console.WriteLine($"\nPromedio: {promedio:F1}°C");
+            Console.WriteLine($"Máxima: {maxValor}°C");
+            Console.WriteLine($"Mínima: {minValor}°C");
+        }
+    }
+}
+```

@@ -1,0 +1,70 @@
+```csharp
+using System;
+
+namespace Elecciones
+{
+    class Aplicacion
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Sistema Electoral ===");
+            
+            int contadorA = 0;
+            int contadorB = 0;
+            int contadorC = 0;
+            int cantidadTotal = 0;
+            
+            Console.WriteLine("Opciones de candidatos:");
+            Console.WriteLine("1 - Opción 1");
+            Console.WriteLine("2 - Opción 2");
+            Console.WriteLine("3 - Opción 3");
+            Console.WriteLine("0 - Terminar votación");
+            
+            for (;;)
+            {
+                Console.Write("\nIngrese su voto: ");
+                int eleccion = Convert.ToInt32(Console.ReadLine());
+                
+                if (eleccion == 0)
+                    break;
+                else if (eleccion == 1)
+                {
+                    contadorA++;
+                    cantidadTotal++;
+                }
+                else if (eleccion == 2)
+                {
+                    contadorB++;
+                    cantidadTotal++;
+                }
+                else if (eleccion == 3)
+                {
+                    contadorC++;
+                    cantidadTotal++;
+                }
+                else
+                {
+                    Console.WriteLine("Voto no válido");
+                }
+            }
+            
+            Console.WriteLine("\n=== RESULTADOS ===");
+            Console.WriteLine($"Opción 1: {contadorA} votos");
+            Console.WriteLine($"Opción 2: {contadorB} votos");
+            Console.WriteLine($"Opción 3: {contadorC} votos");
+            Console.WriteLine($"Total de votos: {cantidadTotal}");
+            
+            if (contadorA > contadorB && contadorA > contadorC)
+                Console.WriteLine("¡Ganador: Opción 1!");
+            else if (contadorB > contadorA && contadorB > contadorC)
+                Console.WriteLine("¡Ganador: Opción 2!");
+            else if (contadorC > contadorA && contadorC > contadorB)
+                Console.WriteLine("¡Ganador: Opción 3!");
+            else
+                Console.WriteLine("Hay un empate entre opciones");
+            
+            Console.ReadKey();
+        }
+    }
+}
+```

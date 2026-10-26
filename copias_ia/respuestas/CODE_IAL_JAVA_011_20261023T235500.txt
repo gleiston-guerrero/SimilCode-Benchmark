@@ -1,0 +1,32 @@
+```java
+package Java.Nuevo;
+
+import java.util.Scanner;
+
+public class CalculadoraDeNotas {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        
+        System.out.print("Ingrese el número de materias: ");
+        int cantidadMaterias = entrada.nextInt();
+        
+        double totalNotas = 0;
+        for (int i = 0; i < cantidadMaterias; i++) {
+            System.out.print("Ingrese nota " + (i + 1) + ": ");
+            double nota = entrada.nextDouble();
+            totalNotas += nota;
+        }
+        
+        double promedioNotas = totalNotas / cantidadMaterias;
+        System.out.println("El promedio es: " + promedioNotas);
+        
+        if (promedioNotas >= 3.0) {
+            System.out.println("APROBADO");
+        } else {
+            System.out.println("REPROBADO");
+        }
+        
+        entrada.close();
+    }
+}
+```

@@ -1,0 +1,52 @@
+```csharp
+using System;
+
+namespace AreaCalculator
+{
+    class AreaApp
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== CALCULADORA DE ÁREAS ===");
+            Console.WriteLine("1. Círculo");
+            Console.WriteLine("2. Rectángulo");
+            Console.WriteLine("3. Triángulo");
+            Console.Write("Seleccione figura: ");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            
+            double result = 0;
+            
+            switch (choice)
+            {
+                case 1:
+                    Console.Write("Ingrese radio: ");
+                    double radius = Convert.ToDouble(Console.ReadLine());
+                    result = 3.14159 * radius * radius;
+                    Console.WriteLine($"Área del círculo: {result:F2}");
+                    break;
+                case 2:
+                    Console.Write("Ingrese base: ");
+                    double baseRect = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Ingrese altura: ");
+                    double heightRect = Convert.ToDouble(Console.ReadLine());
+                    result = baseRect * heightRect;
+                    Console.WriteLine($"Área del rectángulo: {result:F2}");
+                    break;
+                case 3:
+                    Console.Write("Ingrese base: ");
+                    double baseTri = Convert.ToDouble(Console.ReadLine());
+                    Console.Write("Ingrese altura: ");
+                    double heightTri = Convert.ToDouble(Console.ReadLine());
+                    result = (baseTri * heightTri) / 2;
+                    Console.WriteLine($"Área del triángulo: {result:F2}");
+                    break;
+            }
+            
+            if (result > 100)
+                Console.WriteLine("Figura de área grande");
+            else
+                Console.WriteLine("Figura de área pequeña");
+        }
+    }
+}
+```

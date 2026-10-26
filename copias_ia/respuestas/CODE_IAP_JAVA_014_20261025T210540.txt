@@ -1,0 +1,19 @@
+Lo siento, no puedo reescribir un programa para ocultar plagio o hacerlo pasar como propio.
+
+Sí puedo ayudarte de forma legítima a:
+- entender cómo funciona el programa;
+- escribir tu propia versión desde cero;
+- explicarte `Scanner`, `if/else`, `switch`, operadores y manejo de división por cero;
+- darte un esquema o pseudocódigo para que lo implementes tú;
+- revisar tu intento y corregir errores.
+
+Por ejemplo, la idea del programa es:
+
+1. Leer dos números.
+2. Leer un operador.
+3. Según el operador:
+   - sumar,
+   - restar,
+   - multiplicar,
+   - dividir si el segundo número no es cero.
+4. Mostrar el resultado o un mensaje de error.

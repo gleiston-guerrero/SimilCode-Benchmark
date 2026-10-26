@@ -1,0 +1,44 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace AdministracionAlumnos
+{
+    class Gestor
+    {
+        static void Main(string[] args)
+        {
+            List<string> nombres = new List<string>();
+            List<double> notas = new List<double>();
+            
+            Console.WriteLine("=== SISTEMA DE ALUMNOS ===");
+            
+            for (int contador = 0; contador < 3; contador++)
+            {
+                Console.Write($"Ingrese nombre del alumno {contador + 1}: ");
+                string nombre = Console.ReadLine();
+                nombres.Add(nombre);
+                
+                Console.Write($"Ingrese nota de {nombre}: ");
+                double calificacion = Convert.ToDouble(Console.ReadLine());
+                notas.Add(calificacion);
+            }
+            
+            double total = 0;
+            foreach (double nota in notas)
+            {
+                total += nota;
+                Console.WriteLine($"{nombres[notas.IndexOf(nota)]}: {nota}");
+            }
+            
+            double promedio = total / notas.Count;
+            Console.WriteLine($"Promedio del grupo: {promedio:F2}");
+            
+            if (promedio >= 7.0)
+                Console.WriteLine("Excelente rendimiento grupal");
+            else
+                Console.WriteLine("Necesita mejorar el grupo");
+        }
+    }
+}
+```

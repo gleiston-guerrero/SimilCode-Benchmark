@@ -1,0 +1,48 @@
+```csharp
+using System;
+
+namespace TransformadorMedidas
+{
+    class Aplicacion
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== TRANSFORMADOR DE MEDIDAS ===");
+            Console.WriteLine("1. Metros a Pies");
+            Console.WriteLine("2. Celsius a Fahrenheit");
+            Console.WriteLine("3. Kilogramos a Libras");
+            Console.Write("Elige conversión: ");
+            
+            int seleccion = Convert.ToInt32(Console.ReadLine());
+            double conversion = 0;
+            
+            if (seleccion == 1)
+            {
+                Console.Write("Introduce metros: ");
+                double metros = Convert.ToDouble(Console.ReadLine());
+                conversion = metros * 3.28084;
+                Console.WriteLine($"{metros} metros = {conversion:F2} pies");
+            }
+            else if (seleccion == 2)
+            {
+                Console.Write("Introduce grados Celsius: ");
+                double celsius = Convert.ToDouble(Console.ReadLine());
+                conversion = (celsius * 9/5) + 32;
+                Console.WriteLine($"{celsius}°C = {conversion:F2}°F");
+            }
+            else if (seleccion == 3)
+            {
+                Console.Write("Introduce kilogramos: ");
+                double kilogramos = Convert.ToDouble(Console.ReadLine());
+                conversion = kilogramos * 2.20462;
+                Console.WriteLine($"{kilogramos} kg = {conversion:F2} libras");
+            }
+            
+            if (conversion > 100)
+                Console.WriteLine("Valor convertido alto");
+            else
+                Console.WriteLine("Valor convertido normal");
+        }
+    }
+}
+```

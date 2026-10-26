@@ -1,0 +1,91 @@
+using System;
+
+namespace EvaluadorDeValores
+{
+    class AplicacionPrincipal
+    {
+        static void Main()
+        {
+            // Mostramos el encabezado y solicitamos el tamaño de la muestra
+            Console.WriteLine("Procesador de Números");
+            Console.Write("¿Cuántos números desea procesar? ");
+            
+            string entradaUsuario = Console.ReadLine();
+            int limite = Convert.ToInt32(entradaUsuario);
+            
+            // Delegamos la recolección de datos a una función auxiliar
+            int[] datosRecolectados = CapturarEntradas(limite);
+            
+            // Ejecutamos los cálculos y mostramos la salida en pantalla
+            GenerarReporte(datosRecolectados);
+        }
+
+        /// <summary>
+        /// Lee los números ingresados por consola y los guarda en un arreglo.
+        /// </summary>
+        private static int[] CapturarEntradas(int capacidad)
+        {
+            int[] arregloDeNumeros = new int[capacidad];
+            int iterador = 0;
+            
+            // Se utiliza un bucle while en lugar del for original
+            while (iterador < capacidad)
+            {
+                Console.Write($"Ingrese el número {iterador + 1}: ");
+                arregloDeNumeros[iterador] = int.Parse(Console.ReadLine());
+                iterador++;
+            }
+            
+            return arregloDeNumeros;
+        }
+
+        /// <summary>
+        /// Procesa el arreglo para hallar suma, mínimo, máximo, promedio y rango.
+        /// </summary>
+        private static void GenerarReporte(int[] valores)
+        {
+            int acumulador = 0;
+            int topeMaximo = valores[0];
+            int topeMinimo = valores[0];
+            
+            // Iteramos sobre los elementos usando un bucle for clásico en vez de foreach
+            for (int idx = 0; idx < valores.Length; idx++)
+            {
+                int val = valores[idx];
+                acumulador += val;
+                
+                // Actualizamos el máximo usando un operador ternario
+                topeMaximo = (val > topeMaximo) ? val : topeMaximo;
+                
+                // Actualizamos el mínimo con una estructura if tradicional
+                if (val < topeMinimo)
+                {
+                    topeMinimo = val;
+                }
+            }
+            
+            double media = (double)acumulador / valores.Length;
+            int diferenciaRango = topeMaximo - topeMinimo;
+            
+            // Impresión de los textos requeridos de forma exacta
+            Console.WriteLine($"\nResultados:");
+            Console.WriteLine($"Suma: {acumulador}");
+            Console.WriteLine($"Promedio: {media:F2}");
+            Console.WriteLine($"Máximo: {topeMaximo}");
+            Console.WriteLine($"Mínimo: {topeMinimo}");
+            Console.WriteLine($"Rango: {diferenciaRango}");
+            
+            // Determinamos la tendencia de los números
+            bool tendenciaAlta = media > 50;
+            
+            if (tendenciaAlta)
+            {
+                Console.WriteLine("Los números tienden a ser altos");
+            }
+            else
+            {
+                Console.WriteLine("Los números tienden a ser bajos");
+            }
+        }
+    }
+}

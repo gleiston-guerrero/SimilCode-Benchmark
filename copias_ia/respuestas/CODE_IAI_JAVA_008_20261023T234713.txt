@@ -1,0 +1,34 @@
+```java
+package Java.Idéntico;
+
+public class CONVERSIÓN_METRICA {
+    public static void main(String[] args) {
+        double distancia = 1500.0;
+        String tipoConversión = "metros_a_kilometros";
+        double valorFinal = 0.0;
+        
+        switch(tipoConversión) {
+            case "metros_a_kilometros":
+                valorFinal = distancia / 1000.0;
+                break;
+            case "metros_a_millas":
+                valorFinal = distancia / 1609.34;
+                break;
+            case "metros_a_pies":
+                valorFinal = distancia * 3.28084;
+                break;
+            case "metros_a_pulgadas":
+                valorFinal = distancia * 39.3701;
+                break;
+        }
+        
+        System.out.println(distancia + " metros = " + valorFinal + " en " + tipoConversión);
+        
+        if(valorFinal > 1.0) {
+            System.out.println("Resultado amplio");
+        } else {
+            System.out.println("Resultado pequeño");
+        }
+    }
+}
+```

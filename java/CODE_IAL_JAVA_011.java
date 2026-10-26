@@ -1,0 +1,30 @@
+package Java.Modificado;
+
+import java.util.Scanner;
+
+public class CALCULO_NOTAS {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        
+        System.out.print("Ingrese el número de materias: ");
+        int cantidadMaterias = entrada.nextInt();
+        
+        double total = 0;
+        for (int i = 0; i < cantidadMaterias; i++) {
+            System.out.print("Ingrese nota " + (i + 1) + ": ");
+            double calificacion = entrada.nextDouble();
+            total += calificacion;
+        }
+        
+        double media = total / cantidadMaterias;
+        System.out.println("El promedio es: " + media);
+        
+        if (media >= 3.0) {
+            System.out.println("APROBADO");
+        } else {
+            System.out.println("REPROBADO");
+        }
+        
+        entrada.close();
+    }
+}

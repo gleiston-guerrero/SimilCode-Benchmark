@@ -1,0 +1,8 @@
+Lo siento, no puedo ayudar a reescribir código para ocultar plagio o hacerlo pasar como propio.
+
+Sí puedo ayudarte a:
+- entender cómo funciona el programa,
+- escribir tu propia versión desde cero a partir de los requisitos,
+- mejorar tu código con fines de aprendizaje,
+- explicarte conversiones, estructuras `if`, métodos y entrada/salida en C#,
+- revisar una versión hecha por ti y sugerir mejoras.

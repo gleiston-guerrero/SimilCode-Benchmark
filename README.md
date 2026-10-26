@@ -3,171 +3,91 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21271491.svg)](https://doi.org/10.5281/zenodo.21271491)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-A curated benchmark of source-code snippets in **C#** and **Java**, purpose-built for the empirical evaluation of source-code similarity detection systems that rely on generative artificial intelligence. This repository contains both the ground-truth dataset (`metadata.csv`) and the raw experimental results (`results_llm_comparison.csv`) obtained when the benchmark was used to evaluate four commercial large language models as similarity analysts.
+A controlled benchmark of **120 source-code pairs in C# and Java** for evaluating source-code similarity detectors, together with every raw result reported in the companion manuscript: a replicated evaluation of four commercial large language models (LLMs), the outputs of three classical detectors (Moss, JPlag, Dolos) on the same pairs, and the validation of the Big O estimator of SimilCode.
+
+The DOI badge above is the **concept DOI** and always resolves to the latest archived version. Cite the version DOI shown on Zenodo for the release you use.
 
 ---
 
-## 1. Overview
+## 1. Corpus and ground truth
 
-The benchmark comprises **120 source files** distributed evenly across two programming languages (60 in C# and 60 in Java). Files are organised into **60 test-case pairs per language**, split into **15 reference groups**. Every reference group instantiates the same four similarity scenarios:
+15 reference programs per language, each paired with four counterparts:
 
-| Category | Files paired | Expected similarity |
+| Category | Pair | Expected similarity band |
 |---|---|---|
-| **identical** | reference file compared with itself | 100 % |
-| **functional** | reference vs a functionally equivalent implementation | 70–90 % |
-| **structural** | reference vs a structurally similar variant | 40–60 % |
-| **different** | reference vs an unrelated solution | 0–20 % |
+| identical | reference vs itself | 100 % |
+| functional | reference vs an independent implementation with the same behaviour | 70–90 % |
+| structural | reference vs a variant that keeps the control flow | 40–60 % |
+| different | reference vs an unrelated program | 0–20 % |
 
-The design is fully balanced: 15 pairs × 4 categories × 2 languages = 120 test-case pairs.
+15 pairs × 4 categories × 2 languages = **120 pairs** (`metadata.csv`). All files were written by the research team or taken from the public domain; no student code is included.
 
----
+The categories were verified by a second programming instructor who received the files without labels: Cohen's κ = 0.989 (119/120). Files: `fiabilidad/categorias_evaluador2.csv`, `fiabilidad/clave_categorias_ref.csv`. The single disagreement exposed an archived functional variant that was an exact copy; it was replaced before the benchmark reached that pair.
 
-## 2. Repository structure
+File names: `CODE_<CATEGORY>_<LANG>_<NNN>.<ext>` with `<CATEGORY>` ∈ {IDENT, FUN, ESTRU, DIF} and `<LANG>` ∈ {CS, JAVA}. `CS` replaces `C#` because `#` breaks raw GitHub URLs.
 
-```
-SimilCode-Benchmark/
-├── README.md                     (this file)
-├── LICENSE                       (CC-BY 4.0)
-├── CITATION.cff                  (machine-readable citation metadata)
-├── metadata.csv                  (ground-truth annotations for 120 pairs)
-├── results_llm_comparison.csv    (experimental results, 4 LLMs × 120 cases)
-├── results_codebook.csv          (variable dictionary for results file)
-├── csharp/                       (60 .cs files)
-│   ├── CODE_IDENT_CS_001.cs
-│   ├── CODE_FUN_CS_001.cs
-│   ├── CODE_ESTRU_CS_001.cs
-│   ├── CODE_DIF_CS_001.cs
-│   ├── …
-│   └── CODE_DIF_CS_015.cs
-└── java/                         (60 .java files)
-    ├── CODE_IDENT_JAVA_001.java
-    ├── …
-    └── CODE_DIF_JAVA_015.java
-```
+## 2. Contents
 
-Filename convention: `CODE_<CATEGORY>_<LANGUAGE>_<REF_NUMBER>.<ext>`, where `<CATEGORY>` is one of `IDENT`, `FUN`, `ESTRU`, `DIF`, `<LANGUAGE>` is `CS` or `JAVA`, and `<REF_NUMBER>` is a zero-padded reference group identifier (001–015). The `CS` token is used in file names in place of `C#` because the hash character breaks GitHub raw-file URLs; the human-readable language remains `C#` in every `language` column of the CSV files.
-
----
-
-## 3. `metadata.csv` — ground truth
-
-One row per test-case pair (120 rows). Key columns:
-
-| Column | Description |
+| File / folder | Content |
 |---|---|
-| `case_id` | Unique case identifier, e.g. `CASE_CODE_CS_001`. |
-| `language` | `C#` or `Java`. |
-| `reference_group` | 1–15; groups the four cases derived from the same reference file. |
-| `similarity_category` | `identical`, `functional`, `structural`, or `different`. |
-| `code_a_id`, `code_b_id` | Identifiers of the two source files being compared. |
-| `code_a_filename`, `code_b_filename`, `code_a_path`, `code_b_path` | File-system references (relative to repository root). |
-| `code_a_loc`, `code_b_loc` | Non-blank lines of code (author-verified). |
-| `code_a_methods`, `code_b_methods` | Number of methods/functions declared. |
-| `expected_similarity_min`, `expected_similarity_max` | Ground-truth similarity range for the category. |
-| `evaluator`, `evaluation_date` | Provenance of the annotations (ISO 8601 dates). |
-| `notes` | Free-text observations. |
+| `metadata.csv` | Ground truth for the 120 pairs. |
+| `csharp/`, `java/` | The 120 source files. |
+| `prompt.txt`, `PROMPT_HASH.txt` | Standardised similarity prompt (Spanish, verbatim) and its SHA-256 hash (`c443efea…a99c`). |
+| `resultados_replicas.csv` | **Main LLM results**: 1,440 valid evaluations (120 pairs × 4 models × 3 replicas) plus 182 failed calls kept for transparency (`error` column). |
+| `resumen_estabilidad.csv`, `sensibilidad_banda.csv` | Summaries produced by `benchmark_replicas.py analyze` (see note in §4). |
+| `baselines_raw.csv` | Similarity of the 120 pairs according to Moss, JPlag and Dolos (cohort mode) and Dolos with `-m 10` (sensitivity run). |
+| `moss_cs.html`, `moss_java.html`, `moss_raw.csv` | Archived Moss reports and parsed scores. |
+| `out_jplag_*/`, `out_dolos_*/`, `jplag_*_utf8.log`, `antlr_cs.csv` | Raw JPlag and Dolos outputs, JPlag logs and C# parse errors. |
+| `bigo/` | Big O validation: 40 canonical + 8 adversarial programs, ground truth (corrected and original), prompt, predictions of the production model (`predicciones_api*.csv`) and per-item scoring. |
+| `benchmark_replicas.py` | Harness that ran the 1,440 evaluations (`run`) and its summary (`analyze`). |
+| `baselines.py`, `ejecutar_moss.sh`, `PROTOCOLO_dolos_jplag.md`, `README_baselines.md`, `README_moss.md` | Protocol and scripts for the classical detectors. |
+| `analisis_manuscrito.py` | **Reproduces every number reported in the manuscript** from the archived files, without calling any API. |
+| `results_llm_comparison.csv`, `results_codebook.csv` | **Legacy (v1.0.0)**: preliminary single-run evaluation of earlier models (2025). Not used in the current manuscript; kept only for traceability. |
 
----
+## 3. LLM benchmark
 
-## 4. `results_llm_comparison.csv` — experimental results
+| Provider | Identifier invoked |
+|---|---|
+| OpenAI | `gpt-5.5-2026-04-23` (production model of SimilCode) |
+| DeepSeek | `deepseek-v4-pro` |
+| Google | `gemini-3.1-pro-preview` |
+| Anthropic | `claude-opus-5` |
 
-One row per (case × model) combination (**480 rows** = 120 cases × 4 models). Documents the outcome of a controlled evaluation of four contemporary commercial LLMs acting as source-code similarity analysts:
+* Official APIs, fresh context per call, three replicas per pair and model, collected 30 July – 1 August 2026.
+* Temperature 0 requested; `claude-opus-5` rejects it (HTTP 400), so its calls used the provider default.
+* Failed calls (kept in the file, `error` not empty): Gemini 128 × HTTP 429, 5 × HTTP 503, 4 timeouts; Anthropic 30 × HTTP 400 (temperature); OpenAI 15 × HTTP 401 (credential set-up).
+* 4 Claude Opus 5 responses have no parsable global score; the manuscript counts them as non-coincident.
+* Except for GPT-5.5, the identifiers are aliases, not dated snapshots.
 
-- **Claude Opus 4.1** (Anthropic)
-- **GPT-5** (OpenAI)
-- **Gemini 2.5 Pro** (Google)
-- **DeepSeek-V3** (DeepSeek)
+## 4. Reproducing the manuscript
 
-Each row records the model's classification (`classified_similarity_percent`), whether it fell within the expected range (`coincidence`), the confusion-matrix entry (`true_positive`, `true_negative`, `false_positive`, `false_negative`), per-case accuracy/sensitivity/specificity, response time, and Likert-scale ratings of justification quality (clarity, technical terminology, logical structure, internal consistency, dimension coverage). The full variable dictionary is provided in `results_codebook.csv`.
-
-The evaluation campaign was conducted between **2025-08-29 and 2025-09-14** by Rafael Navas on a workstation running Windows 11 Pro (Intel Core i5-10400, 16 GB RAM); the exact hardware and network parameters for each case are stored per row in the results file.
-
----
-
-## 5. Loading the dataset
-
-A minimal Python example that joins the ground-truth and the experimental results:
-
-```python
-import pandas as pd
-from pathlib import Path
-
-root   = Path("SimilCode-Benchmark")
-meta   = pd.read_csv(root / "metadata.csv")
-result = pd.read_csv(root / "results_llm_comparison.csv")
-
-# Read the source of a specific pair
-row   = meta.iloc[0]
-src_a = (root / row["code_a_path"]).read_text(encoding="utf-8")
-src_b = (root / row["code_b_path"]).read_text(encoding="utf-8")
-
-# Coincidence rate per model
-print(result.groupby("llm_model")["coincidence"].mean() * 100)
+```bash
+pip install pandas numpy scipy statsmodels pingouin scikit-learn
+python analisis_manuscrito.py --validation ../SimilCode-Validation
 ```
 
----
+Rules fixed before the analysis: majority verdict = coincident in ≥ 2 of 3 replicas, unparsable responses count as misses; tolerance of 5 points in the identical category for every system; `different` band 0–20 (0–30 as sensitivity); band sensitivity changes only non-identical bands; BCa bootstrap, 10,000 resamples, seed 20260730.
 
-## 6. Intended use
+> **Note.** `benchmark_replicas.py analyze` (and therefore `resumen_estabilidad.csv` and `sensibilidad_banda.csv`) uses a more lenient rule: it ignores unparsable responses and also shifts the identical band in the sensitivity analysis. This is why it reports 48.3 % for Claude Opus 5 instead of 47.5 %. The figures of the manuscript are those of `analisis_manuscrito.py`.
 
-This benchmark was designed to support:
+## 5. Classical detectors
 
-1. Empirical comparison of commercial large language models acting as source-code similarity analysts.
-2. Calibration and threshold selection for academic-integrity tools that flag suspected similarity in programming assignments.
-3. Reproducibility of the experiments reported in the accompanying manuscript.
+Moss (Stanford server, `-d -m 10`, 1 Aug 2026), JPlag 6.3.0 (average similarity, threshold 0) and Dolos 2.9.3 (WSL/Ubuntu, defaults), each run once per language on the whole cohort (60 files + 15 materialised copies = 75 submissions, 2,775 comparisons). See `README_baselines.md` and `README_moss.md`. **The Moss user id must never be committed** (`moss` is in `.gitignore`).
 
-Researchers are free to reuse the benchmark for related studies provided that the citation and licence terms below are respected.
+## 6. Big O validation
 
----
+GPT-5.5 via API, 3 August 2026, three replicas per program: 144/144 correct in time and space; 92.5 % space accuracy on the canonical set under the original ground truth (`bigo/ground_truth_v1_original.csv`). See `bigo/README_validacion_bigo.md`. The files `predicciones_opus5.csv` and `predicciones_adversarial_opus5.csv` are a preliminary run and are not reported.
 
-## 7. Ethical considerations
+## 7. Related resources
 
-All 120 source files in this benchmark were authored by the research team specifically for the purposes of this dataset. No file reveals the identity of any student, instructor, or institution, and no file is derived from an authentic student submission. The dataset therefore contains no personal data and required no informed-consent procedure.
+| Artefact | Repository | Concept DOI |
+|---|---|---|
+| Validation data (expert questionnaire, quality ratings) | [SimilCode-Validation](https://github.com/gleiston-guerrero/SimilCode-Validation) | [10.5281/zenodo.21284183](https://doi.org/10.5281/zenodo.21284183) |
+| Backend | [BackEnd-SimilCode](https://github.com/gleiston-guerrero/BackEnd-SimilCode) | [10.5281/zenodo.21265177](https://doi.org/10.5281/zenodo.21265177) |
+| Frontend | [FrontEnd-SimilCode](https://github.com/gleiston-guerrero/FrontEnd-SimilCode) | [10.5281/zenodo.21265976](https://doi.org/10.5281/zenodo.21265976) |
 
----
+Companion manuscript: Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *SimilCode: A Web Application for Source Code Similarity Detection and Algorithmic Efficiency Analysis using Generative Artificial Intelligence.* Submitted to *Discover Computing* (Springer Nature).
 
-## 8. Related resources
+## 8. Licence and citation
 
-- **Backend REST service** — <https://github.com/gleiston-guerrero/BackEnd-SimilCode>
-- **Frontend web application** — <https://github.com/gleiston-guerrero/FrontEnd-SimilCode>
-- **Companion manuscript** — Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *SimilCode: A Web Application for Source Code Similarity Detection and Algorithmic Efficiency Analysis using Generative Artificial Intelligence.* Manuscript submitted to the *International Journal for Educational Integrity* (Springer Nature).
-
----
-
-## 9. How to cite
-
-When using this benchmark, please cite the archived Zenodo record associated with the tagged release. Full machine-readable citation metadata is provided in `CITATION.cff`.
-
-Suggested textual citation:
-
-```
-Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., &
-Rodríguez-Domínguez, C. (2026). SimilCode Benchmark: A Dual-Language
-Source-Code Similarity Dataset for the Evaluation of AI-Based Detectors
-(Version 1.0.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.21271491
-```
-
----
-
-## 10. Licence
-
-Released under the **Creative Commons Attribution 4.0 International Licence (CC BY 4.0)**. See `LICENSE` for the full text.
-
----
-
-## 11. Authors
-
-| Author                              | Affiliation                                                                                                                                        | ORCID                                                        | Contact                        |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------ |
-| Gleiston Cicerón Guerrero-Ulloa     | Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador                                  | [0000-0001-5990-2357](https://orcid.org/0000-0001-5990-2357) | <gguerrero@uteq.edu.ec>        |
-| Rafael Alexander Navas Rivera       | Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador                                  | [0009-0005-7926-2648](https://orcid.org/0009-0005-7926-2648) | <rafael.navas2017@uteq.edu.ec> |
-| Efraín Díaz-Macías                  | Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador                                  | [0000-0003-4087-029X](https://orcid.org/0000-0003-4087-029X) | <efraindiaz@uteq.edu.ec>       |
-| Miguel J. Hornos                    | Department of Software Engineering, University of Granada (UGR), Granada, Spain                                                                    | [0000-0001-5722-9816](https://orcid.org/0000-0001-5722-9816) | <mhornos@ugr.es>               |
-| Carlos Rodríguez-Domínguez ⭐        | Department of Software Engineering, and Research Center for Information and Communication Technologies (CITIC), University of Granada (UGR), Spain | [0000-0001-5626-3115](https://orcid.org/0000-0001-5626-3115) | <carlosrodriguez@ugr.es>       |
-
-⭐ **Corresponding author:** Carlos Rodríguez-Domínguez — <carlosrodriguez@ugr.es>
-
----
-
-## 12. Acknowledgements
-
-This dataset was developed as part of the *Curricular Integration Work* for the Bachelor's Degree in Software Engineering at Universidad Técnica Estatal de Quevedo, in collaboration with researchers from Universidad de Granada.
+Data and documentation: CC BY 4.0 (`LICENSE`). Machine-readable citation metadata: `CITATION.cff`.

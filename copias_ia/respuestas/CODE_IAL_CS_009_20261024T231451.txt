@@ -1,0 +1,44 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace AdministraAlumnos
+{
+    class Controlador
+    {
+        static void Main(string[] args)
+        {
+            List<string> listaAlumnos = new List<string>();
+            List<double> notas = new List<double>();
+            
+            Console.WriteLine("=== SISTEMA DE ALUMNOS ===");
+            
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write($"Ingrese nombre del alumno {i + 1}: ");
+                string nombreAlumno = Console.ReadLine();
+                listaAlumnos.Add(nombreAlumno);
+                
+                Console.Write($"Ingrese calificación de {nombreAlumno}: ");
+                double nota = Convert.ToDouble(Console.ReadLine());
+                notas.Add(nota);
+            }
+            
+            double total = 0;
+            for (int i = 0; i < notas.Count; i++)
+            {
+                total += notas[i];
+                Console.WriteLine($"{listaAlumnos[i]}: {notas[i]}");
+            }
+            
+            double media = total / notas.Count;
+            Console.WriteLine($"Promedio del grupo: {media:F2}");
+            
+            if (media >= 7.0)
+                Console.WriteLine("Excelente rendimiento grupal");
+            else
+                Console.WriteLine("Necesita mejorar el grupo");
+        }
+    }
+}
+```

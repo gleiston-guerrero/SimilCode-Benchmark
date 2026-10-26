@@ -1,0 +1,11 @@
+No puedo ayudarte con esto. Lo que me pides es reescribir un programa ajeno con el objetivo explícito de presentarlo como propio y de burlar los controles antiplagio de tu profesor: eso es hacer trampa, y además te perjudica, porque el objetivo del curso es que aprendas a construir el código, no a disfrazarlo.
+
+Lo que sí puedo hacer contigo:
+
+- **Explicarte el programa línea por línea** para que entiendas qué hace cada parte (listas, bucles, acumuladores, formato `F1`, condicionales encadenados) y puedas escribir tu propia versión desde cero.
+- **Guiarte para que lo programes tú**: te propongo el esqueleto en pseudocódigo, tú lo traduces a C# y yo te corrijo los errores de compilación o de lógica.
+- **Plantearte ejercicios similares** (por ejemplo: control de consumo eléctrico, notas de alumnos, pulsaciones) para practicar la misma estructura con un enunciado distinto.
+- **Revisar tu código ya escrito** y sugerirte mejoras de estilo, nombres de variables o validación de entrada.
+- **Ayudarte a citar correctamente** si el código base proviene de un apunte, un tutorial o un compañero y tu profesor permite apoyarse en material externo. Muchas asignaturas lo aceptan si lo declaras; preguntarle es mucho menos arriesgado que intentar ocultarlo.
+
+Si te sirve, dime por dónde andas: ¿entiendes cómo recorrer la lista y calcular máximo y mínimo, o prefieres que empecemos por la lectura de datos con `Console.ReadLine()`? Empezamos por ahí y lo sacas tú.

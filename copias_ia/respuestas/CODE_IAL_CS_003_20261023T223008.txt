@@ -1,0 +1,38 @@
+```csharp
+using System;
+
+namespace MedidasFormas
+{
+    class Medidas
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("=== Medidas de una Forma ===");
+            double longitud, anchura;
+            
+            Console.Write("Ingrese la longitud del rectángulo: ");
+            longitud = Convert.ToDouble(Console.ReadLine());
+            
+            Console.Write("Ingrese la anchura del rectángulo: ");
+            anchura = Convert.ToDouble(Console.ReadLine());
+            
+            double espacio = longitud * anchura;
+            double limite = 2 * (longitud + anchura);
+            
+            Console.WriteLine($"El espacio es: {espacio} unidades cuadradas");
+            Console.WriteLine($"El límite es: {limite} unidades");
+            
+            if (espacio > 100)
+            {
+                Console.WriteLine("Forma grande");
+            }
+            else
+            {
+                Console.WriteLine("Forma pequeña");
+            }
+            
+            Console.ReadKey();
+        }
+    }
+}
+```

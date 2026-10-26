@@ -1,0 +1,177 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace ControlEscolar
+{
+    public class FichaAlumno
+    {
+        private int _codigo;
+        private string _nombre;
+        private string _apellidos;
+        private string _programa;
+        private LinkedList<double> _notas;
+
+        public int Codigo { get { return _codigo; } }
+        public string Nombre { get { return _nombre; } }
+        public string Apellidos { get { return _apellidos; } }
+        public string Programa { get { return _programa; } }
+
+        public FichaAlumno(int codigo, string nombre, string apellidos, string programa)
+        {
+            _codigo = codigo;
+            _nombre = nombre;
+            _apellidos = apellidos;
+            _programa = programa;
+            _notas = new LinkedList<double>();
+        }
+
+        public void AdjuntarNota(double valor)
+        {
+            if (valor < 0.0 || valor > 5.0)
+            {
+                return;
+            }
+
+            _notas.AddLast(valor);
+        }
+
+        public double CalcularPromedio()
+        {
+            int cantidad = _notas.Count;
+
+            if (cantidad == 0)
+            {
+                return 0.0;
+            }
+
+            double acumulado = 0.0;
+
+            foreach (double nota in _notas)
+            {
+                acumulado += nota;
+            }
+
+            return acumulado / cantidad;
+        }
+
+        public string ObtenerEstado()
+        {
+            double promedio = CalcularPromedio();
+
+            if (promedio >= 3.5)
+            {
+                return "Excelente";
+            }
+
+            if (promedio < 3.0)
+            {
+                return "Reprobado";
+            }
+
+            return "Aprobado";
+        }
+
+        public string CrearResumen()
+        {
+            return $"{Codigo} - {Nombre} {Apellidos} ({Programa}) - Promedio: {CalcularPromedio():F2}";
+        }
+    }
+
+    public class AdministradorAcademico
+    {
+        private List<FichaAlumno> _alumnos;
+
+        public AdministradorAcademico()
+        {
+            _alumnos = new List<FichaAlumno>();
+        }
+
+        public void RegistrarAlumno(FichaAlumno alumno)
+        {
+            _alumnos.Add(alumno);
+        }
+
+        public FichaAlumno LocalizarAlumno(int codigo)
+        {
+            foreach (FichaAlumno alumno in _alumnos)
+            {
+                if (alumno.Codigo == codigo)
+                {
+                    return alumno;
+                }
+            }
+
+            return null;
+        }
+
+        public void MostrarResumenGeneral()
+        {
+            int indice = 0;
+
+            while (indice < _alumnos.Count)
+            {
+                Console.WriteLine(_alumnos[indice].CrearResumen());
+                indice++;
+            }
+        }
+
+        public List<FichaAlumno> ObtenerAlumnosAprobados()
+        {
+            List<FichaAlumno> seleccionados = new List<FichaAlumno>();
+
+            for (int indice = 0; indice < _alumnos.Count; indice++)
+            {
+                FichaAlumno alumno = _alumnos[indice];
+
+                if (alumno.CalcularPromedio() >= 3.0)
+                {
+                    seleccionados.Add(alumno);
+                }
+            }
+
+            return seleccionados;
+        }
+    }
+
+    class PuntoDeEntrada
+    {
+        static void Main(string[] args)
+        {
+            AdministradorAcademico administrador = new AdministradorAcademico();
+
+            FichaAlumno primerAlumno = new FichaAlumno(1, "Juan", "Pérez", "Ingeniería de Software");
+            CargarNotas(primerAlumno, 4.2, 3.8, 4.5);
+
+            FichaAlumno segundoAlumno = new FichaAlumno(2, "María", "García", "Ingeniería de Sistemas");
+            CargarNotas(segundoAlumno, 3.1, 2.8, 3.4);
+
+            administrador.RegistrarAlumno(primerAlumno);
+            administrador.RegistrarAlumno(segundoAlumno);
+
+            Console.WriteLine("=== SISTEMA DE GESTIÓN DE ESTUDIANTES ===");
+            administrador.MostrarResumenGeneral();
+
+            Console.WriteLine("\n=== ESTUDIANTES APROBADOS ===");
+
+            List<FichaAlumno> aprobados = administrador.ObtenerAlumnosAprobados();
+
+            for (int indice = 0; indice < aprobados.Count; indice++)
+            {
+                FichaAlumno alumno = aprobados[indice];
+                Console.WriteLine($"{alumno.Nombre} {alumno.Apellidos} - Estado: {alumno.ObtenerEstado()}");
+            }
+
+            Console.ReadKey();
+        }
+
+        static void CargarNotas(FichaAlumno alumno, params double[] notas)
+        {
+            foreach (double nota in notas)
+            {
+                alumno.AdjuntarNota(nota);
+            }
+        }
+    }
+}
+```

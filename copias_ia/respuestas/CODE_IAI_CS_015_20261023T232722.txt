@@ -1,0 +1,51 @@
+```csharp
+using System;
+using System.Collections.Generic;
+
+namespace AnalizadorDatos
+{
+    class MainClass
+    {
+        static void Main()
+        {
+            List<int> valores = new List<int>();
+            
+            Console.WriteLine("Analizador de Datos");
+            Console.Write("¿Cuántos valores desea ingresar? ");
+            int cantidad = int.Parse(Console.ReadLine());
+            
+            for (int i = 0; i < cantidad; i++)
+            {
+                Console.Write($"Ingrese el valor {i + 1}: ");
+                int valor = int.Parse(Console.ReadLine());
+                valores.Add(valor);
+            }
+            
+            int total = 0;
+            int max = valores[0];
+            int min = valores[0];
+            
+            foreach (int v in valores)
+            {
+                total += v;
+                if (v > max) max = v;
+                if (v < min) min = v;
+            }
+            
+            double avg = (double)total / valores.Count;
+            
+            Console.WriteLine($"\nResultados:");
+            Console.WriteLine($"Total: {total}");
+            Console.WriteLine($"Promedio: {avg:F2}");
+            Console.WriteLine($"Máximo: {max}");
+            Console.WriteLine($"Mínimo: {min}");
+            Console.WriteLine($"Rango: {max - min}");
+            
+            if (avg > 50)
+                Console.WriteLine("Los valores tienden a ser altos");
+            else
+                Console.WriteLine("Los valores tienden a ser bajos");
+        }
+    }
+}
+```

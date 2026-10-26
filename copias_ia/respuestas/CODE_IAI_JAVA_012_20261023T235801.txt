@@ -1,0 +1,27 @@
+```java
+package Java.Modificado;
+
+import java.util.Scanner;
+
+public class ProgNumerosPares {
+    public static void main(String[] args) {
+        Scanner lector = new Scanner(System.in);
+        
+        System.out.print("Ingrese el número de valores: ");
+        int numValores = lector.nextInt();
+        
+        int contPares = 0;
+        for (int indice = 0; indice < numValores; indice++) {
+            System.out.print("Valor " + (indice + 1) + ": ");
+            int valor = lector.nextInt();
+            
+            if (valor % 2 == 0) {
+                contPares++;
+            }
+        }
+        
+        System.out.println("Número de valores pares: " + contPares);
+        lector.close();
+    }
+}
+```

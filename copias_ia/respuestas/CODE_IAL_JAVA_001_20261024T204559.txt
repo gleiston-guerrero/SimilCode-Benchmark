@@ -1,0 +1,24 @@
+```java
+package Java.Idéntico;
+
+public class NotasAlumno {
+    public static void main(String[] args) {
+        int[] puntajes = {85, 90, 78, 92, 88};
+        int total = 0;
+        
+        for(int indice = 0; indice < puntajes.length; indice++) {
+            total += puntajes[indice];
+        }
+        
+        double media = total / (double)puntajes.length;
+        
+        if(media >= 90) {
+            System.out.println("Excelente: " + media);
+        } else if(media >= 80) {
+            System.out.println("Bueno: " + media);
+        } else {
+            System.out.println("Regular: " + media);
+        }
+    }
+}
+```

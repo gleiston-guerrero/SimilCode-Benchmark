@@ -1,0 +1,23 @@
+package Java.Identico;
+
+public class OrdenadorNumeros {
+    public static void main(String[] args) {
+        int[] conjuntoNumeros = {64, 34, 25, 12, 22, 11, 90};
+        int longitud = conjuntoNumeros.length;
+        
+        for(int i = 0; i < longitud-1; i++) {
+            for(int j = 0; j < longitud-i-1; j++) {
+                if(conjuntoNumeros[j] > conjuntoNumeros[j+1]) {
+                    int temporal = conjuntoNumeros[j];
+                    conjuntoNumeros[j] = conjuntoNumeros[j+1];
+                    conjuntoNumeros[j+1] = temporal;
+                }
+            }
+        }
+        
+        System.out.print("Números ordenados: ");
+        for(int numero : conjuntoNumeros) {
+            System.out.print(numero + " ");
+        }
+    }
+}

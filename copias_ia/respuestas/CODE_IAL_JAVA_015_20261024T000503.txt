@@ -1,0 +1,50 @@
+```java
+package Java.Unico;
+
+import java.util.Scanner;
+
+public class GestorTareas {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        String[] listaActividades = new String[10];
+        int indice = 0;
+        
+        while (true) {
+            System.out.println("\n--- GESTOR DE TAREAS ---");
+            System.out.println("1. Ingresar tarea");
+            System.out.println("2. Visualizar tareas");
+            System.out.println("3. Terminar");
+            System.out.print("Elige una opción: ");
+            
+            int seleccion = entrada.nextInt();
+            entrada.nextLine(); // Consumir salto de línea
+            
+            if (seleccion == 1) {
+                if (indice < 10) {
+                    System.out.print("Introduce la tarea: ");
+                    listaActividades[indice] = entrada.nextLine();
+                    indice++;
+                    System.out.println("Tarea añadida!");
+                } else {
+                    System.out.println("Lista completa!");
+                }
+            } else if (seleccion == 2) {
+                System.out.println("\n--- TAREAS INGRESADAS ---");
+                if (indice == 0) {
+                    System.out.println("No hay tareas registradas");
+                } else {
+                    for (int i = 0; i < indice; i++) {
+                        System.out.println((i + 1) + ". " + listaActividades[i]);
+                    }
+                }
+            } else if (seleccion == 3) {
+                System.out.println("¡Adiós!");
+                break;
+            } else {
+                System.out.println("Opción no válida");
+            }
+        }
+        entrada.close();
+    }
+}
+```

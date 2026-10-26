@@ -1,0 +1,26 @@
+```java
+package Java.Original;
+
+import java.util.Random;
+
+public class GeneradorNumeros {
+    public static void main(String[] args) {
+        Random generador = new Random();
+        int limiteNumeros = 10;
+        int valorMinimo = 1;
+        int valorMaximo = 100;
+        int totalSuma = 0;
+        
+        System.out.println("Números generados:");
+        for(int contador = 0; contador < limiteNumeros; contador++) {
+            int numAleatorio = generador.nextInt(valorMaximo - valorMinimo + 1) + valorMinimo;
+            System.out.print(numAleatorio + " ");
+            totalSuma += numAleatorio;
+        }
+        
+        double resultadoPromedio = totalSuma / (double)limiteNumeros;
+        System.out.println("\nSuma total: " + totalSuma);
+        System.out.println("Promedio: " + resultadoPromedio);
+    }
+}
+```

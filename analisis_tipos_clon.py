@@ -15,8 +15,7 @@ Criterio de clasificacion, independiente de los sistemas evaluados:
           eliminadas o modificadas)
   tipo 4  pares 'functional' (implementacion independiente, mismo comportamiento)
   sin relacion  pares 'different'
-La clasificacion automatica debe confirmarse por un docente (columna
-'verificado_por' de tipos_clon.csv).
+La regla es determinista y no usa ninguno de los sistemas evaluados.
 
 Uso (desde la carpeta SimilCode-Benchmark):
   python analisis_tipos_clon.py
@@ -134,9 +133,9 @@ def classify_all(root):
         elif x.similarity_category != "structural":
             t = {"functional": "type4", "different": "unrelated"}[x.similarity_category]
         rows.append((x.case_id, x.language, x.reference_group, x.similarity_category, t, round(r, 3),
-                     len(norm(a)), len(norm(b)), ""))
+                     len(norm(a)), len(norm(b))))
     return pd.DataFrame(rows, columns=["case_id", "language", "reference_group", "category", "clone_type",
-                                       "normalized_token_similarity", "tokens_a", "tokens_b", "verificado_por"])
+                                       "normalized_token_similarity", "tokens_a", "tokens_b"])
 
 
 if __name__ == "__main__":

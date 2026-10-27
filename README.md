@@ -3,7 +3,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21271491.svg)](https://doi.org/10.5281/zenodo.21271491)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-A controlled benchmark of **120 source-code pairs in C# and Java** for evaluating source-code similarity detectors, together with every raw result reported in the companion manuscript: a replicated evaluation of four commercial large language models (LLMs), the outputs of three classical detectors (Moss, JPlag, Dolos) on the same pairs, and the validation of the Big O estimator of SimilCode.
+A controlled benchmark of **120 source-code pairs in C# and Java** for evaluating source-code similarity detectors, together with every raw result reported in the companion manuscript: a replicated evaluation of four commercial large language models (LLMs), the outputs of three classical detectors (Moss, JPlag, Dolos) on the same pairs, a classification of the pairs by code-clone type, a second run with **84 copies rewritten with generative AI** and verified by execution, and the validation of the Big O estimator of SimilCode.
 
 The DOI badge above is the **concept DOI** and always resolves to the latest archived version. Cite the version DOI shown on Zenodo for the release you use.
 
@@ -41,7 +41,11 @@ File names: `CODE_<CATEGORY>_<LANG>_<NNN>.<ext>` with `<CATEGORY>` ∈ {IDENT, F
 | `bigo/` | Big O validation: 40 canonical + 8 adversarial programs, ground truth (corrected and original), prompt, predictions of the production model (`predicciones_api*.csv`) and per-item scoring. |
 | `benchmark_replicas.py` | Harness that ran the 1,440 evaluations (`run`) and its summary (`analyze`). |
 | `baselines.py`, `ejecutar_moss.sh`, `PROTOCOLO_dolos_jplag.md`, `README_baselines.md`, `README_moss.md` | Protocol and scripts for the classical detectors. |
-| `analisis_manuscrito.py` | **Reproduces every number reported in the manuscript** from the archived files, without calling any API. |
+| `analisis_manuscrito.py` | Reproduces the first-run numbers of the manuscript (band agreement, stability, response time, detectors, Big O, justification quality) from the archived files, without calling any API. |
+| `analisis_tipos_clon.py`, `tipos_clon.csv`, `resultados_tipos_clon.json` | Clone type of every pair (deterministic rule on normalised token sequences) and separation of copies (types 1–3) from independent solutions (type 4). |
+| `copias_ia/`, `metadata_ia.csv`, `csharp/CODE_IA*`, `java/CODE_IA*` | **Second run**: copies rewritten with generative AI, generation log, raw generator responses (including refusals), equivalence checks, LLM scores and analysis. See §5 and `copias_ia/README_COPIAS_IA.md`. |
+| `moss_*_ia.html`, `out_jplag_*_ia/`, `out_dolos_*_ia/` | Classical detectors on the second-run cohort (`out_dolos_*_ia_r1/`: intermediate cohort, not reported). |
+| `.zenodo.json`, `CITATION.cff` | Archive and citation metadata. |
 | `results_llm_comparison.csv`, `results_codebook.csv` | **Legacy (v1.0.0)**: preliminary single-run evaluation of earlier models (2025). Not used in the current manuscript; kept only for traceability. |
 
 ## 3. LLM benchmark
@@ -63,22 +67,29 @@ File names: `CODE_<CATEGORY>_<LANG>_<NNN>.<ext>` with `<CATEGORY>` ∈ {IDENT, F
 
 ```bash
 pip install pandas numpy scipy statsmodels pingouin scikit-learn
-python analisis_manuscrito.py --validation ../SimilCode-Validation
+python analisis_manuscrito.py --validation ../SimilCode-Validation   # first run
+python analisis_tipos_clon.py                                         # copies vs independent solutions (clone types)
+python copias_ia/analisis_copias_ia.py                                # copies rewritten with AI
+python copias_ia/similitud_tokens_ia.py                               # token similarity of the second-run pairs
 ```
 
 Rules fixed before the analysis: majority verdict = coincident in ≥ 2 of 3 replicas, unparsable responses count as misses; tolerance of 5 points in the identical category for every system; `different` band 0–20 (0–30 as sensitivity); band sensitivity changes only non-identical bands; BCa bootstrap, 10,000 resamples, seed 20260730.
 
 > **Note.** `benchmark_replicas.py analyze` (and therefore `resumen_estabilidad.csv` and `sensibilidad_banda.csv`) uses a more lenient rule: it ignores unparsable responses and also shifts the identical band in the sensitivity analysis. This is why it reports 48.3 % for Claude Opus 5 instead of 47.5 %. The figures of the manuscript are those of `analisis_manuscrito.py`.
 
-## 5. Classical detectors
+## 5. Second run: copies rewritten with generative AI
+
+Each reference program was rewritten with prompts written in the voice of a student who wants to hide a copy (`copias_ia/prompt_reescritura_*.txt`; first version in `copias_ia/prompts_v1/`). Light and heavy rewrites were generated locally with `qwen2.5-coder:14b` (24 October 2026) and heavy rewrites by commercial models (25 October 2026); GPT-5.5 refused 8 of 8 requests and Claude Opus 5 3 of 8, and those copies were requested again from Gemini 3.1 Pro and DeepSeek-V4-pro (`copias_ia/rechazos_ia.csv`). A copy was kept only if it compiled and printed the same output as its original for three input sets (the copies of the program with random output were reviewed by hand): 54 of 60 local copies and 30 of 30 copies from commercial models. The 84 copies and the 30 functional pairs (re-scored in the same session) were scored on 25 October 2026 by the four LLMs (same prompt, three replicas; 1,366 of 1,368 responses parsable) and by Moss, JPlag and Dolos on the new cohort (69 C# and 75 Java submissions). Details: `copias_ia/README_COPIAS_IA.md`.
+
+## 6. Classical detectors
 
 Moss (Stanford server, `-d -m 10`, 1 Aug 2026), JPlag 6.3.0 (average similarity, threshold 0) and Dolos 2.9.3 (WSL/Ubuntu, defaults), each run once per language on the whole cohort (60 files + 15 materialised copies = 75 submissions, 2,775 comparisons). See `README_baselines.md` and `README_moss.md`. **The Moss user id must never be committed** (`moss` is in `.gitignore`).
 
-## 6. Big O validation
+## 7. Big O validation
 
 GPT-5.5 via API, 3 August 2026, three replicas per program: 144/144 correct in time and space; 92.5 % space accuracy on the canonical set under the original ground truth (`bigo/ground_truth_v1_original.csv`). See `bigo/README_validacion_bigo.md`. The files `predicciones_opus5.csv` and `predicciones_adversarial_opus5.csv` are a preliminary run and are not reported.
 
-## 7. Related resources
+## 8. Related resources
 
 | Artefact | Repository | Concept DOI |
 |---|---|---|
@@ -86,8 +97,8 @@ GPT-5.5 via API, 3 August 2026, three replicas per program: 144/144 correct in t
 | Backend | [BackEnd-SimilCode](https://github.com/gleiston-guerrero/BackEnd-SimilCode) | [10.5281/zenodo.21265177](https://doi.org/10.5281/zenodo.21265177) |
 | Frontend | [FrontEnd-SimilCode](https://github.com/gleiston-guerrero/FrontEnd-SimilCode) | [10.5281/zenodo.21265976](https://doi.org/10.5281/zenodo.21265976) |
 
-Companion manuscript: Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *SimilCode: A Web Application for Source Code Similarity Detection and Algorithmic Efficiency Analysis using Generative Artificial Intelligence.* Submitted to *Discover Computing* (Springer Nature).
+Companion manuscript: Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *Large Language Models for Source Code Similarity Screening in Programming Courses: A Replicated Benchmark Against Classical Detectors.* Manuscript in preparation.
 
-## 8. Licence and citation
+## 9. Licence and citation
 
 Data and documentation: CC BY 4.0 (`LICENSE`). Machine-readable citation metadata: `CITATION.cff`.

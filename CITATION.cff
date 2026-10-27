@@ -4,22 +4,27 @@
 # and GitHub renders a "Cite this repository" button in the sidebar.
 
 cff-version: 1.2.0
-message: "If you use this benchmark dataset, please cite both the dataset itself (using the metadata below) and the accompanying peer-reviewed paper (see 'preferred-citation')."
+message: "If you use this benchmark dataset, please cite both the dataset itself (using the metadata below) and the accompanying paper (see 'preferred-citation')."
 type: dataset
 title: "SimilCode Benchmark: A Dual-Language Source-Code Similarity Dataset for the Evaluation of AI-Based Detectors"
 abstract: >
   SimilCode Benchmark is a controlled dataset of 120 source-code pairs in C#
   and Java (15 reference programs per language, four similarity categories:
   identical, functional, structural and different) for evaluating source-code
-  similarity detectors. It includes the raw results of a replicated
-  evaluation of four commercial large language models (GPT-5.5,
-  DeepSeek-V4-pro, Gemini 3.1 Pro and Claude Opus 5; 1,440 evaluations,
-  three replicas per pair and model), the outputs of Moss, JPlag and Dolos on
-  the same pairs, the validation corpus and predictions of the Big O
-  estimator, and a script that reproduces every number of the companion
-  manuscript.
-version: 2.1.0
-date-released: "2026-10-21"
+  similarity detectors in programming education. It includes the raw results
+  of a replicated evaluation of four commercial large language models
+  (GPT-5.5, DeepSeek-V4-pro, Gemini 3.1 Pro and Claude Opus 5; 1,440
+  evaluations, three replicas per pair and model) and the outputs of Moss,
+  JPlag and Dolos on the same pairs; a classification of the pairs by code-clone
+  type; a second run with 84 copies of the reference programs rewritten with
+  generative AI (by a local open-weight model and by commercial models),
+  verified by execution and scored together with independent solutions to the
+  same exercises (1,368 LLM evaluations and the three detectors), including
+  the refusals of the generators; the validation corpus and predictions of the
+  Big O estimator of SimilCode; and scripts that reproduce the reported numbers
+  without calling any API.
+version: 2.3.0
+date-released: "2026-10-26"
 license: CC-BY-4.0
 repository-code: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
 url: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
@@ -40,39 +45,36 @@ keywords:
   - JPlag
   - Dolos
   - Big O
+  - generative AI
+  - code clones
 
 authors:
   - given-names: "Gleiston Cicerón"
     family-names: "Guerrero-Ulloa"
-    # CRediT roles: Conceptualization; Data Curation; Formal Analysis; Methodology; Project Administration; Supervision; Validation; Visualization; Writing – Original Draft; Writing – Review & Editing
     email: "gguerrero@uteq.edu.ec"
     orcid: "https://orcid.org/0000-0001-5990-2357"
     affiliation: "Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador"
 
   - given-names: "Rafael Alexander"
     family-names: "Navas Rivera"
-    # CRediT roles: Conceptualization; Data Curation; Formal Analysis; Methodology; Project Administration; Resources; Software; Visualization; Writing – Original Draft; Writing – Review & Editing
     email: "rafael.navas2017@uteq.edu.ec"
     orcid: "https://orcid.org/0009-0005-7926-2648"
     affiliation: "Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador"
 
   - given-names: "Efraín"
     family-names: "Díaz-Macías"
-    # CRediT roles: Formal Analysis; Methodology; Project Administration; Resources; Supervision; Validation; Writing – Review & Editing
     email: "efraindiaz@uteq.edu.ec"
     orcid: "https://orcid.org/0000-0003-4087-029X"
     affiliation: "Facultad de Ciencias de la Computación, Universidad Técnica Estatal de Quevedo (UTEQ), Quevedo, Los Ríos, Ecuador"
 
   - given-names: "Miguel J."
     family-names: "Hornos"
-    # CRediT roles: Formal Analysis; Funding Acquisition; Methodology; Project Administration; Resources; Supervision; Validation; Visualization; Writing – Review & Editing
     email: "mhornos@ugr.es"
     orcid: "https://orcid.org/0000-0001-5722-9816"
-    affiliation: "Department of Software Engineering, University of Granada (UGR), Granada, Spain"
+    affiliation: "Department of Software Engineering, and Research Center for Information and Communication Technologies (CITIC), University of Granada (UGR), Granada, Spain"
 
   - given-names: "Carlos"
     family-names: "Rodríguez-Domínguez"
-    # CRediT roles: Formal Analysis; Funding Acquisition; Methodology; Project Administration; Resources; Supervision; Validation; Visualization; Writing – Review & Editing
     email: "carlosrodriguez@ugr.es"
     orcid: "https://orcid.org/0000-0001-5626-3115"
     affiliation: "Department of Software Engineering, and Research Center for Information and Communication Technologies (CITIC), University of Granada (UGR), Granada, Spain"
@@ -84,8 +86,8 @@ contact:
     affiliation: "Department of Software Engineering, and Research Center for Information and Communication Technologies (CITIC), University of Granada (UGR), Granada, Spain"
 
 preferred-citation:
-  type: article
-  title: "SimilCode: A Web Application for Source Code Similarity Detection and Algorithmic Efficiency Analysis using Generative Artificial Intelligence"
+  type: unpublished
+  title: "Large Language Models for Source Code Similarity Screening in Programming Courses: A Replicated Benchmark Against Classical Detectors"
   authors:
     - given-names: "Gleiston Cicerón"
       family-names: "Guerrero-Ulloa"
@@ -107,11 +109,8 @@ preferred-citation:
       family-names: "Rodríguez-Domínguez"
       orcid: "https://orcid.org/0000-0001-5626-3115"
       affiliation: "Universidad de Granada, Spain"
-  journal: "Discover Computing"
   year: 2026
-  publisher:
-    name: "Springer Nature"
-  notes: "Manuscript submitted to Discover Computing; DOI will be inserted upon acceptance."
+  notes: "Manuscript in preparation. The reference will be updated upon publication."
 
 identifiers:
   - type: url

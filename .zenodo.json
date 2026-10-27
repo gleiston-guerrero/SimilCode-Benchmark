@@ -1,0 +1,65 @@
+{
+  "upload_type": "dataset",
+  "title": "SimilCode Benchmark: A Dual-Language Source-Code Similarity Dataset for the Evaluation of AI-Based Detectors",
+  "version": "v2.3.0",
+  "description": "<p>SimilCode Benchmark is a controlled dataset of 120 source-code pairs in C# and Java (15 reference programs per language, four similarity categories: identical, functional, structural and different) for evaluating source-code similarity detectors in programming education. It includes the raw results of a replicated evaluation of four commercial large language models (GPT-5.5, DeepSeek-V4-pro, Gemini 3.1 Pro and Claude Opus 5; 1,440 evaluations, three replicas per pair and model) and the outputs of Moss, JPlag and Dolos on the same pairs; a classification of the pairs by code-clone type; a second run with 84 copies of the reference programs rewritten with generative AI (by a local open-weight model and by commercial models), verified by execution and scored together with independent solutions to the same exercises (1,368 LLM evaluations and the three detectors), including the refusals of the generators; the validation corpus and predictions of the Big O estimator of SimilCode; and scripts that reproduce the reported numbers without calling any API.</p><p>Contents, protocol and reproduction instructions: see README.md, CHANGELOG.md and copias_ia/README_COPIAS_IA.md in the archived repository.</p>",
+  "creators": [
+    {
+      "name": "Guerrero-Ulloa, Gleiston Cicerón",
+      "affiliation": "Universidad Técnica Estatal de Quevedo",
+      "orcid": "0000-0001-5990-2357"
+    },
+    {
+      "name": "Navas Rivera, Rafael Alexander",
+      "affiliation": "Universidad Técnica Estatal de Quevedo",
+      "orcid": "0009-0005-7926-2648"
+    },
+    {
+      "name": "Díaz-Macías, Efraín",
+      "affiliation": "Universidad Técnica Estatal de Quevedo",
+      "orcid": "0000-0003-4087-029X"
+    },
+    {
+      "name": "Hornos, Miguel J.",
+      "affiliation": "University of Granada",
+      "orcid": "0000-0001-5722-9816"
+    },
+    {
+      "name": "Rodríguez-Domínguez, Carlos",
+      "affiliation": "University of Granada",
+      "orcid": "0000-0001-5626-3115"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "keywords": [
+    "source-code similarity",
+    "academic integrity",
+    "programming education",
+    "large language models",
+    "generative AI",
+    "code clones",
+    "plagiarism detection",
+    "benchmark dataset",
+    "C#",
+    "Java",
+    "Moss",
+    "JPlag",
+    "Dolos"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/gleiston-guerrero/SimilCode-Benchmark/tree/v2.3.0",
+      "relation": "isSupplementTo",
+      "resource_type": "dataset",
+      "scheme": "url"
+    },
+    {
+      "identifier": "10.5281/zenodo.21284183",
+      "relation": "isRelatedTo",
+      "resource_type": "dataset",
+      "scheme": "doi"
+    }
+  ]
+}

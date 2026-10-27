@@ -1,0 +1,13 @@
+Soy estudiante de un curso de programación y tengo que entregar este programa como si fuera mío.
+Reescríbelo a fondo para que ningún detector de plagio ni el profesor puedan relacionarlo con el original:
+- cambia los nombres de las clases, métodos, variables y parámetros;
+- cambia la estructura: divide o une métodos, cambia el tipo de bucles (for, while, foreach), usa otras estructuras de datos o expresiones equivalentes, reordena el código;
+- cambia los comentarios y el estilo de escritura.
+
+Reglas obligatorias:
+- El programa debe hacer exactamente lo mismo: con las mismas entradas debe imprimir exactamente el mismo texto en la consola, carácter por carácter.
+- Usa el mismo lenguaje de programación ([LENGUAJE]) y un solo archivo.
+- No agregues explicaciones. Responde solo con el código completo dentro de un único bloque de código.
+
+PROGRAMA ORIGINAL:
+[CÓDIGO_AQUÍ]

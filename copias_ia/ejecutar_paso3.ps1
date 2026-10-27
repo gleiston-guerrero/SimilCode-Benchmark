@@ -126,8 +126,8 @@ python baselines.py preparar --metadata metadata_ia.csv --outdir baselines_work_
 $entradas = @()
 $jar = if (Test-Path ..\jplag.jar) { "..\jplag.jar" } elseif (Test-Path jplag.jar) { "jplag.jar" } else { "" }
 if ($jar) {
-    java -jar $jar baselines_work_ia\cohorte\csharp -l csharp -r out_jplag_cs_ia --csv-export *> copias_ia\jplag_cs_ia.log
-    java -jar $jar baselines_work_ia\cohorte\java -l java -r out_jplag_java_ia --csv-export *> copias_ia\jplag_java_ia.log
+    java -jar $jar baselines_work_ia\cohorte\csharp -l csharp -r out_jplag_cs_ia --csv-export --mode RUN *> copias_ia\jplag_cs_ia.log
+    java -jar $jar baselines_work_ia\cohorte\java -l java -r out_jplag_java_ia --csv-export --mode RUN *> copias_ia\jplag_java_ia.log
     $entradas += "jplag:cohorte:out_jplag_cs_ia\results.csv", "jplag:cohorte:out_jplag_java_ia\results.csv"
 } else { Write-Host "No se encontro jplag.jar; JPlag se omite." -ForegroundColor Yellow }
 if (-not (Tiene "dolos") -and (Tiene "npm")) { npm install -g @dodona/dolos | Out-Null }

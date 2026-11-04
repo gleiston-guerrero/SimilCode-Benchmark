@@ -38,10 +38,11 @@ File names: `CODE_<CATEGORY>_<LANG>_<NNN>.<ext>` with `<CATEGORY>` ∈ {IDENT, F
 | `baselines_raw.csv` | Similarity of the 120 pairs according to Moss, JPlag and Dolos (cohort mode) and Dolos with `-m 10` (sensitivity run). |
 | `moss_cs.html`, `moss_java.html`, `moss_raw.csv` | Archived Moss reports and parsed scores. |
 | `out_jplag_*/`, `out_dolos_*/`, `jplag_*_utf8.log`, `antlr_cs.csv` | Raw JPlag and Dolos outputs, JPlag logs and C# parse errors. |
-| `bigo/` | Big O validation: 40 canonical + 8 adversarial programs, ground truth (corrected and original), prompt, predictions of the production model (`predicciones_api*.csv`) and per-item scoring. |
+| `bigo/` | Big O validation: 40 canonical + 8 adversarial programs, reference answers (final, and the version used in the pilot run), prompt, predictions of the production model (`predicciones_api*.csv`) and per-item scoring. |
 | `benchmark_replicas.py` | Harness that ran the 1,440 evaluations (`run`) and its summary (`analyze`). |
 | `baselines.py`, `ejecutar_moss.sh`, `PROTOCOLO_dolos_jplag.md`, `README_baselines.md`, `README_moss.md` | Protocol and scripts for the classical detectors. |
 | `analisis_manuscrito.py` | Reproduces the first-run numbers of the manuscript (band agreement, stability, response time, detectors, Big O, justification quality) from the archived files, without calling any API. |
+| `analisis_dimensiones.py`, `resultados_dimensiones.json` | Separation of copies from independent solutions by each dimensional score of the LLMs, by the prompt's global score and by the derivation score (prompt weights without the functional dimension), with cluster-bootstrap and paired intervals; detectors included for reference. No API calls. |
 | `analisis_tipos_clon.py`, `tipos_clon.csv`, `resultados_tipos_clon.json` | Clone type of every pair (deterministic rule on normalised token sequences) and separation of copies (types 1–3) from independent solutions (type 4). |
 | `copias_ia/`, `metadata_ia.csv`, `csharp/CODE_IA*`, `java/CODE_IA*` | **Second run**: copies rewritten with generative AI, generation log, raw generator responses (including refusals), equivalence checks, LLM scores and analysis. See §5 and `copias_ia/README_COPIAS_IA.md`. |
 | `moss_*_ia.html`, `out_jplag_*_ia/`, `out_dolos_*_ia/` | Classical detectors on the second-run cohort (`out_dolos_*_ia_r1/`: intermediate cohort, not reported). |
@@ -60,7 +61,7 @@ File names: `CODE_<CATEGORY>_<LANG>_<NNN>.<ext>` with `<CATEGORY>` ∈ {IDENT, F
 * Official APIs, fresh context per call, three replicas per pair and model, collected 30 July – 1 August 2026.
 * Temperature 0 requested; `claude-opus-5` rejects it (HTTP 400), so its calls used the provider default.
 * Failed calls (kept in the file, `error` not empty): Gemini 128 × HTTP 429, 5 × HTTP 503, 4 timeouts; Anthropic 30 × HTTP 400 (temperature); OpenAI 15 × HTTP 401 (credential set-up).
-* 4 Claude Opus 5 responses have no parsable global score; the manuscript counts them as non-coincident.
+* 4 Claude Opus 5 responses have no parsable global score; the band-based analysis counts them as non-coincident, and the separation analyses use the median of the remaining replicas.
 * Except for GPT-5.5, the identifiers are aliases, not dated snapshots.
 
 ## 4. Reproducing the manuscript
@@ -71,6 +72,7 @@ python analisis_manuscrito.py --validation ../SimilCode-Validation   # first run
 python analisis_tipos_clon.py                                         # copies vs independent solutions (clone types)
 python copias_ia/analisis_copias_ia.py                                # copies rewritten with AI
 python copias_ia/similitud_tokens_ia.py                               # token similarity of the second-run pairs
+python analisis_dimensiones.py                                        # separation by dimension and derivation score (both runs)
 ```
 
 Rules fixed before the analysis: majority verdict = coincident in ≥ 2 of 3 replicas, unparsable responses count as misses; tolerance of 5 points in the identical category for every system; `different` band 0–20 (0–30 as sensitivity); band sensitivity changes only non-identical bands; BCa bootstrap, 10,000 resamples, seed 20260730.
@@ -87,7 +89,7 @@ Moss (Stanford server, `-d -m 10`, 1 Aug 2026), JPlag 6.3.0 (average similarity,
 
 ## 7. Big O validation
 
-GPT-5.5 via API, 3 August 2026, three replicas per program: 144/144 correct in time and space; 92.5 % space accuracy on the canonical set under the original ground truth (`bigo/ground_truth_v1_original.csv`). See `bigo/README_validacion_bigo.md`. The files `predicciones_opus5.csv` and `predicciones_adversarial_opus5.csv` are a preliminary run and are not reported.
+GPT-5.5 via API, 3 August 2026, three replicas per program: 144/144 correct in time and space. The estimator was applied first to the canonical algorithms, whose complexity is documented, and then to the adversarial programs; the reference answers (worst-case time and auxiliary space) were published on 1 August 2026, before this run. The files `predicciones_opus5.csv` and `predicciones_adversarial_opus5.csv` belong to a pilot run on the canonical set with another model, in which the auxiliary-space convention was declared (`bigo/ground_truth_v1_original.csv` keeps the version used in that pilot); they are not reported. See `bigo/README_validacion_bigo.md`.
 
 ## 8. Related resources
 
@@ -97,7 +99,7 @@ GPT-5.5 via API, 3 August 2026, three replicas per program: 144/144 correct in t
 | Backend | [BackEnd-SimilCode](https://github.com/gleiston-guerrero/BackEnd-SimilCode) | [10.5281/zenodo.21265177](https://doi.org/10.5281/zenodo.21265177) |
 | Frontend | [FrontEnd-SimilCode](https://github.com/gleiston-guerrero/FrontEnd-SimilCode) | [10.5281/zenodo.21265976](https://doi.org/10.5281/zenodo.21265976) |
 
-Companion manuscript: Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *Large Language Models for Source Code Similarity Screening in Programming Courses: A Replicated Benchmark Against Classical Detectors.* Manuscript in preparation.
+Companion manuscript: Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *Do Language Models Distinguish Copied Code from Independent Solutions? Dimensional Similarity Scores versus Classical Detectors in Programming Courses.* Manuscript in preparation.
 
 ## 9. Licence and citation
 

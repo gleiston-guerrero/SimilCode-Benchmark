@@ -1,0 +1,4382 @@
+{
+ "definition": "derivacion = (0.30*estructural + 0.20*lexica + 0.10*estilistica) / 0.60",
+ "first_run": {
+  "conventional_T2T3": {
+   "openai": {
+    "lexica": {
+     "auc": 0.72,
+     "ci95_cluster": [
+      0.61,
+      0.84
+     ],
+     "median_copy": 66.5,
+     "median_independent": 58.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 90.0,
+       "independent": 70.0
+      },
+      "70": {
+       "copy": 33.3,
+       "independent": 13.3
+      },
+      "80": {
+       "copy": 3.3,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.95,
+     "ci95_cluster": [
+      0.88,
+      0.99
+     ],
+     "median_copy": 94.5,
+     "median_independent": 68.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 83.3
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 40.0
+      },
+      "80": {
+       "copy": 83.3,
+       "independent": 10.0
+      },
+      "90": {
+       "copy": 70.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 95.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 53.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 96.7,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 83.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 0.97,
+     "ci95_cluster": [
+      0.91,
+      1.0
+     ],
+     "median_copy": 92.5,
+     "median_independent": 70.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 53.3
+      },
+      "80": {
+       "copy": 93.3,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 60.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.06,
+     "ci95_cluster": [
+      0.02,
+      0.13
+     ],
+     "median_copy": 77.0,
+     "median_independent": 95.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 86.7,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 53.3,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 46.7,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 26.7,
+       "independent": 86.7
+      }
+     }
+    },
+    "global": {
+     "auc": 0.66,
+     "ci95_cluster": [
+      0.51,
+      0.8
+     ],
+     "median_copy": 82.0,
+     "median_independent": 72.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 96.7,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 80.0,
+       "independent": 66.7
+      },
+      "80": {
+       "copy": 53.3,
+       "independent": 16.7
+      },
+      "90": {
+       "copy": 16.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.95,
+     "ci95_cluster": [
+      0.88,
+      0.99
+     ],
+     "median_copy": 84.8,
+     "median_independent": 58.8,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 76.7
+      },
+      "70": {
+       "copy": 90.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 66.7,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 6.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.29,
+     "ci95_cluster": [
+      0.18,
+      0.4
+     ]
+    }
+   },
+   "deepseek": {
+    "lexica": {
+     "auc": 0.85,
+     "ci95_cluster": [
+      0.74,
+      0.95
+     ],
+     "median_copy": 78.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 93.3,
+       "independent": 53.3
+      },
+      "70": {
+       "copy": 80.0,
+       "independent": 16.7
+      },
+      "80": {
+       "copy": 46.7,
+       "independent": 13.3
+      },
+      "90": {
+       "copy": 3.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.97,
+     "ci95_cluster": [
+      0.93,
+      1.0
+     ],
+     "median_copy": 99.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 60.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 46.7
+      },
+      "80": {
+       "copy": 96.7,
+       "independent": 23.3
+      },
+      "90": {
+       "copy": 93.3,
+       "independent": 6.7
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 95.0,
+     "median_independent": 67.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 86.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 50.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 23.3
+      },
+      "90": {
+       "copy": 96.7,
+       "independent": 3.3
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 95.0,
+     "median_independent": 61.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 70.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 33.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "90": {
+       "copy": 93.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.09,
+     "ci95_cluster": [
+      0.03,
+      0.15
+     ],
+     "median_copy": 82.5,
+     "median_independent": 100.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 76.7,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 60.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 56.7,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 40.0,
+       "independent": 96.7
+      }
+     }
+    },
+    "global": {
+     "auc": 0.7,
+     "ci95_cluster": [
+      0.57,
+      0.83
+     ],
+     "median_copy": 87.0,
+     "median_independent": 71.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 96.7,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 73.3,
+       "independent": 63.3
+      },
+      "80": {
+       "copy": 63.3,
+       "independent": 36.7
+      },
+      "90": {
+       "copy": 46.7,
+       "independent": 3.3
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.97,
+     "ci95_cluster": [
+      0.92,
+      1.0
+     ],
+     "median_copy": 91.7,
+     "median_independent": 55.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 70.0
+      },
+      "70": {
+       "copy": 93.3,
+       "independent": 26.7
+      },
+      "80": {
+       "copy": 93.3,
+       "independent": 10.0
+      },
+      "90": {
+       "copy": 56.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.27,
+     "ci95_cluster": [
+      0.16,
+      0.38
+     ]
+    }
+   },
+   "gemini": {
+    "lexica": {
+     "auc": 0.66,
+     "ci95_cluster": [
+      0.53,
+      0.79
+     ],
+     "median_copy": 60.0,
+     "median_independent": 40.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 56.7,
+       "independent": 33.3
+      },
+      "70": {
+       "copy": 20.0,
+       "independent": 13.3
+      },
+      "80": {
+       "copy": 3.3,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 95.0,
+     "median_independent": 25.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 93.3,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 86.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 60.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 30.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 90.0,
+     "median_independent": 32.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 16.7
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 90.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 66.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.01,
+     "ci95_cluster": [
+      0.0,
+      0.04
+     ],
+     "median_copy": 50.0,
+     "median_independent": 100.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 56.7,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 40.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 30.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 20.0,
+       "independent": 96.7
+      }
+     }
+    },
+    "global": {
+     "auc": 0.6,
+     "ci95_cluster": [
+      0.44,
+      0.76
+     ],
+     "median_copy": 72.0,
+     "median_independent": 61.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 90.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 56.7,
+       "independent": 13.3
+      },
+      "80": {
+       "copy": 33.3,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 6.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.96,
+      1.0
+     ],
+     "median_copy": 81.7,
+     "median_independent": 37.1,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 93.3,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 66.7,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 13.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.39,
+     "ci95_cluster": [
+      0.24,
+      0.54
+     ]
+    }
+   },
+   "anthropic": {
+    "lexica": {
+     "auc": 0.84,
+     "ci95_cluster": [
+      0.74,
+      0.93
+     ],
+     "median_copy": 68.0,
+     "median_independent": 53.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 96.7,
+       "independent": 63.3
+      },
+      "70": {
+       "copy": 43.3,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.96,
+      1.0
+     ],
+     "median_copy": 95.5,
+     "median_independent": 35.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "70": {
+       "copy": 93.3,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 86.7,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 73.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 95.0,
+     "median_independent": 53.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 80.0
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 96.7,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 93.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.97,
+      1.0
+     ],
+     "median_copy": 93.5,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 53.3
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 93.3,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 76.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.11,
+     "ci95_cluster": [
+      0.04,
+      0.21
+     ],
+     "median_copy": 71.0,
+     "median_independent": 92.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 66.7,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 53.3,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 43.3,
+       "independent": 90.0
+      },
+      "90": {
+       "copy": 16.7,
+       "independent": 73.3
+      }
+     }
+    },
+    "global": {
+     "auc": 0.76,
+     "ci95_cluster": [
+      0.62,
+      0.88
+     ],
+     "median_copy": 78.5,
+     "median_independent": 63.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 96.7,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 66.7,
+       "independent": 16.7
+      },
+      "80": {
+       "copy": 50.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 10.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.97,
+      1.0
+     ],
+     "median_copy": 86.0,
+     "median_independent": 44.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 33.3
+      },
+      "70": {
+       "copy": 93.3,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 76.7,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 10.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.23,
+     "ci95_cluster": [
+      0.12,
+      0.36
+     ]
+    }
+   },
+   "moss": {
+    "auc": 0.93,
+    "ci95_cluster": [
+     0.85,
+     0.99
+    ],
+    "median_copy": 64.2,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 63.3,
+      "independent": 0.0
+     },
+     "70": {
+      "copy": 40.0,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 26.7,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 26.7,
+      "independent": 0.0
+     }
+    }
+   },
+   "jplag": {
+    "auc": 0.99,
+    "ci95_cluster": [
+     0.96,
+     1.0
+    ],
+    "median_copy": 100.0,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 90.0,
+      "independent": 6.7
+     },
+     "70": {
+      "copy": 80.0,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 73.3,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 63.3,
+      "independent": 0.0
+     }
+    }
+   },
+   "dolos": {
+    "auc": 0.97,
+    "ci95_cluster": [
+     0.92,
+     1.0
+    ],
+    "median_copy": 81.1,
+    "median_independent": 29.2,
+    "flagged_pct": {
+     "50": {
+      "copy": 90.0,
+      "independent": 3.3
+     },
+     "70": {
+      "copy": 66.7,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 53.3,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 33.3,
+      "independent": 0.0
+     }
+    }
+   }
+  },
+  "all_T1T3": {
+   "openai": {
+    "lexica": {
+     "auc": 0.86,
+     "ci95_cluster": [
+      0.8,
+      0.92
+     ],
+     "median_copy": 90.0,
+     "median_independent": 58.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 95.0,
+       "independent": 70.0
+      },
+      "70": {
+       "copy": 66.7,
+       "independent": 13.3
+      },
+      "80": {
+       "copy": 51.7,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 50.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.98,
+     "ci95_cluster": [
+      0.94,
+      1.0
+     ],
+     "median_copy": 99.0,
+     "median_independent": 68.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 83.3
+      },
+      "70": {
+       "copy": 98.3,
+       "independent": 40.0
+      },
+      "80": {
+       "copy": 91.7,
+       "independent": 10.0
+      },
+      "90": {
+       "copy": 85.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 53.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 98.3,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 91.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 0.98,
+     "ci95_cluster": [
+      0.95,
+      1.0
+     ],
+     "median_copy": 99.0,
+     "median_independent": 70.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 98.3,
+       "independent": 53.3
+      },
+      "80": {
+       "copy": 96.7,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 80.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.52,
+     "ci95_cluster": [
+      0.48,
+      0.56
+     ],
+     "median_copy": 96.0,
+     "median_independent": 95.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 93.3,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 76.7,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 73.3,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 63.3,
+       "independent": 86.7
+      }
+     }
+    },
+    "global": {
+     "auc": 0.83,
+     "ci95_cluster": [
+      0.76,
+      0.9
+     ],
+     "median_copy": 96.0,
+     "median_independent": 72.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 98.3,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 90.0,
+       "independent": 66.7
+      },
+      "80": {
+       "copy": 76.7,
+       "independent": 16.7
+      },
+      "90": {
+       "copy": 58.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.97,
+     "ci95_cluster": [
+      0.94,
+      1.0
+     ],
+     "median_copy": 96.2,
+     "median_independent": 58.8,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 76.7
+      },
+      "70": {
+       "copy": 95.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 83.3,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 53.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.14,
+     "ci95_cluster": [
+      0.09,
+      0.2
+     ]
+    }
+   },
+   "deepseek": {
+    "lexica": {
+     "auc": 0.93,
+     "ci95_cluster": [
+      0.87,
+      0.97
+     ],
+     "median_copy": 96.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 96.7,
+       "independent": 53.3
+      },
+      "70": {
+       "copy": 90.0,
+       "independent": 16.7
+      },
+      "80": {
+       "copy": 73.3,
+       "independent": 13.3
+      },
+      "90": {
+       "copy": 51.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.97,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 60.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 46.7
+      },
+      "80": {
+       "copy": 98.3,
+       "independent": 23.3
+      },
+      "90": {
+       "copy": 96.7,
+       "independent": 6.7
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 67.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 86.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 50.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 23.3
+      },
+      "90": {
+       "copy": 98.3,
+       "independent": 3.3
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 61.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 70.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 33.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "90": {
+       "copy": 96.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.38,
+     "ci95_cluster": [
+      0.32,
+      0.44
+     ],
+     "median_copy": 100.0,
+     "median_independent": 100.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 88.3,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 80.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 78.3,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 70.0,
+       "independent": 96.7
+      }
+     }
+    },
+    "global": {
+     "auc": 0.85,
+     "ci95_cluster": [
+      0.79,
+      0.91
+     ],
+     "median_copy": 98.5,
+     "median_independent": 71.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 98.3,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 86.7,
+       "independent": 63.3
+      },
+      "80": {
+       "copy": 81.7,
+       "independent": 36.7
+      },
+      "90": {
+       "copy": 73.3,
+       "independent": 3.3
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.96,
+      1.0
+     ],
+     "median_copy": 98.7,
+     "median_independent": 55.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 70.0
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 26.7
+      },
+      "80": {
+       "copy": 96.7,
+       "independent": 10.0
+      },
+      "90": {
+       "copy": 78.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.14,
+     "ci95_cluster": [
+      0.08,
+      0.19
+     ]
+    }
+   },
+   "gemini": {
+    "lexica": {
+     "auc": 0.83,
+     "ci95_cluster": [
+      0.76,
+      0.89
+     ],
+     "median_copy": 90.0,
+     "median_independent": 40.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 78.3,
+       "independent": 33.3
+      },
+      "70": {
+       "copy": 60.0,
+       "independent": 13.3
+      },
+      "80": {
+       "copy": 51.7,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 50.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 25.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 98.3,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 96.7,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 93.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 60.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 30.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 32.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 16.7
+      },
+      "70": {
+       "copy": 98.3,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 95.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 83.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.32,
+     "ci95_cluster": [
+      0.28,
+      0.36
+     ],
+     "median_copy": 97.5,
+     "median_independent": 100.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 78.3,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 70.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 65.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 60.0,
+       "independent": 96.7
+      }
+     }
+    },
+    "global": {
+     "auc": 0.8,
+     "ci95_cluster": [
+      0.72,
+      0.88
+     ],
+     "median_copy": 97.0,
+     "median_independent": 61.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 95.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 78.3,
+       "independent": 13.3
+      },
+      "80": {
+       "copy": 66.7,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 53.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 96.7,
+     "median_independent": 37.1,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 83.3,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 56.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.19,
+     "ci95_cluster": [
+      0.12,
+      0.27
+     ]
+    }
+   },
+   "anthropic": {
+    "lexica": {
+     "auc": 0.92,
+     "ci95_cluster": [
+      0.87,
+      0.96
+     ],
+     "median_copy": 89.0,
+     "median_independent": 53.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 98.3,
+       "independent": 63.3
+      },
+      "70": {
+       "copy": 71.7,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 50.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 50.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 35.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 93.3,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 86.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 99.0,
+     "median_independent": 53.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 80.0
+      },
+      "70": {
+       "copy": 98.3,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 98.3,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 96.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 53.3
+      },
+      "70": {
+       "copy": 98.3,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 96.7,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 88.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.56,
+     "ci95_cluster": [
+      0.52,
+      0.6
+     ],
+     "median_copy": 96.5,
+     "median_independent": 92.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 83.3,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 76.7,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 71.7,
+       "independent": 90.0
+      },
+      "90": {
+       "copy": 58.3,
+       "independent": 73.3
+      }
+     }
+    },
+    "global": {
+     "auc": 0.88,
+     "ci95_cluster": [
+      0.81,
+      0.94
+     ],
+     "median_copy": 96.0,
+     "median_independent": 63.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 98.3,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 83.3,
+       "independent": 16.7
+      },
+      "80": {
+       "copy": 75.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 55.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 96.2,
+     "median_independent": 44.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 33.3
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 88.3,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 55.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.11,
+     "ci95_cluster": [
+      0.06,
+      0.18
+     ]
+    }
+   },
+   "moss": {
+    "auc": 0.96,
+    "ci95_cluster": [
+     0.93,
+     1.0
+    ],
+    "median_copy": 93.5,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 81.7,
+      "independent": 0.0
+     },
+     "70": {
+      "copy": 70.0,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 61.7,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 56.7,
+      "independent": 0.0
+     }
+    }
+   },
+   "jplag": {
+    "auc": 0.99,
+    "ci95_cluster": [
+     0.98,
+     1.0
+    ],
+    "median_copy": 100.0,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 95.0,
+      "independent": 6.7
+     },
+     "70": {
+      "copy": 90.0,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 86.7,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 81.7,
+      "independent": 0.0
+     }
+    }
+   },
+   "dolos": {
+    "auc": 0.99,
+    "ci95_cluster": [
+     0.96,
+     1.0
+    ],
+    "median_copy": 100.0,
+    "median_independent": 29.2,
+    "flagged_pct": {
+     "50": {
+      "copy": 95.0,
+      "independent": 3.3
+     },
+     "70": {
+      "copy": 83.3,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 76.7,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 66.7,
+      "independent": 0.0
+     }
+    }
+   }
+  }
+ },
+ "second_run": {
+  "ia_api": {
+   "openai": {
+    "lexica": {
+     "auc": 0.63,
+     "ci95_cluster": [
+      0.52,
+      0.74
+     ],
+     "median_copy": 60.0,
+     "median_independent": 56.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 93.3,
+       "independent": 70.0
+      },
+      "70": {
+       "copy": 10.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.75,
+     "ci95_cluster": [
+      0.64,
+      0.86
+     ],
+     "median_copy": 72.0,
+     "median_independent": 65.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 86.7
+      },
+      "70": {
+       "copy": 86.7,
+       "independent": 40.0
+      },
+      "80": {
+       "copy": 10.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 0.39,
+     "ci95_cluster": [
+      0.28,
+      0.5
+     ],
+     "median_copy": 46.5,
+     "median_independent": 51.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 46.7,
+       "independent": 60.0
+      },
+      "70": {
+       "copy": 3.3,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 0.59,
+     "ci95_cluster": [
+      0.48,
+      0.71
+     ],
+     "median_copy": 70.0,
+     "median_independent": 67.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 56.7,
+       "independent": 43.3
+      },
+      "80": {
+       "copy": 3.3,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.89,
+     "ci95_cluster": [
+      0.81,
+      0.95
+     ],
+     "median_copy": 98.0,
+     "median_independent": 95.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 83.3
+      }
+     }
+    },
+    "global": {
+     "auc": 0.74,
+     "ci95_cluster": [
+      0.63,
+      0.85
+     ],
+     "median_copy": 79.0,
+     "median_independent": 73.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 96.7,
+       "independent": 70.0
+      },
+      "80": {
+       "copy": 36.7,
+       "independent": 16.7
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.67,
+     "ci95_cluster": [
+      0.57,
+      0.78
+     ],
+     "median_copy": 64.9,
+     "median_independent": 60.8,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 80.0
+      },
+      "70": {
+       "copy": 13.3,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": -0.07,
+     "ci95_cluster": [
+      -0.1,
+      -0.03
+     ]
+    }
+   },
+   "deepseek": {
+    "lexica": {
+     "auc": 0.78,
+     "ci95_cluster": [
+      0.66,
+      0.89
+     ],
+     "median_copy": 61.0,
+     "median_independent": 52.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 96.7,
+       "independent": 73.3
+      },
+      "70": {
+       "copy": 20.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.77,
+     "ci95_cluster": [
+      0.65,
+      0.88
+     ],
+     "median_copy": 70.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 76.7
+      },
+      "70": {
+       "copy": 70.0,
+       "independent": 26.7
+      },
+      "80": {
+       "copy": 10.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 0.44,
+     "ci95_cluster": [
+      0.31,
+      0.6
+     ],
+     "median_copy": 59.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 66.7,
+       "independent": 90.0
+      },
+      "70": {
+       "copy": 23.3,
+       "independent": 20.0
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 0.68,
+     "ci95_cluster": [
+      0.57,
+      0.79
+     ],
+     "median_copy": 69.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 96.7
+      },
+      "70": {
+       "copy": 50.0,
+       "independent": 23.3
+      },
+      "80": {
+       "copy": 10.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.8,
+     "ci95_cluster": [
+      0.69,
+      0.9
+     ],
+     "median_copy": 100.0,
+     "median_independent": 95.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 86.7
+      }
+     }
+    },
+    "global": {
+     "auc": 0.8,
+     "ci95_cluster": [
+      0.69,
+      0.9
+     ],
+     "median_copy": 78.0,
+     "median_independent": 70.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 63.3
+      },
+      "80": {
+       "copy": 46.7,
+       "independent": 13.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.74,
+     "ci95_cluster": [
+      0.62,
+      0.85
+     ],
+     "median_copy": 65.7,
+     "median_independent": 56.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 96.7,
+       "independent": 80.0
+      },
+      "70": {
+       "copy": 26.7,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": -0.06,
+     "ci95_cluster": [
+      -0.11,
+      -0.02
+     ]
+    }
+   },
+   "gemini": {
+    "lexica": {
+     "auc": 0.6,
+     "ci95_cluster": [
+      0.5,
+      0.71
+     ],
+     "median_copy": 45.0,
+     "median_independent": 40.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 33.3,
+       "independent": 30.0
+      },
+      "70": {
+       "copy": 10.0,
+       "independent": 13.3
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.69,
+     "ci95_cluster": [
+      0.58,
+      0.8
+     ],
+     "median_copy": 35.0,
+     "median_independent": 25.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 10.0,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 6.7,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 3.3,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 3.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 0.28,
+     "ci95_cluster": [
+      0.16,
+      0.42
+     ],
+     "median_copy": 40.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 33.3,
+       "independent": 66.7
+      },
+      "70": {
+       "copy": 10.0,
+       "independent": 30.0
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 23.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 6.7
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 0.64,
+     "ci95_cluster": [
+      0.52,
+      0.76
+     ],
+     "median_copy": 40.0,
+     "median_independent": 35.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 23.3,
+       "independent": 20.0
+      },
+      "70": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.63,
+     "ci95_cluster": [
+      0.57,
+      0.72
+     ],
+     "median_copy": 100.0,
+     "median_independent": 100.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 100.0
+      }
+     }
+    },
+    "global": {
+     "auc": 0.6,
+     "ci95_cluster": [
+      0.48,
+      0.72
+     ],
+     "median_copy": 64.0,
+     "median_independent": 61.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 13.3,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 6.7,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.56,
+     "ci95_cluster": [
+      0.45,
+      0.67
+     ],
+     "median_copy": 39.6,
+     "median_independent": 37.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 13.3,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 0.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": -0.04,
+     "ci95_cluster": [
+      -0.08,
+      -0.01
+     ]
+    }
+   },
+   "anthropic": {
+    "lexica": {
+     "auc": 0.58,
+     "ci95_cluster": [
+      0.47,
+      0.7
+     ],
+     "median_copy": 58.0,
+     "median_independent": 53.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 80.0,
+       "independent": 63.3
+      },
+      "70": {
+       "copy": 3.3,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.72,
+     "ci95_cluster": [
+      0.61,
+      0.83
+     ],
+     "median_copy": 49.0,
+     "median_independent": 36.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 50.0,
+       "independent": 23.3
+      },
+      "70": {
+       "copy": 3.3,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 3.3,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 0.19,
+     "ci95_cluster": [
+      0.09,
+      0.32
+     ],
+     "median_copy": 39.0,
+     "median_independent": 55.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 23.3,
+       "independent": 66.7
+      },
+      "70": {
+       "copy": 0.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 0.65,
+     "ci95_cluster": [
+      0.51,
+      0.78
+     ],
+     "median_copy": 55.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 80.0,
+       "independent": 53.3
+      },
+      "70": {
+       "copy": 3.3,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.9,
+     "ci95_cluster": [
+      0.81,
+      0.98
+     ],
+     "median_copy": 97.0,
+     "median_independent": 92.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 93.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 70.0
+      }
+     }
+    },
+    "global": {
+     "auc": 0.71,
+     "ci95_cluster": [
+      0.58,
+      0.83
+     ],
+     "median_copy": 70.0,
+     "median_independent": 64.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 53.3,
+       "independent": 26.7
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 0.6,
+     "ci95_cluster": [
+      0.48,
+      0.73
+     ],
+     "median_copy": 50.9,
+     "median_independent": 45.4,
+     "flagged_pct": {
+      "50": {
+       "copy": 56.7,
+       "independent": 36.7
+      },
+      "70": {
+       "copy": 0.0,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 0.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": -0.11,
+     "ci95_cluster": [
+      -0.15,
+      -0.06
+     ]
+    }
+   },
+   "moss": {
+    "auc": 0.54,
+    "ci95_cluster": [
+     0.45,
+     0.62
+    ],
+    "median_copy": 0.0,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 0.0,
+      "independent": 0.0
+     },
+     "70": {
+      "copy": 0.0,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 0.0,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 0.0,
+      "independent": 0.0
+     }
+    }
+   },
+   "jplag": {
+    "auc": 0.7,
+    "ci95_cluster": [
+     0.59,
+     0.8
+    ],
+    "median_copy": 19.8,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 0.0,
+      "independent": 6.7
+     },
+     "70": {
+      "copy": 0.0,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 0.0,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 0.0,
+      "independent": 0.0
+     }
+    }
+   },
+   "dolos": {
+    "auc": 0.52,
+    "ci95_cluster": [
+     0.39,
+     0.65
+    ],
+    "median_copy": 27.3,
+    "median_independent": 29.2,
+    "flagged_pct": {
+     "50": {
+      "copy": 0.0,
+      "independent": 3.3
+     },
+     "70": {
+      "copy": 0.0,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 0.0,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 0.0,
+      "independent": 0.0
+     }
+    }
+   }
+  },
+  "ia_intensa": {
+   "openai": {
+    "lexica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 82.0,
+     "median_independent": 56.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 70.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 67.9,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 7.1,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 65.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 86.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 40.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 82.1,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 98.0,
+     "median_independent": 51.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 60.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 96.4,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 98.0,
+     "median_independent": 67.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 43.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 78.6,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.98,
+     "ci95_cluster": [
+      0.93,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 95.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 83.3
+      }
+     }
+    },
+    "global": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 96.0,
+     "median_independent": 73.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 70.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 16.7
+      },
+      "90": {
+       "copy": 96.4,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 93.6,
+     "median_independent": 60.8,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 80.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 78.6,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.0,
+     "ci95_cluster": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "deepseek": {
+    "lexica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 87.0,
+     "median_independent": 52.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 73.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 96.4,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 32.1,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 76.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 26.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 96.4,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 95.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 90.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 85.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 96.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 23.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 82.1,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.86,
+     "ci95_cluster": [
+      0.78,
+      0.94
+     ],
+     "median_copy": 100.0,
+     "median_independent": 95.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 86.7
+      }
+     }
+    },
+    "global": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 97.0,
+     "median_independent": 70.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 63.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 94.8,
+     "median_independent": 56.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 80.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 82.1,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.0,
+     "ci95_cluster": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "gemini": {
+    "lexica": {
+     "auc": 0.96,
+     "ci95_cluster": [
+      0.92,
+      0.99
+     ],
+     "median_copy": 80.0,
+     "median_independent": 40.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 30.0
+      },
+      "70": {
+       "copy": 85.7,
+       "independent": 13.3
+      },
+      "80": {
+       "copy": 53.6,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 25.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 96.4,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 96.4,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 85.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 95.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 66.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 30.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 23.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 6.7
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 35.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 0.0
+      },
+      "80": {
+       "copy": 89.3,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 78.6,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.62,
+     "ci95_cluster": [
+      0.53,
+      0.7
+     ],
+     "median_copy": 100.0,
+     "median_independent": 100.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 100.0
+      }
+     }
+    },
+    "global": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 95.5,
+     "median_independent": 61.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 89.3,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 92.1,
+     "median_independent": 37.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 92.9,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 67.9,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.0,
+     "ci95_cluster": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "anthropic": {
+    "lexica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 82.0,
+     "median_independent": 53.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 63.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 71.4,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 0.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.98,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 36.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 23.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 96.4,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 78.6,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 98.0,
+     "median_independent": 55.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 66.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 92.9,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 99.5,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 53.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 85.7,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 78.6,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.96,
+     "ci95_cluster": [
+      0.9,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 92.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 93.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 70.0
+      }
+     }
+    },
+    "global": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 96.0,
+     "median_independent": 64.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 26.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 78.6,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 93.7,
+     "median_independent": 45.4,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 36.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 92.9,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 71.4,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.0,
+     "ci95_cluster": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "moss": {
+    "auc": 0.98,
+    "ci95_cluster": [
+     0.93,
+     1.0
+    ],
+    "median_copy": 91.0,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 85.7,
+      "independent": 0.0
+     },
+     "70": {
+      "copy": 85.7,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 82.1,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 60.7,
+      "independent": 0.0
+     }
+    }
+   },
+   "jplag": {
+    "auc": 0.99,
+    "ci95_cluster": [
+     0.98,
+     1.0
+    ],
+    "median_copy": 100.0,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 92.9,
+      "independent": 6.7
+     },
+     "70": {
+      "copy": 89.3,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 85.7,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 85.7,
+      "independent": 0.0
+     }
+    }
+   },
+   "dolos": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     0.99,
+     1.0
+    ],
+    "median_copy": 100.0,
+    "median_independent": 29.2,
+    "flagged_pct": {
+     "50": {
+      "copy": 100.0,
+      "independent": 3.3
+     },
+     "70": {
+      "copy": 89.3,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 82.1,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 78.6,
+      "independent": 0.0
+     }
+    }
+   }
+  },
+  "ia_ligera": {
+   "openai": {
+    "lexica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 85.5,
+     "median_independent": 56.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 70.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 92.3,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 19.2,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 65.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 86.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 40.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 51.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 60.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 98.0,
+     "median_independent": 67.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 43.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 95.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 83.3
+      }
+     }
+    },
+    "global": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 97.0,
+     "median_independent": 73.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 70.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 16.7
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 95.0,
+     "median_independent": 60.8,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 80.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.0,
+     "ci95_cluster": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "deepseek": {
+    "lexica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 90.0,
+     "median_independent": 52.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 73.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 57.7,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 76.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 26.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 98.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 90.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 60.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 96.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 23.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.88,
+     "ci95_cluster": [
+      0.8,
+      0.95
+     ],
+     "median_copy": 100.0,
+     "median_independent": 95.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 86.7
+      }
+     }
+    },
+    "global": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 98.0,
+     "median_independent": 70.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 63.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 95.8,
+     "median_independent": 56.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 80.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.0,
+     "ci95_cluster": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "gemini": {
+    "lexica": {
+     "auc": 0.99,
+     "ci95_cluster": [
+      0.96,
+      1.0
+     ],
+     "median_copy": 85.0,
+     "median_independent": 40.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 30.0
+      },
+      "70": {
+       "copy": 96.2,
+       "independent": 13.3
+      },
+      "80": {
+       "copy": 92.3,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 15.4,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 25.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      0.99,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 66.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 30.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 23.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 6.7
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 35.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 20.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 0.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.63,
+     "ci95_cluster": [
+      0.57,
+      0.72
+     ],
+     "median_copy": 100.0,
+     "median_independent": 100.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 100.0
+      }
+     }
+    },
+    "global": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 97.0,
+     "median_independent": 61.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 94.2,
+     "median_independent": 37.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 13.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 96.2,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.0,
+     "ci95_cluster": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "anthropic": {
+    "lexica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 85.0,
+     "median_independent": 53.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 63.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 92.3,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 11.5,
+       "independent": 0.0
+      }
+     }
+    },
+    "estructural": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 36.5,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 23.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 6.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "estilistica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 55.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 66.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 10.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "sintactica": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 50.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 53.3
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "funcional": {
+     "auc": 0.98,
+     "ci95_cluster": [
+      0.95,
+      1.0
+     ],
+     "median_copy": 100.0,
+     "median_independent": 92.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 93.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 70.0
+      }
+     }
+    },
+    "global": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 97.0,
+     "median_independent": 64.0,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 100.0
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 26.7
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "derivacion": {
+     "auc": 1.0,
+     "ci95_cluster": [
+      1.0,
+      1.0
+     ],
+     "median_copy": 95.0,
+     "median_independent": 45.4,
+     "flagged_pct": {
+      "50": {
+       "copy": 100.0,
+       "independent": 36.7
+      },
+      "70": {
+       "copy": 100.0,
+       "independent": 3.3
+      },
+      "80": {
+       "copy": 100.0,
+       "independent": 0.0
+      },
+      "90": {
+       "copy": 100.0,
+       "independent": 0.0
+      }
+     }
+    },
+    "diff_derivacion_minus_global": {
+     "auc_diff": 0.0,
+     "ci95_cluster": [
+      0.0,
+      0.0
+     ]
+    }
+   },
+   "moss": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ],
+    "median_copy": 95.5,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 96.2,
+      "independent": 0.0
+     },
+     "70": {
+      "copy": 96.2,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 96.2,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 76.9,
+      "independent": 0.0
+     }
+    }
+   },
+   "jplag": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ],
+    "median_copy": 100.0,
+    "median_independent": 0.0,
+    "flagged_pct": {
+     "50": {
+      "copy": 100.0,
+      "independent": 6.7
+     },
+     "70": {
+      "copy": 100.0,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 100.0,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 100.0,
+      "independent": 0.0
+     }
+    }
+   },
+   "dolos": {
+    "auc": 1.0,
+    "ci95_cluster": [
+     1.0,
+     1.0
+    ],
+    "median_copy": 100.0,
+    "median_independent": 29.2,
+    "flagged_pct": {
+     "50": {
+      "copy": 100.0,
+      "independent": 3.3
+     },
+     "70": {
+      "copy": 100.0,
+      "independent": 0.0
+     },
+     "80": {
+      "copy": 100.0,
+      "independent": 0.0
+     },
+     "90": {
+      "copy": 100.0,
+      "independent": 0.0
+     }
+    }
+   }
+  }
+ }
+}

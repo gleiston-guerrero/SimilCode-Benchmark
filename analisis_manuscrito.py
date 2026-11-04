@@ -15,8 +15,9 @@ Discover Computing):
     the functional score required to reach the band.
   * Classical detectors (baselines_raw.csv): coincidence, sensitivity,
     specificity, profile by category, Moss tolerance sensitivity.
-  * Big O (bigo/predicciones_api*.csv): accuracy against the corrected and
-    the original ground truth, replica agreement.
+  * Big O (bigo/predicciones_api*.csv): accuracy against the reference
+    answers (bigo/ground_truth*.csv), replica agreement; the pilot-run
+    version of the space references is also scored for traceability.
   * Ground truth (fiabilidad/): Cohen's kappa.
 
 Quality of the justifications and the expert questionnaire are analysed in

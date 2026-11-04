@@ -31,6 +31,7 @@ pip install pandas numpy scipy
 python analisis_tipos_clon.py              # Tabla 1: copias convencionales frente a soluciones independientes
 python copias_ia/analisis_copias_ia.py     # Tabla 2: copias reescritas con IA -> copias_ia/resultados_copias_ia.json
 python copias_ia/similitud_tokens_ia.py    # similitud de tokens normalizada de cada par -> copias_ia/similitud_tokens_ia.csv
+python analisis_dimensiones.py             # separacion por dimension y puntuacion de derivacion -> resultados_dimensiones.json
 ```
 
 ## Regenerar la corrida completa

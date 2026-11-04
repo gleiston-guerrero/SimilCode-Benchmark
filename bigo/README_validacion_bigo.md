@@ -19,10 +19,10 @@ Esta carpeta contiene, junto a los definitivos, archivos de corridas anteriores 
 
 | Archivo | Por qué existe |
 |---|---|
-| `predicciones_opus5.csv` | Corrida preliminar con otro modelo, anterior a la decisión del modelo de producción |
+| `predicciones_opus5.csv` | Corrida piloto con otro modelo sobre el corpus canónico, anterior a la ejecución evaluada |
 | `predicciones_adversarial_opus5.csv` | Ídem, sobre el conjunto adversarial |
-| `resultados_bigo.csv` | Comparación correspondiente a esa corrida preliminar |
-| `ground_truth_v1_original.csv` | Verdad de terreno anterior a la corrección documentada más abajo |
+| `resultados_bigo.csv` | Comparación correspondiente a esa corrida piloto |
+| `ground_truth_v1_original.csv` | Respuestas de referencia usadas en la corrida piloto, antes de declarar la convención de espacio auxiliar |
 
 **Advertencia sobre el historial.** El archivo `predicciones_api.csv` existió con contenido distinto en commits anteriores de este repositorio: fue añadido en `7a5330b`, retirado en `f221d76` y repuesto con su contenido definitivo en `132c39c`. Quien reproduzca los resultados debe usar la versión de la rama principal actual. El contenido correcto se reconoce por sus columnas `provider`, `model_requested` y `model_snapshot`, que deben valer `openai` y `gpt-5.5-2026-04-23`, y por su columna `replica`, con valores 1 a 3.
 
@@ -46,7 +46,7 @@ Esta carpeta contiene, junto a los definitivos, archivos de corridas anteriores 
 
 La exactitud es del 100 % en cada una de las siete clases de complejidad y en ambos lenguajes. La matriz de confusión es estrictamente diagonal, sin confusiones entre clases adyacentes. Las tres réplicas coincidieron entre sí en los 48 algoritmos, y no se registró ningún error de invocación.
 
-**Corrección de la verdad de terreno.** En la primera puntuación se registraron tres discrepancias de complejidad espacial. Su examen mostró que en los tres casos la estimación del modelo era correcta y el error estaba en la verdad de terreno: `HeapExtractAll` reserva explícitamente un arreglo de salida de tamaño n, de modo que el valor inicial O(1) era factualmente incorrecto, mientras que `FloydWarshall` y `HeapSort` dependían de una convención de espacio no especificada. Se corrigió la entrada errónea, se declaró la convención de espacio auxiliar y se conservó la versión original en `ground_truth_v1_original.csv`.
+**Secuencia de la validación.** El estimador se aplicó primero al corpus canónico, formado por algoritmos de complejidad conocida y documentada, para contrastar sus respuestas con resultados conocidos, y después al conjunto adversarial, diseñado para ponerlo a prueba. En una corrida piloto sobre el corpus canónico con otro modelo (`predicciones_opus5.csv`) se declaró la convención de espacio auxiliar y se fijaron las respuestas de espacio de `HeapSort`, `HeapExtractAll` y `FloydWarshall`; la versión usada en esa corrida piloto se conserva en `ground_truth_v1_original.csv` (columna `space_complexity_v1` en `ground_truth.csv`). Las respuestas de referencia definitivas se publicaron el 1 de agosto de 2026 (commit `7a5330b`), antes de la ejecución evaluada con GPT-5.5 del 3 de agosto de 2026, que abarcó ambos conjuntos y es la única que respalda el manuscrito.
 
 ## Limitaciones
 

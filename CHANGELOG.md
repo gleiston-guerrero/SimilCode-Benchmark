@@ -8,6 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.4.0] — 2026-11-04
+
+Analysis by dimension: the prompt's global score gives 40 % of its weight to functional similarity, which independent solutions to the same exercise share by design, so each dimension is now analysed separately. No new model calls and no change to any archived response.
+
+### Added
+- `analisis_dimensiones.py`, `resultados_dimensiones.json`: area under the curve (copies versus independent solutions) of each dimensional score of the four LLMs, of the prompt's global score and of a derivation score that applies the prompt's own weights without the functional dimension, `(0.30 structural + 0.20 lexical + 0.10 stylistic) / 0.60`; cluster-bootstrap intervals over the 30 reference programs, paired intervals for the difference derivation − global, and flag rates at 50/70/80/90 for conventional copies (types 2–3 and 1–3) and for local and commercial AI-rewritten copies. The detectors are included for reference and reproduce the values of `resultados_tipos_clon.json` and `copias_ia/resultados_copias_ia.json`.
+
+### Changed
+- `bigo/README_validacion_bigo.md`, `bigo/ground_truth.csv` (notes), `README.md`, `analisis_manuscrito.py` (docstring): the Big O validation is described in the order in which it was carried out (canonical algorithms of known complexity first, then the adversarial programs) and the earlier space references are identified as the version used in the pilot run with another model; the reference answers used for the GPT-5.5 run (published 1 August 2026, commit `7a5330b`) are unchanged.
+- `README.md`, `CITATION.cff`, `.zenodo.json`, `copias_ia/README_COPIAS_IA.md`: new script documented; companion manuscript title updated; version 2.4.0.
+
 ## [2.3.0] — 2026-10-26
 
 Second run: copies rewritten with generative AI and screening-oriented analysis. Version 2.1.0 was not archived on Zenodo, and version 2.2.0 was never released; its changes are included here. See `copias_ia/README_COPIAS_IA.md`.

@@ -23,8 +23,8 @@ abstract: >
   the refusals of the generators; the validation corpus and predictions of the
   Big O estimator of SimilCode; and scripts that reproduce the reported numbers
   without calling any API.
-version: 2.4.0
-date-released: "2026-11-04"
+version: 2.5.0
+date-released: "2026-11-23"
 license: CC-BY-4.0
 repository-code: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
 url: "https://github.com/gleiston-guerrero/SimilCode-Benchmark"
@@ -87,7 +87,7 @@ contact:
 
 preferred-citation:
   type: unpublished
-  title: "Do Language Models Distinguish Copied Code from Independent Solutions? Dimensional Similarity Scores versus Classical Detectors in Programming Courses"
+  title: "Derivation or functional equivalence? Evaluating large language models against clone detectors on conventional and AI-rewritten code copies"
   authors:
     - given-names: "Gleiston Cicerón"
       family-names: "Guerrero-Ulloa"

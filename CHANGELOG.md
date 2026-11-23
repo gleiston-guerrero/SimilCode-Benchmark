@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.5.0] — 2026-11-23
+
+Robustness of the derivation score and code-encoder baselines. No new LLM calls and no change to any archived response.
+
+### Added
+- `analisis_robustez.py`, `resultados_robustez.json`: AUC (copies versus independent implementations) of five aggregations of the non-functional dimensions with no fitted parameters (prompt weights without the functional dimension; unweighted mean of structural, lexical and stylistic; the same plus syntactic; prompt weights for structural and lexical only; maximum of structural and lexical), with cluster-bootstrap intervals, for conventional copies and for local and commercial AI-rewritten copies.
+- `embeddings_similitud.csv`: cosine similarity of the two programs of every pair (234 pairs, both runs) with CodeBERT (`microsoft/codebert-base`) and UniXcoder (`microsoft/unixcoder-base`, encoder-only mode), mean-pooled last-layer states, no fine-tuning; AUC with the same bootstrap in `resultados_robustez.json`.
+- `experimentos_pendientes/` (not run): prospective test with a prompt that defines the five dimensions and asks directly for the probability of derivation (`prompt_derivacion.txt`, `evaluar_derivacion.py`, hypotheses fixed in the docstring), and a script to add NiCad 7 on the same cohorts (`ejecutar_nicad.sh`, `nicad_resultados.py`).
+
+### Changed
+- `README.md`, `CITATION.cff`, `.zenodo.json`: new scripts documented; companion manuscript title updated; version 2.5.0.
+
 ## [2.4.0] — 2026-11-04
 
 Analysis by dimension: the prompt's global score gives 40 % of its weight to functional similarity, which independent solutions to the same exercise share by design, so each dimension is now analysed separately. No new model calls and no change to any archived response.

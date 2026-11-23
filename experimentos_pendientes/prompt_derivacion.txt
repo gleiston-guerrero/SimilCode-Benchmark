@@ -1,0 +1,27 @@
+TAREA: Evaluación de derivación entre dos programas
+
+CONTEXTO
+Dos estudiantes de un curso de programación resolvieron el mismo ejercicio. Las soluciones correctas e independientes a un mismo ejercicio suelen hacer lo mismo; eso por sí solo NO indica copia. Tu tarea es estimar si el FRAGMENTO B fue derivado (copiado y posiblemente modificado, a mano o con una herramienta de IA) del FRAGMENTO A, o si fue escrito de forma independiente.
+
+DEFINICIONES (puntúa cada dimensión de 0 a 100)
+1. SIMILITUD LÉXICA: coincidencia de identificadores, literales, cadenas de texto y comentarios.
+2. SIMILITUD ESTRUCTURAL: coincidencia de la organización del programa: métodos o funciones, su orden, el flujo de control y las estructuras de datos, aunque cambien los nombres.
+3. SIMILITUD ESTILÍSTICA: coincidencia de formato, indentación, convenciones de nombres y estilo de comentarios.
+4. SIMILITUD FUNCIONAL: grado en que ambos programas producen la misma salida para las mismas entradas.
+5. SIMILITUD SINTÁCTICA: coincidencia de las construcciones del lenguaje empleadas (tipos de bucles, condicionales, expresiones, llamadas).
+
+FRAGMENTO A: [CÓDIGO_A_AQUÍ]
+FRAGMENTO B: [CÓDIGO_B_AQUÍ]
+
+VERIFICACIÓN
+- ¿La probabilidad de derivación se apoya en evidencia distinta de que ambos programas hagan lo mismo?
+- ¿Las coincidencias señaladas serían improbables entre dos soluciones independientes al mismo ejercicio?
+
+FORMATO DE SALIDA REQUERIDO (exacto)
+SIMILITUD LÉXICA: [0-100]
+SIMILITUD ESTRUCTURAL: [0-100]
+SIMILITUD ESTILÍSTICA: [0-100]
+SIMILITUD FUNCIONAL: [0-100]
+SIMILITUD SINTÁCTICA: [0-100]
+PROBABILIDAD DE DERIVACIÓN: [0-100]
+Justificación: [evidencia concreta de derivación o de independencia, en no más de 80 palabras]

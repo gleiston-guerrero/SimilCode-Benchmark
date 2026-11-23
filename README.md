@@ -43,6 +43,8 @@ File names: `CODE_<CATEGORY>_<LANG>_<NNN>.<ext>` with `<CATEGORY>` ∈ {IDENT, F
 | `baselines.py`, `ejecutar_moss.sh`, `PROTOCOLO_dolos_jplag.md`, `README_baselines.md`, `README_moss.md` | Protocol and scripts for the classical detectors. |
 | `analisis_manuscrito.py` | Reproduces the first-run numbers of the manuscript (band agreement, stability, response time, detectors, Big O, justification quality) from the archived files, without calling any API. |
 | `analisis_dimensiones.py`, `resultados_dimensiones.json` | Separation of copies from independent solutions by each dimensional score of the LLMs, by the prompt's global score and by the derivation score (prompt weights without the functional dimension), with cluster-bootstrap and paired intervals; detectors included for reference. No API calls. |
+| `analisis_robustez.py`, `resultados_robustez.json`, `embeddings_similitud.csv` | Sensitivity of the derivation score to five aggregations with no fitted parameters, and zero-shot CodeBERT and UniXcoder cosine similarity as additional baselines. Needs `torch` (CPU) and `transformers` only if the cache `embeddings_similitud.csv` is deleted. |
+| `experimentos_pendientes/` | Prepared but not run: direct derivation prompt with defined dimensions (needs API keys) and NiCad 7 (needs WSL). |
 | `analisis_tipos_clon.py`, `tipos_clon.csv`, `resultados_tipos_clon.json` | Clone type of every pair (deterministic rule on normalised token sequences) and separation of copies (types 1–3) from independent solutions (type 4). |
 | `copias_ia/`, `metadata_ia.csv`, `csharp/CODE_IA*`, `java/CODE_IA*` | **Second run**: copies rewritten with generative AI, generation log, raw generator responses (including refusals), equivalence checks, LLM scores and analysis. See §5 and `copias_ia/README_COPIAS_IA.md`. |
 | `moss_*_ia.html`, `out_jplag_*_ia/`, `out_dolos_*_ia/` | Classical detectors on the second-run cohort (`out_dolos_*_ia_r1/`: intermediate cohort, not reported). |
@@ -73,6 +75,7 @@ python analisis_tipos_clon.py                                         # copies v
 python copias_ia/analisis_copias_ia.py                                # copies rewritten with AI
 python copias_ia/similitud_tokens_ia.py                               # token similarity of the second-run pairs
 python analisis_dimensiones.py                                        # separation by dimension and derivation score (both runs)
+python analisis_robustez.py                                           # aggregation sensitivity and code-encoder baselines (both runs)
 ```
 
 Rules fixed before the analysis: majority verdict = coincident in ≥ 2 of 3 replicas, unparsable responses count as misses; tolerance of 5 points in the identical category for every system; `different` band 0–20 (0–30 as sensitivity); band sensitivity changes only non-identical bands; BCa bootstrap, 10,000 resamples, seed 20260730.
@@ -99,7 +102,7 @@ GPT-5.5 via API, 3 August 2026, three replicas per program: 144/144 correct in t
 | Backend | [BackEnd-SimilCode](https://github.com/gleiston-guerrero/BackEnd-SimilCode) | [10.5281/zenodo.21265177](https://doi.org/10.5281/zenodo.21265177) |
 | Frontend | [FrontEnd-SimilCode](https://github.com/gleiston-guerrero/FrontEnd-SimilCode) | [10.5281/zenodo.21265976](https://doi.org/10.5281/zenodo.21265976) |
 
-Companion manuscript: Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *Do Language Models Distinguish Copied Code from Independent Solutions? Dimensional Similarity Scores versus Classical Detectors in Programming Courses.* Manuscript in preparation.
+Companion manuscript: Guerrero-Ulloa, G. C., Navas Rivera, R. A., Díaz-Macías, E., Hornos, M. J., & Rodríguez-Domínguez, C. *Derivation or functional equivalence? Evaluating large language models against clone detectors on conventional and AI-rewritten code copies.* Manuscript in preparation.
 
 ## 9. Licence and citation
 
